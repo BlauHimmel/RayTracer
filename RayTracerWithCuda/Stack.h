@@ -23,7 +23,7 @@ namespace EasyTemplate
 		void Push(TElement& Element);
 		void Pop();
 		TElement Top() const;
-		int Size() const;
+		Int32 Size() const;
 		bool Empty() const;
 
 	};
@@ -53,7 +53,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline int Stack<TElement>::Size() const
+	inline Int32 Stack<TElement>::Size() const
 	{
 		return m_Stack.size();
 	}

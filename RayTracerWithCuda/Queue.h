@@ -23,7 +23,7 @@ namespace EasyTemplate
 		void Push(TElement Element);
 		void Pop();
 		TElement Front();
-		int Size() const;
+		Int32 Size() const;
 		bool Empty() const;
 
 	};
@@ -53,7 +53,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline int Queue<TElement>::Size() const
+	inline Int32 Queue<TElement>::Size() const
 	{
 		return m_Queue.size();
 	}

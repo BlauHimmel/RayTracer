@@ -9,8 +9,6 @@
 #include <vector>
 #include <list>
 #include <algorithm>
-#include <exception>
-#include <functional>
 
 #include "GlobalDependency.h"
 #include "GlobalMacro.h"

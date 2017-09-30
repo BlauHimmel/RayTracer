@@ -35,7 +35,7 @@ namespace EasyTemplate
 		virtual bool TryGetValue(TKey Key, TValue*& OutValuePtr);
 		virtual bool ContainsKey(TKey Key) const;
 		virtual bool Remove(TKey Key);
-		virtual int Size() const;
+		virtual Int32 Size() const;
 		virtual void Clear();
 
 	public:
@@ -119,7 +119,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TKey, typename TValue>
-	inline int HashMap<TKey, TValue>::Size() const
+	inline Int32 HashMap<TKey, TValue>::Size() const
 	{
 		return m_Map.size();
 	}

@@ -28,6 +28,27 @@
     <Filter Include="头文件\Template\Dependency">
       <UniqueIdentifier>{eda9f70e-a88b-438a-9f38-4cc2d672fe3e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Math">
+      <UniqueIdentifier>{5b0c8021-2c8e-478b-ac3a-bb30d7d635e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Math\Dependency">
+      <UniqueIdentifier>{f4ab4004-4c7f-4aaf-a034-80dac6e018db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Math">
+      <UniqueIdentifier>{1730047a-e543-429a-8528-31ece079c104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Math\Vector">
+      <UniqueIdentifier>{2d49af39-fed4-4f9e-bca4-9e94dc5a07dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Math\Vector">
+      <UniqueIdentifier>{2432f154-60c8-4869-953a-8941bd11b13a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Math\Matrix">
+      <UniqueIdentifier>{873086c7-c896-4d5f-b0a9-88c8c8ecb403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Math\Matrix">
+      <UniqueIdentifier>{2067e6c3-11d0-4d4a-8e20-1f0eca202301}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -84,6 +105,33 @@
     <ClInclude Include="TemplateModule.h">
       <Filter>头文件\Template</Filter>
     </ClInclude>
+    <ClInclude Include="GlobalTypedef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MathDependency.h">
+      <Filter>头文件\Math\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="MathMacro.h">
+      <Filter>头文件\Math\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3f.h">
+      <Filter>头文件\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2f.h">
+      <Filter>头文件\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4f.h">
+      <Filter>头文件\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4f.h">
+      <Filter>头文件\Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="MathModule.h">
+      <Filter>头文件\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="DependencyManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -91,6 +139,18 @@
     </ClCompile>
     <ClCompile Include="RayTracerWithCuda.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3f.cpp">
+      <Filter>源文件\Math\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2f.cpp">
+      <Filter>源文件\Math\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4f.cpp">
+      <Filter>源文件\Math\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4f.cpp">
+      <Filter>源文件\Math\Matrix</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

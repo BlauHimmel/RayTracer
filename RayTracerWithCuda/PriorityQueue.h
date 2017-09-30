@@ -26,7 +26,7 @@ namespace EasyTemplate
 		void Push(TElement Element) { m_Queue.push(Element); };
 		void Pop() { m_Queue.pop(); };
 		TElement Top() { return m_Queue.top(); };
-		int Size() const { return m_Queue.size(); };
+		Int32 Size() const { return m_Queue.size(); };
 		bool Empty() const { return m_Queue.empty(); };
 
 	};
@@ -48,7 +48,7 @@ namespace EasyTemplate
 		void Push(TElement Element) { m_Queue.push(Element); };
 		void Pop() { m_Queue.pop(); };
 		TElement Top() { return m_Queue.top(); };
-		int Size() const { return m_Queue.size(); };
+		Int32 Size() const { return m_Queue.size(); };
 		bool Empty() const { return m_Queue.empty(); };
 
 	};

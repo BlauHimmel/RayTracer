@@ -1,5 +1,11 @@
 #pragma once
 
+#ifdef INCLUDE_TEMPLATE
+	#define INCLUDE_ARRAY
+	#define INCLUDE_MAP
+	#define INCLUDE_SET
+#endif 
+
 #ifdef INCLUDE_ARRAY
 #define __INCLUDE_ARRAY
 	#include "Array.h"
@@ -22,9 +28,3 @@
 	#include "TreeSet.h"
 #endif 
 
-#ifdef INCLUDE_TEMPLATE
-#define __INCLUDE_TEMPLATE
-	#define INCLUDE_ARRAY
-	#define INCLUDE_MAP
-	#define INCLUDE_SET
-#endif 

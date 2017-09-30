@@ -141,11 +141,17 @@
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="DependencyManager.h" />
     <ClInclude Include="GlobalDependency.h" />
     <ClInclude Include="GlobalMacro.h" />
+    <ClInclude Include="GlobalTypedef.h" />
     <ClInclude Include="HashMap.h" />
     <ClInclude Include="HashSet.h" />
     <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="MathDependency.h" />
+    <ClInclude Include="MathMacro.h" />
+    <ClInclude Include="MathModule.h" />
+    <ClInclude Include="Matrix4f.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
@@ -156,8 +162,12 @@
     <ClInclude Include="TemplateModule.h" />
     <ClInclude Include="TreeMap.h" />
     <ClInclude Include="TreeSet.h" />
+    <ClInclude Include="Vector2f.h" />
+    <ClInclude Include="Vector3f.h" />
+    <ClInclude Include="Vector4f.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Matrix4f.cpp" />
     <ClCompile Include="RayTracerWithCuda.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -165,6 +175,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Vector2f.cpp" />
+    <ClCompile Include="Vector3f.cpp" />
+    <ClCompile Include="Vector4f.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

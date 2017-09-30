@@ -19,20 +19,20 @@ namespace EasyTemplate
 	private:
 
 		TElement* m_Datas;
-		int m_Length;
+		Int32 m_Length;
 
 	public:
 
-		Array(int Length);
-		Array(TElement* Data, int Length);
+		Array(Int32 Length);
+		Array(TElement* Data, Int32 Length);
 		Array(ArrayInitializer Initializer);
 		Array(Array<TElement>& Other);
 		~Array();
 
 	public:
 
-		TElement& operator[](int Index);
-		int Length() const;
+		TElement& operator[](Int32 Index);
+		Int32 Length() const;
 
 	public:
 
@@ -42,7 +42,7 @@ namespace EasyTemplate
 	};
 
 	template<typename TElement>
-	inline Array<TElement>::Array(int Length)
+	inline Array<TElement>::Array(Int32 Length)
 	{
 		m_Datas = new TElement[Length];
 		if (m_Datas == nullptr)
@@ -55,7 +55,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline Array<TElement>::Array(TElement* Data, int Length)
+	inline Array<TElement>::Array(TElement* Data, Int32 Length)
 	{
 		m_Length = Length;
 		m_Datas = new TElement[m_Length];
@@ -80,7 +80,7 @@ namespace EasyTemplate
 			DEBUG_ERROR("Array Memory Allocate Failure");
 		}
 
-		int Index = 0;
+		Int32 Index = 0;
 		for (auto Element : Initializer)
 		{
 			m_Datas[Index] = Element;
@@ -93,7 +93,7 @@ namespace EasyTemplate
 	{
 		m_Datas = new TElement[Other.m_Length];
 		m_Length = Other.m_Length;
-		for (int i = 0; i < m_Length; i++)
+		for (Int32 i = 0; i < m_Length; i++)
 		{
 			m_Datas[i] = Other.m_Datas[i];
 		}
@@ -107,17 +107,18 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline TElement& Array<TElement>::operator[](int Index)
+	inline TElement& Array<TElement>::operator[](Int32 Index)
 	{
 		if (Index >= m_Length || Index < 0)
 		{
 			DEBUG_ERROR("Array Index Out Of Range");
 		}
+
 		return m_Datas[Index];
 	}
 
 	template<typename TElement>
-	inline int Array<TElement>::Length() const
+	inline Int32 Array<TElement>::Length() const
 	{
 		return m_Length;
 	}
