@@ -9,8 +9,7 @@ namespace EasyTemplate
 {
 
 	template<typename TElement, bool IsMaxHeap>
-	class PriorityQueue
-	{};
+	class PriorityQueue{};
 
 	template<typename TElement>
 	class PriorityQueue<TElement, true>

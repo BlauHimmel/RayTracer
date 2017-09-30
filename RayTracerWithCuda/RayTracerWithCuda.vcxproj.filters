@@ -13,6 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\Template">
+      <UniqueIdentifier>{b7b5b95e-d454-4c6c-9770-a45fce0a4fab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Template\List">
+      <UniqueIdentifier>{b4c82ede-a74b-4299-8cee-afd8a9317aa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Template\Map">
+      <UniqueIdentifier>{f19af69b-1520-4590-b22b-5aac00f40931}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Template\Set">
+      <UniqueIdentifier>{606cfd52-9681-4acc-96b1-a2d654dd70f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Template\Dependency">
+      <UniqueIdentifier>{eda9f70e-a88b-438a-9f38-4cc2d672fe3e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -23,6 +38,48 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalDependency.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalMacro.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>头文件\Template\List</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayList.h">
+      <Filter>头文件\Template\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>头文件\Template\List</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueue.h">
+      <Filter>头文件\Template\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>头文件\Template\List</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeMap.h">
+      <Filter>头文件\Template\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="HashMap.h">
+      <Filter>头文件\Template\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="HashSet.h">
+      <Filter>头文件\Template\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeSet.h">
+      <Filter>头文件\Template\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>头文件\Template\List</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateDependency.h">
+      <Filter>头文件\Template\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateMacro.h">
+      <Filter>头文件\Template\Dependency</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

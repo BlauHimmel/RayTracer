@@ -72,6 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)Template;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -138,8 +139,22 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Array.h" />
+    <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="GlobalDependency.h" />
+    <ClInclude Include="GlobalMacro.h" />
+    <ClInclude Include="HashMap.h" />
+    <ClInclude Include="HashSet.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="PriorityQueue.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Stack.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TemplateDependency.h" />
+    <ClInclude Include="TemplateMacro.h" />
+    <ClInclude Include="TreeMap.h" />
+    <ClInclude Include="TreeSet.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RayTracerWithCuda.cpp" />
