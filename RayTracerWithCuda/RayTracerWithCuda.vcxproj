@@ -153,6 +153,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TemplateDependency.h" />
     <ClInclude Include="TemplateMacro.h" />
+    <ClInclude Include="TemplateModule.h" />
     <ClInclude Include="TreeMap.h" />
     <ClInclude Include="TreeSet.h" />
   </ItemGroup>

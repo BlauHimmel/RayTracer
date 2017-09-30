@@ -2,8 +2,6 @@
 
 #include "TemplateDependency.h"
 #include "TemplateMacro.h"
-#include "GlobalDependency.h"
-#include "GlobalMacro.h"
 
 namespace EasyTemplate
 {
