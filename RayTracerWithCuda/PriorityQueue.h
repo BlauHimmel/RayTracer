@@ -1,9 +1,9 @@
 #pragma once
 
-#include "TemplateDependency.h"
-#include "TemplateMacro.h"
+#include "ContainerDependency.h"
+#include "ContainerMacro.h"
 
-namespace EasyTemplate
+namespace EasyContainer
 {
 
 	template<typename TElement, bool IsMaxHeap>
@@ -26,7 +26,7 @@ namespace EasyTemplate
 		void Push(TElement Element) { m_Queue.push(Element); };
 		void Pop() { m_Queue.pop(); };
 		TElement Top() { return m_Queue.top(); };
-		Int32 Size() const { return m_Queue.size(); };
+		int32 Size() const { return m_Queue.size(); };
 		bool Empty() const { return m_Queue.empty(); };
 
 	};
@@ -48,7 +48,7 @@ namespace EasyTemplate
 		void Push(TElement Element) { m_Queue.push(Element); };
 		void Pop() { m_Queue.pop(); };
 		TElement Top() { return m_Queue.top(); };
-		Int32 Size() const { return m_Queue.size(); };
+		int32 Size() const { return m_Queue.size(); };
 		bool Empty() const { return m_Queue.empty(); };
 
 	};

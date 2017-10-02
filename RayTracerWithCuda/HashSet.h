@@ -1,16 +1,14 @@
 #pragma once
 
-#include "TemplateDependency.h"
-#include "TemplateMacro.h"
+#include "ContainerDependency.h"
+#include "ContainerMacro.h"
 
-namespace EasyTemplate
+namespace EasyContainer
 {
 
 	template<typename TElement>
 	class HashSet
 	{
-
-		template<typename TElement> friend class HashSet;
 
 	public:
 
@@ -35,7 +33,7 @@ namespace EasyTemplate
 		void Clear();
 		bool Contains(TElement Element) const;
 		bool Remove(TElement Element);
-		Int32 Remove(SetFilter Filter);
+		int32 Remove(SetFilter Filter);
 		void CopyTo(TElement* Array) const;
 		HashSet<TElement> Intersect(const HashSet<TElement>& OtherSet) const;
 		HashSet<TElement> Union(const HashSet<TElement>& OtherSet) const;
@@ -106,9 +104,9 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline Int32 HashSet<TElement>::Remove(SetFilter Filter)
+	inline int32 HashSet<TElement>::Remove(SetFilter Filter)
 	{
-		Int32 RemoveCount = 0;
+		int32 RemoveCount = 0;
 		auto Iter = m_Set.begin();
 		while (Iter != m_Set.end())
 		{
@@ -128,7 +126,7 @@ namespace EasyTemplate
 	template<typename TElement>
 	inline void HashSet<TElement>::CopyTo(TElement* Array) const
 	{
-		for (UInt32 i = 0; i < m_Set.size(); i++)
+		for (uint32 i = 0; i < m_Set.size(); i++)
 		{
 			Array[i] = m_Set[i];
 		}
@@ -139,7 +137,7 @@ namespace EasyTemplate
 	{
 		HashSet<TElement> Result;
 		std::set_intersection(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<Int32>>(Result.m_Set, Result.m_Set.begin()));
+			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
 		return Result;
 	}
 
@@ -148,7 +146,7 @@ namespace EasyTemplate
 	{
 		HashSet<TElement> Result;
 		std::set_union(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<Int32>>(Result.m_Set, Result.m_Set.begin()));
+			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
 		return Result;
 	}
 
@@ -157,7 +155,7 @@ namespace EasyTemplate
 	{
 		HashSet<TElement> Result;
 		std::set_difference(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<Int32>>(Result.m_Set, Result.m_Set.begin()));
+			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
 		return Result;
 	}
 
@@ -166,7 +164,7 @@ namespace EasyTemplate
 	{
 		HashSet<TElement> Result;
 		std::set_symmetric_difference(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<Int32>>(Result.m_Set, Result.m_Set.begin()));
+			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
 		return Result;
 	}
 

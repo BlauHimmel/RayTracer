@@ -60,6 +60,18 @@ namespace EasyMath
 		return Ret;
 	}
 
+	std::ostream& operator << (std::ostream& Out, const Vector2f& Vector)
+	{
+		Out << "Vector2f <" << Vector.m_X << ", " << Vector.m_Y << ">";
+		return Out;
+	}
+
+	std::istream& operator >> (std::istream& In, Vector2f& Vector)
+	{
+		In >> Vector.m_X >> Vector.m_Y;
+		return In;
+	}
+
 	bool Vector2f::operator == (const Vector2f& Vector) const
 	{
 		return m_X == Vector.m_X && m_Y == Vector.m_Y;
@@ -116,7 +128,17 @@ namespace EasyMath
 		return m_X;
 	}
 
-	float & Vector2f::Y()
+	float& Vector2f::Y()
+	{
+		return m_Y;
+	}
+
+	float Vector2f::X() const
+	{
+		return m_X;
+	}
+
+	float Vector2f::Y() const
 	{
 		return m_Y;
 	}

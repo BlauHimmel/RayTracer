@@ -1,16 +1,14 @@
 #pragma once
 
-#include "TemplateDependency.h"
-#include "TemplateMacro.h"
+#include "ContainerDependency.h"
+#include "ContainerMacro.h"
 
-namespace EasyTemplate
+namespace EasyContainer
 {
 
 	template<typename TElement>
 	class Array
 	{
-
-		template<typename TElement> friend class Array;
 
 	public:
 
@@ -19,20 +17,20 @@ namespace EasyTemplate
 	private:
 
 		TElement* m_Datas;
-		Int32 m_Length;
+		int32 m_Length;
 
 	public:
 
-		Array(Int32 Length);
-		Array(TElement* Data, Int32 Length);
+		Array(int32 Length);
+		Array(TElement* Data, int32 Length);
 		Array(ArrayInitializer Initializer);
 		Array(Array<TElement>& Other);
 		~Array();
 
 	public:
 
-		TElement& operator [] (Int32 Index);
-		Int32 Length() const;
+		TElement& operator [] (int32 Index);
+		int32 Length() const;
 
 	public:
 
@@ -42,7 +40,7 @@ namespace EasyTemplate
 	};
 
 	template<typename TElement>
-	inline Array<TElement>::Array(Int32 Length)
+	inline Array<TElement>::Array(int32 Length)
 	{
 		m_Datas = new TElement[Length];
 		if (m_Datas == nullptr)
@@ -55,7 +53,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline Array<TElement>::Array(TElement* Data, Int32 Length)
+	inline Array<TElement>::Array(TElement* Data, int32 Length)
 	{
 		m_Length = Length;
 		m_Datas = new TElement[m_Length];
@@ -107,7 +105,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline TElement& Array<TElement>::operator [] (Int32 Index)
+	inline TElement& Array<TElement>::operator [] (int32 Index)
 	{
 		if (Index >= m_Length || Index < 0)
 		{
@@ -118,7 +116,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline Int32 Array<TElement>::Length() const
+	inline int32 Array<TElement>::Length() const
 	{
 		return m_Length;
 	}

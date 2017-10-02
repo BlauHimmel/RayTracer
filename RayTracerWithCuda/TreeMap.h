@@ -1,9 +1,9 @@
 #pragma once
 
-#include "TemplateDependency.h"
-#include "TemplateMacro.h"
+#include "ContainerDependency.h"
+#include "ContainerMacro.h"
 
-namespace EasyTemplate
+namespace EasyContainer
 {
 
 	template<typename TKey, typename TValue>
@@ -35,7 +35,7 @@ namespace EasyTemplate
 		virtual bool TryGetValue(TKey Key, TValue*& OutValuePtr);
 		virtual bool ContainsKey(TKey Key) const;
 		virtual bool Remove(TKey Key);
-		virtual Int32 Size() const;
+		virtual int32 Size() const;
 		virtual void Clear();
 
 	public:
@@ -119,7 +119,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TKey, typename TValue>
-	inline Int32 TreeMap<TKey, TValue>::Size() const
+	inline int32 TreeMap<TKey, TValue>::Size() const
 	{
 		return m_Map.size();
 	}

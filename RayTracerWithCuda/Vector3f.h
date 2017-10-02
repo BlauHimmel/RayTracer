@@ -29,6 +29,11 @@ namespace EasyMath
 
 	public:
 
+		friend std::ostream& operator << (std::ostream &Out, const Vector3f &Vector);
+		friend std::istream& operator >> (std::istream &In, Vector3f &Vector);
+
+	public:
+
 		bool operator == (const Vector3f& Vector) const;
 		Vector3f& operator = (const Vector3f& Vector);
 		Vector3f& operator += (const Vector3f& Vector);
@@ -39,6 +44,12 @@ namespace EasyMath
 
 	public:
 
+		float& X();
+		float& Y();
+		float& Z();
+		float X() const;
+		float Y() const;
+		float Z() const;
 		float Length() const;
 		float SqrLength() const;
 		Vector3f Zero() const;

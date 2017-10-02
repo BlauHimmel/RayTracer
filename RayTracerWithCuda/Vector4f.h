@@ -9,10 +9,14 @@ namespace EasyMath
 	class Vector4f
 	{
 
+	public:
+
+		friend class Transform;
+
 	private:
 
 		float m_X, m_Y, m_Z, m_W;
-
+		
 	public:
 
 		Vector4f();
@@ -29,6 +33,11 @@ namespace EasyMath
 
 	public:
 
+		friend std::ostream& operator << (std::ostream &Out, const Vector4f &Vector);
+		friend std::istream& operator >> (std::istream &In, Vector4f &Vector);
+
+	public:
+
 		bool operator == (const Vector4f& Vector) const;
 		Vector4f& operator = (const Vector4f& Vector);
 		Vector4f& operator += (const Vector4f& Vector);
@@ -39,6 +48,14 @@ namespace EasyMath
 
 	public:
 
+		float& X();
+		float& Y();
+		float& Z();
+		float& W();
+		float X() const;
+		float Y() const;
+		float Z() const;
+		float W() const;
 		float Length() const;
 		float SqrLength() const;
 		Vector4f Zero() const;

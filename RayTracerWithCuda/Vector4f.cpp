@@ -72,6 +72,18 @@ namespace EasyMath
 		return Ret;
 	}
 
+	std::ostream& operator << (std::ostream& Out, const Vector4f& Vector)
+	{
+		Out << "Vector4f <" << Vector.m_X << ", " << Vector.m_Y << ", " << Vector.m_Z << ", " << Vector.m_W << ">";
+		return Out;
+	}
+
+	std::istream& operator >> (std::istream& In, Vector4f& Vector)
+	{
+		In >> Vector.m_X >> Vector.m_Y >> Vector.m_Z >> Vector.m_W;
+		return In;
+	}
+
 	bool Vector4f::operator == (const Vector4f& Vector) const
 	{
 		return m_X == Vector.m_X && m_Y == Vector.m_Y && m_Z == Vector.m_Z && m_W == Vector.m_W;
@@ -133,6 +145,46 @@ namespace EasyMath
 		Ret.m_Z = -1.0f * m_Z;
 		Ret.m_W = -1.0f * m_W;
 		return Ret;
+	}
+
+	float& Vector4f::X()
+	{
+		return m_X;
+	}
+
+	float& Vector4f::Y()
+	{
+		return m_Y;
+	}
+
+	float& Vector4f::Z()
+	{
+		return m_Z;
+	}
+
+	float& Vector4f::W()
+	{
+		return m_W;
+	}
+
+	float Vector4f::X() const
+	{
+		return m_X;
+	}
+
+	float Vector4f::Y() const
+	{
+		return m_Y;
+	}
+
+	float Vector4f::Z() const
+	{
+		return m_Z;
+	}
+
+	float Vector4f::W() const
+	{
+		return m_W;
 	}
 
 	float Vector4f::Length() const

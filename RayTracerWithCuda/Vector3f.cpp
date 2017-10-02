@@ -66,6 +66,18 @@ namespace EasyMath
 		return Ret;
 	}
 
+	std::ostream& operator << (std::ostream& Out, const Vector3f& Vector)
+	{
+		Out << "Vector3f <" << Vector.m_X << ", " << Vector.m_Y << ", " << Vector.m_Z << ">";
+		return Out;
+	}
+
+	std::istream& operator >> (std::istream& In, Vector3f& Vector)
+	{
+		In >> Vector.m_X >> Vector.m_Y >> Vector.m_Z;
+		return In;
+	}
+
 	bool Vector3f::operator == (const Vector3f& Vector) const
 	{
 		return m_X == Vector.m_X && m_Y == Vector.m_Y && m_Z == Vector.m_Z;
@@ -121,6 +133,36 @@ namespace EasyMath
 		Ret.m_Y = -1.0f * m_Y;
 		Ret.m_Z = -1.0f * m_Z;
 		return Ret;
+	}
+
+	float& Vector3f::X()
+	{
+		return m_X;
+	}
+
+	float& Vector3f::Y()
+	{
+		return m_Y;
+	}
+
+	float& Vector3f::Z()
+	{
+		return m_Z;
+	}
+
+	float Vector3f::X() const
+	{
+		return m_X;
+	}
+
+	float Vector3f::Y() const
+	{
+		return m_Y;
+	}
+
+	float Vector3f::Z() const
+	{
+		return m_Z;
 	}
 
 	float Vector3f::Length() const

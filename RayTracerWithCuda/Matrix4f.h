@@ -9,7 +9,9 @@ namespace EasyMath
 	class Matrix4f
 	{
 
-		friend class Matrix4f;
+	public:
+
+		friend class Transform;
 
 	private:
 
@@ -36,14 +38,42 @@ namespace EasyMath
 
 	public:
 
-		float& operator () (Int32 Row, Int32 Column);
+		friend std::ostream& operator << (std::ostream &Out, const Matrix4f &Matrix);
+		friend std::istream& operator >> (std::istream &In, Matrix4f &Matrix);
+
+	public:
+
+		float& operator () (int32 Row, int32 Column);
+		float operator () (int32 Row, int32 Column) const;
 		bool operator == (const Matrix4f& Other) const;
+		Matrix4f operator * (const Matrix4f& Matrix); 
 		Matrix4f& operator = (const Matrix4f& Other);
 		Matrix4f& operator += (const Matrix4f& Matrix);
 		Matrix4f& operator -= (const Matrix4f& Matrix);
 		Matrix4f& operator *= (const Matrix4f& Matrix);
 		Matrix4f& operator *= (float Scale);
 		Matrix4f operator - () const;
+
+	public:
+
+		void SetIdentity();
+		void SetZero();
+		void Trim();
+		Matrix4f Inverse() const;
+		Matrix4f Transpose() const;
+		float Determinant() const;
+
+	private:
+
+		float Determinant(
+			float A11, float A12, float A13,
+			float A21, float A22, float A23,
+			float A31, float A32, float A33
+		) const;
+		float Determinant(
+			float A11, float A12,
+			float A21, float A22
+		) const;
 
 	};
 }

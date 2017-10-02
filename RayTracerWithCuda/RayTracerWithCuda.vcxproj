@@ -148,6 +148,7 @@
     <ClInclude Include="HashSet.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="MathDependency.h" />
+    <ClInclude Include="MathFunction.h" />
     <ClInclude Include="MathMacro.h" />
     <ClInclude Include="Matrix4f.h" />
     <ClInclude Include="PriorityQueue.h" />
@@ -155,8 +156,8 @@
     <ClInclude Include="Stack.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="TemplateDependency.h" />
-    <ClInclude Include="TemplateMacro.h" />
+    <ClInclude Include="ContainerDependency.h" />
+    <ClInclude Include="ContainerMacro.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TreeMap.h" />
     <ClInclude Include="TreeSet.h" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Vector4f.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MathIO.cpp" />
     <ClCompile Include="Matrix4f.cpp" />
     <ClCompile Include="RayTracerWithCuda.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -173,6 +175,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Vector2f.cpp" />
     <ClCompile Include="Vector3f.cpp" />
     <ClCompile Include="Vector4f.cpp" />

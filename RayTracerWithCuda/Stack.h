@@ -1,9 +1,9 @@
 #pragma once
 
-#include "TemplateDependency.h"
-#include "TemplateMacro.h"
+#include "ContainerDependency.h"
+#include "ContainerMacro.h"
 
-namespace EasyTemplate
+namespace EasyContainer
 {
 
 	template<typename TElement>
@@ -23,7 +23,7 @@ namespace EasyTemplate
 		void Push(TElement& Element);
 		void Pop();
 		TElement Top() const;
-		Int32 Size() const;
+		int32 Size() const;
 		bool Empty() const;
 
 	};
@@ -53,7 +53,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline Int32 Stack<TElement>::Size() const
+	inline int32 Stack<TElement>::Size() const
 	{
 		return m_Stack.size();
 	}
