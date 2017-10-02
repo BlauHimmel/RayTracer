@@ -31,7 +31,7 @@ namespace EasyTemplate
 
 	public:
 
-		TElement& operator[](Int32 Index);
+		TElement& operator [] (Int32 Index);
 		Int32 Length() const;
 
 	public:
@@ -107,7 +107,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline TElement& Array<TElement>::operator[](Int32 Index)
+	inline TElement& Array<TElement>::operator [] (Int32 Index)
 	{
 		if (Index >= m_Length || Index < 0)
 		{

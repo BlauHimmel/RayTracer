@@ -102,9 +102,6 @@
     <ClInclude Include="TemplateMacro.h">
       <Filter>头文件\Template\Dependency</Filter>
     </ClInclude>
-    <ClInclude Include="TemplateModule.h">
-      <Filter>头文件\Template</Filter>
-    </ClInclude>
     <ClInclude Include="GlobalTypedef.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -126,11 +123,8 @@
     <ClInclude Include="Matrix4f.h">
       <Filter>头文件\Math\Matrix</Filter>
     </ClInclude>
-    <ClInclude Include="MathModule.h">
-      <Filter>头文件\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="DependencyManager.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="Transform.h">
+      <Filter>头文件\Math\Matrix</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

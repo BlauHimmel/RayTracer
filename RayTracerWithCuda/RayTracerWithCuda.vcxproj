@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="ArrayList.h" />
-    <ClInclude Include="DependencyManager.h" />
     <ClInclude Include="GlobalDependency.h" />
     <ClInclude Include="GlobalMacro.h" />
     <ClInclude Include="GlobalTypedef.h" />
@@ -150,7 +149,6 @@
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="MathDependency.h" />
     <ClInclude Include="MathMacro.h" />
-    <ClInclude Include="MathModule.h" />
     <ClInclude Include="Matrix4f.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Queue.h" />
@@ -159,7 +157,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TemplateDependency.h" />
     <ClInclude Include="TemplateMacro.h" />
-    <ClInclude Include="TemplateModule.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="TreeMap.h" />
     <ClInclude Include="TreeSet.h" />
     <ClInclude Include="Vector2f.h" />

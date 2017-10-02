@@ -20,7 +20,7 @@ namespace EasyMath
 		m_Y = Other.m_Y;
 	}
 
-	Vector2f operator+(const Vector2f& Vector1, const Vector2f& Vector2)
+	Vector2f operator + (const Vector2f& Vector1, const Vector2f& Vector2)
 	{
 		Vector2f Ret;
 		Ret.m_X = Vector1.m_X + Vector2.m_X;
@@ -28,7 +28,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Vector2f operator-(const Vector2f& Vector1, const Vector2f& Vector2)
+	Vector2f operator - (const Vector2f& Vector1, const Vector2f& Vector2)
 	{
 		Vector2f Ret;
 		Ret.m_X = Vector1.m_X - Vector2.m_X;
@@ -36,7 +36,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Vector2f operator*(const Vector2f& Vector, float Scale)
+	Vector2f operator * (const Vector2f& Vector, float Scale)
 	{
 		Vector2f Ret;
 		Ret.m_X = Vector.m_X * Scale;
@@ -44,7 +44,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Vector2f operator*(float Scale, const Vector2f& Vector)
+	Vector2f operator * (float Scale, const Vector2f& Vector)
 	{
 		Vector2f Ret;
 		Ret.m_X = Vector.m_X * Scale;
@@ -52,7 +52,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Vector2f operator/(const Vector2f& Vector, float Scale)
+	Vector2f operator / (const Vector2f& Vector, float Scale)
 	{
 		Vector2f Ret;
 		Ret.m_X = Vector.m_X / Scale;
@@ -60,12 +60,12 @@ namespace EasyMath
 		return Ret;
 	}
 
-	bool Vector2f::operator==(const Vector2f& Vector) const
+	bool Vector2f::operator == (const Vector2f& Vector) const
 	{
 		return m_X == Vector.m_X && m_Y == Vector.m_Y;
 	}
 
-	Vector2f& Vector2f::operator=(const Vector2f& Vector)
+	Vector2f& Vector2f::operator = (const Vector2f& Vector)
 	{
 		if (this != &Vector)
 		{
@@ -75,35 +75,35 @@ namespace EasyMath
 		return *this;
 	}
 
-	Vector2f& Vector2f::operator+=(const Vector2f& Vector)
+	Vector2f& Vector2f::operator += (const Vector2f& Vector)
 	{
 		this->m_X += Vector.m_X;
 		this->m_Y += Vector.m_Y;
 		return *this;
 	}
 
-	Vector2f& Vector2f::operator-=(const Vector2f& Vector)
+	Vector2f& Vector2f::operator -= (const Vector2f& Vector)
 	{
 		this->m_X -= Vector.m_X;
 		this->m_Y -= Vector.m_Y;
 		return *this;
 	}
 
-	Vector2f& Vector2f::operator*=(float Scale)
+	Vector2f& Vector2f::operator *= (float Scale)
 	{
 		this->m_X *= Scale;
 		this->m_Y *= Scale;
 		return *this;
 	}
 
-	Vector2f& Vector2f::operator/=(float Scale)
+	Vector2f& Vector2f::operator /= (float Scale)
 	{
 		this->m_X /= Scale;
 		this->m_Y /= Scale;
 		return *this;
 	}
 
-	Vector2f Vector2f::operator-() const
+	Vector2f Vector2f::operator - () const
 	{
 		Vector2f Ret;
 		Ret.m_X = -1.0f * m_X;

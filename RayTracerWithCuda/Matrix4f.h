@@ -28,23 +28,22 @@ namespace EasyMath
 
 	public:
 
-		friend Matrix4f operator+(const Matrix4f& Matrix, float Scale);
-		friend Matrix4f operator-(const Matrix4f& Matrix, float Scale);
-		friend Matrix4f operator*(const Matrix4f& Matrix, float Scale);
-		friend Matrix4f operator*(float Scale, const Matrix4f& Matrix);
-		friend Matrix4f operator/(const Matrix4f& Matrix, float Scale);
+		friend Matrix4f operator + (const Matrix4f& Matrix, float Scale);
+		friend Matrix4f operator - (const Matrix4f& Matrix, float Scale);
+		friend Matrix4f operator * (const Matrix4f& Matrix, float Scale);
+		friend Matrix4f operator * (float Scale, const Matrix4f& Matrix);
+		friend Matrix4f operator / (const Matrix4f& Matrix, float Scale);
 
 	public:
 
-		float& operator()(Int32 Row, Int32 Column);
-		bool operator==(const Matrix4f& Other) const;
-		Matrix4f& operator=(const Matrix4f& Other);
-		Matrix4f& operator+=(const Matrix4f& Matrix);
-		Matrix4f& operator-=(const Matrix4f& Matrix);
-		Matrix4f& operator*=(const Matrix4f& Matrix);
-		Matrix4f& operator*=(float Scale);
-		Matrix4f operator-() const;
+		float& operator () (Int32 Row, Int32 Column);
+		bool operator == (const Matrix4f& Other) const;
+		Matrix4f& operator = (const Matrix4f& Other);
+		Matrix4f& operator += (const Matrix4f& Matrix);
+		Matrix4f& operator -= (const Matrix4f& Matrix);
+		Matrix4f& operator *= (const Matrix4f& Matrix);
+		Matrix4f& operator *= (float Scale);
+		Matrix4f operator - () const;
 
 	};
-
 }

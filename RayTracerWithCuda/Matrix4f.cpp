@@ -36,7 +36,7 @@ namespace EasyMath
 		}
 	}
 
-	Matrix4f operator+(const Matrix4f& Matrix, float Scale)
+	Matrix4f operator + (const Matrix4f& Matrix, float Scale)
 	{
 		Matrix4f Ret;
 		for (auto Row = 0; Row < 4; Row++)
@@ -49,7 +49,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Matrix4f operator-(const Matrix4f& Matrix, float Scale)
+	Matrix4f operator - (const Matrix4f& Matrix, float Scale)
 	{
 		Matrix4f Ret;
 		for (auto Row = 0; Row < 4; Row++)
@@ -62,7 +62,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Matrix4f operator*(const Matrix4f& Matrix, float Scale)
+	Matrix4f operator * (const Matrix4f& Matrix, float Scale)
 	{
 		Matrix4f Ret;
 		for (auto Row = 0; Row < 4; Row++)
@@ -75,7 +75,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Matrix4f operator*(float Scale, const Matrix4f& Matrix)
+	Matrix4f operator * (float Scale, const Matrix4f& Matrix)
 	{
 		Matrix4f Ret;
 		for (auto Row = 0; Row < 4; Row++)
@@ -88,7 +88,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Matrix4f operator/(const Matrix4f& Matrix, float Scale)
+	Matrix4f operator / (const Matrix4f& Matrix, float Scale)
 	{
 		Matrix4f Ret;
 		for (auto Row = 0; Row < 4; Row++)
@@ -101,7 +101,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	float& Matrix4f::operator()(Int32 Row, Int32 Column)
+	float& Matrix4f::operator () (Int32 Row, Int32 Column)
 	{
 		if (Row < 0 || Row > 3 || Column < 0 || Column > 3)
 		{
@@ -111,7 +111,7 @@ namespace EasyMath
 		return m_Data[Row][Column];
 	}
 
-	bool Matrix4f::operator==(const Matrix4f& Other) const
+	bool Matrix4f::operator == (const Matrix4f& Other) const
 	{
 		for (auto Row = 0; Row < 4; Row++)
 		{
@@ -126,7 +126,7 @@ namespace EasyMath
 		return true;
 	}
 
-	Matrix4f& Matrix4f::operator=(const Matrix4f& Other)
+	Matrix4f& Matrix4f::operator = (const Matrix4f& Other)
 	{
 		if (this != &Other)
 		{
@@ -141,7 +141,7 @@ namespace EasyMath
 		return *this;
 	}
 
-	Matrix4f& Matrix4f::operator+=(const Matrix4f& Matrix)
+	Matrix4f& Matrix4f::operator += (const Matrix4f& Matrix)
 	{
 		for (auto Row = 0; Row < 4; Row++)
 		{
@@ -153,7 +153,7 @@ namespace EasyMath
 		return *this;
 	}
 
-	Matrix4f& Matrix4f::operator-=(const Matrix4f& Matrix)
+	Matrix4f& Matrix4f::operator -= (const Matrix4f& Matrix)
 	{
 		for (auto Row = 0; Row < 4; Row++)
 		{
@@ -165,7 +165,7 @@ namespace EasyMath
 		return *this;
 	}
 
-	Matrix4f& Matrix4f::operator*=(const Matrix4f& Matrix)
+	Matrix4f& Matrix4f::operator *= (const Matrix4f& Matrix)
 	{
 		for (auto Row = 0; Row < 4; Row++)
 		{
@@ -177,7 +177,7 @@ namespace EasyMath
 		return *this;
 	}
 
-	Matrix4f& Matrix4f::operator*=(float Scale)
+	Matrix4f& Matrix4f::operator *= (float Scale)
 	{
 		for (auto Row = 0; Row < 4; Row++)
 		{
@@ -189,7 +189,7 @@ namespace EasyMath
 		return *this;
 	}
 
-	Matrix4f Matrix4f::operator-() const
+	Matrix4f Matrix4f::operator - () const
 	{
 		Matrix4f Ret;
 		for (auto Row = 0; Row < 4; Row++)

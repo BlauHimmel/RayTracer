@@ -21,21 +21,21 @@ namespace EasyMath
 
 	public:
 
-		friend Vector2f operator+(const Vector2f& Vector1, const Vector2f& Vector2);
-		friend Vector2f operator-(const Vector2f& Vector1, const Vector2f& Vector2);
-		friend Vector2f operator*(const Vector2f& Vector, float Scale);
-		friend Vector2f operator*(float Scale, const Vector2f& Vector);
-		friend Vector2f operator/(const Vector2f& Vector, float Scale);
+		friend Vector2f operator + (const Vector2f& Vector1, const Vector2f& Vector2);
+		friend Vector2f operator - (const Vector2f& Vector1, const Vector2f& Vector2);
+		friend Vector2f operator * (const Vector2f& Vector, float Scale);
+		friend Vector2f operator * (float Scale, const Vector2f& Vector);
+		friend Vector2f operator / (const Vector2f& Vector, float Scale);
 
 	public:
 
-		bool operator==(const Vector2f& Vector) const;
-		Vector2f& operator=(const Vector2f& Vector);
-		Vector2f& operator+=(const Vector2f& Vector);
-		Vector2f& operator-=(const Vector2f& Vector);
-		Vector2f& operator*=(float Scale);
-		Vector2f& operator/=(float Scale);
-		Vector2f operator-() const;
+		bool operator == (const Vector2f& Vector) const;
+		Vector2f& operator = (const Vector2f& Vector);
+		Vector2f& operator += (const Vector2f& Vector);
+		Vector2f& operator -= (const Vector2f& Vector);
+		Vector2f& operator *= (float Scale);
+		Vector2f& operator /= (float Scale);
+		Vector2f operator - () const;
 
 	public:
 

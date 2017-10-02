@@ -30,7 +30,7 @@ namespace EasyTemplate
 
 	public:
 
-		virtual TValue& operator[](TKey Key);
+		virtual TValue& operator [] (TKey Key);
 		virtual bool Add(TKey Key, TValue Value);
 		virtual bool TryGetValue(TKey Key, TValue*& OutValuePtr);
 		virtual bool ContainsKey(TKey Key) const;
@@ -79,7 +79,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TKey, typename TValue>
-	inline TValue& TreeMap<TKey, TValue>::operator[](TKey Key)
+	inline TValue& TreeMap<TKey, TValue>::operator [] (TKey Key)
 	{
 		return m_Map[Key];
 	}

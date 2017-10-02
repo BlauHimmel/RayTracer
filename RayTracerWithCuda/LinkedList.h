@@ -31,7 +31,7 @@ namespace EasyTemplate
 
 	public:
 
-		TElement& operator[](Int32 Index);
+		TElement& operator [] (Int32 Index);
 		void Add(TElement Element);
 		void Add(const LinkedList<TElement>& Collection);
 		bool Contains(TElement Element) const;
@@ -106,7 +106,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline TElement& LinkedList<TElement>::operator[](Int32 Index)
+	inline TElement& LinkedList<TElement>::operator [] (Int32 Index)
 	{
 		if (Index < 0 || static_cast<UInt32>(Index) >= m_List.size())
 		{

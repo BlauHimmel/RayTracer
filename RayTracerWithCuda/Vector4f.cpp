@@ -22,7 +22,7 @@ namespace EasyMath
 		m_W = Other.m_W;
 	}
 
-	Vector4f operator+(const Vector4f& Vector1, const Vector4f& Vector2)
+	Vector4f operator + (const Vector4f& Vector1, const Vector4f& Vector2)
 	{
 		Vector4f Ret;
 		Ret.m_X = Vector1.m_X + Vector2.m_X;
@@ -32,7 +32,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Vector4f operator-(const Vector4f& Vector1, const Vector4f& Vector2)
+	Vector4f operator - (const Vector4f& Vector1, const Vector4f& Vector2)
 	{
 		Vector4f Ret;
 		Ret.m_X = Vector1.m_X - Vector2.m_X;
@@ -42,7 +42,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Vector4f operator*(const Vector4f& Vector, float Scale)
+	Vector4f operator * (const Vector4f& Vector, float Scale)
 	{
 		Vector4f Ret;
 		Ret.m_X = Vector.m_X * Scale;
@@ -52,7 +52,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Vector4f operator*(float Scale, const Vector4f& Vector)
+	Vector4f operator * (float Scale, const Vector4f& Vector)
 	{
 		Vector4f Ret;
 		Ret.m_X = Vector.m_X * Scale;
@@ -62,7 +62,7 @@ namespace EasyMath
 		return Ret;
 	}
 
-	Vector4f operator/(const Vector4f& Vector, float Scale)
+	Vector4f operator / (const Vector4f& Vector, float Scale)
 	{
 		Vector4f Ret;
 		Ret.m_X = Vector.m_X / Scale;
@@ -72,12 +72,12 @@ namespace EasyMath
 		return Ret;
 	}
 
-	bool Vector4f::operator==(const Vector4f& Vector) const
+	bool Vector4f::operator == (const Vector4f& Vector) const
 	{
 		return m_X == Vector.m_X && m_Y == Vector.m_Y && m_Z == Vector.m_Z && m_W == Vector.m_W;
 	}
 
-	Vector4f& Vector4f::operator=(const Vector4f& Vector)
+	Vector4f& Vector4f::operator = (const Vector4f& Vector)
 	{
 		if (this != &Vector)
 		{
@@ -89,7 +89,7 @@ namespace EasyMath
 		return *this;
 	}
 
-	Vector4f& Vector4f::operator+=(const Vector4f& Vector)
+	Vector4f& Vector4f::operator += (const Vector4f& Vector)
 	{
 		this->m_X += Vector.m_X;
 		this->m_Y += Vector.m_Y;
@@ -98,7 +98,7 @@ namespace EasyMath
 		return *this;
 	}
 
-	Vector4f& Vector4f::operator-=(const Vector4f& Vector)
+	Vector4f& Vector4f::operator -= (const Vector4f& Vector)
 	{
 		this->m_X -= Vector.m_X;
 		this->m_Y -= Vector.m_Y;
@@ -107,7 +107,7 @@ namespace EasyMath
 		return *this;
 	}
 
-	Vector4f& Vector4f::operator*=(float Scale)
+	Vector4f& Vector4f::operator *= (float Scale)
 	{
 		this->m_X *= Scale;
 		this->m_Y *= Scale;
@@ -116,7 +116,7 @@ namespace EasyMath
 		return *this;
 	}
 
-	Vector4f& Vector4f::operator/=(float Scale)
+	Vector4f& Vector4f::operator /= (float Scale)
 	{
 		this->m_X /= Scale;
 		this->m_Y /= Scale;
@@ -125,7 +125,7 @@ namespace EasyMath
 		return *this;
 	}
 
-	Vector4f Vector4f::operator-() const
+	Vector4f Vector4f::operator - () const
 	{
 		Vector4f Ret;
 		Ret.m_X = -1.0f * m_X;

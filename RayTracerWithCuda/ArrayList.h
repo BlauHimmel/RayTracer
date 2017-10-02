@@ -33,7 +33,7 @@ namespace EasyTemplate
 
 	public:
 
-		TElement& operator[](Int32 Index);
+		TElement& operator [] (Int32 Index);
 		void Add(TElement Element);
 		void Add(const ArrayList<TElement>& Collection);
 		bool Contains(TElement Element) const;
@@ -109,7 +109,7 @@ namespace EasyTemplate
 	}
 
 	template<typename TElement>
-	inline TElement& ArrayList<TElement>::operator[](Int32 Index)
+	inline TElement& ArrayList<TElement>::operator [] (Int32 Index)
 	{
 		if (Index < 0 || static_cast<UInt32>(Index) >= m_Vector.size())
 		{

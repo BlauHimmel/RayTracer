@@ -5,6 +5,6 @@ using namespace EasyMath;
 
 int main()
 {
-    return 0;
+
 }
 
