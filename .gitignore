@@ -259,3 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/RayTracerWithCuda/Bitmap---.h
+/RayTracerWithCuda/Bitmap---.h
+/RayTracerWithCuda/1.bmp
+/RayTracerWithCuda/2.bmp
