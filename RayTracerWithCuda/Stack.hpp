@@ -20,7 +20,7 @@ namespace EasyContainer
 
 	public:
 
-		void Push(TElement& Element);
+		void Push(TElement Element);
 		void Pop();
 		TElement Top() const;
 		int32 Size() const;
@@ -35,7 +35,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void Stack<TElement>::Push(TElement& Element)
+	inline void Stack<TElement>::Push(TElement Element)
 	{
 		m_Stack.push(Element);
 	}

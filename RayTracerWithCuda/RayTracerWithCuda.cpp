@@ -18,7 +18,6 @@
 
 int main()
 {
-
 	EasyMath::Matrix4f m(1.0f, 1.1f, 1.2f, 1.3f, 1.41122341121111f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2.0f, 2.1f, 2.2f, 2.3f, 2.4f, 2.5f);
 	EasyMath::Vector2f v2;
 	EasyMath::Vector3f v3;
@@ -82,6 +81,42 @@ int main()
 		bit.Save("2.bmp");
 	}
 
+	EasyContainer::Stack<int> s1;
+	EasyContainer::Stack<int> s2;
+
+	s1.Push(1);
+	s1.Push(2);
+	s1.Push(3);
+
+	s2 = s1;
+
+	EasyContainer::Queue<int> q1;
+	EasyContainer::Queue<int> q2;
+
+	q1.Push(1);
+	q1.Push(2);
+	q1.Push(3);
+
+	q2 = q1;
+
+	EasyContainer::HashMap<int, int> hs1;
+	EasyContainer::HashMap<int, int> hs2;
+
+	hs1[1] = 111;
+	hs1[2] = 222;
+	hs1[3] = 333;
+
+	hs2 = hs1;
+
+	EasyContainer::LinkedList<int> lll1 = { 1, 3, 5, 7 };
+	EasyContainer::LinkedList<int> lll2;
+	lll2 = lll1;
+
+	EasyContainer::ArrayList<int> all1 = { 1, 3, 5, 7 };
+	EasyContainer::ArrayList<int> all2;
+	all2 = all1;
+
+	all1[1] = 33;
+
 	return 0;
 }
-

@@ -25,13 +25,10 @@ namespace EasyContainer
 
 		TreeMap();
 		TreeMap(MapInitializer Initializer);
-		TreeMap(const TreeMap<TKey, TValue>& Other);
-		TreeMap(const TreeMap<TKey, TValue>&& Other);
 
 	public:
 
-		TValue& operator [] (TKey&& Key);
-		TValue& operator [] (const TKey& Key);
+		TValue& operator [] (TKey Key);
 		bool Add(TKey Key, TValue Value);
 		bool TryGetValue(TKey Key, TValue*& OutValuePtr);
 		bool ContainsKey(TKey Key) const;
@@ -64,29 +61,7 @@ namespace EasyContainer
 	}
 
 	template<typename TKey, typename TValue>
-	inline TreeMap<TKey, TValue>::TreeMap(const TreeMap<TKey, TValue>& Other)
-	{
-		m_Map = std::map<TKey, TValue>();
-		for (auto Iter = m_Map.begin(); Iter != m_Map.end(); Iter++)
-		{
-			m_Map.insert(Pair(Iter.first, Iter.second));
-		}
-	}
-
-	template<typename TKey, typename TValue>
-	inline TreeMap<TKey, TValue>::TreeMap(const TreeMap<TKey, TValue>&& Other)
-	{
-		m_Map = Other.m_Map;
-	}
-
-	template<typename TKey, typename TValue>
-	inline TValue& TreeMap<TKey, TValue>::operator [] (TKey&& Key)
-	{
-		return m_Map[std::forward(Key)];
-	}
-
-	template<typename TKey, typename TValue>
-	inline TValue& TreeMap<TKey, TValue>::operator[](const TKey& Key)
+	inline TValue& TreeMap<TKey, TValue>::operator [] (TKey Key)
 	{
 		return m_Map[Key];
 	}

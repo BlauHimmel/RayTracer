@@ -24,8 +24,6 @@ namespace EasyContainer
 
 		HashSet();
 		HashSet(SetInitializer Initializer);
-		HashSet(const HashSet<TElement>& Other);
-		HashSet(const HashSet<TElement>&& Other);
 		
 	public:
 
@@ -61,22 +59,6 @@ namespace EasyContainer
 	inline HashSet<TElement>::HashSet(SetInitializer Initializer) : m_Set(Initializer)
 	{
 	
-	}
-
-	template<typename TElement>
-	inline HashSet<TElement>::HashSet(const HashSet<TElement>& Other)
-	{
-		m_Set = std::unordered_set<TElement>();
-		for (auto Iter = m_Set.begin(); Iter != m_Set.end(); Iter++)
-		{
-			m_Set.insert(*Iter);
-		}
-	}
-
-	template<typename TElement>
-	inline HashSet<TElement>::HashSet(const HashSet<TElement>&& Other)
-	{
-		m_Set = Other.m_Set;
 	}
 
 	template<typename TElement>

@@ -26,14 +26,11 @@ namespace EasyContainer
 		LinkedList(int32 Capacity);
 		LinkedList(int32 Capacity, TElement Value);
 		LinkedList(ListInitializer Initializer);
-		LinkedList(const LinkedList<TElement>& Other);
-		LinkedList(const LinkedList<TElement>&& Other);
 
 	public:
 
 		TElement& operator [] (int32 Index);
 		const TElement& operator [] (int32 Index) const;
-		LinkedList<TElement>& operator = (const LinkedList<TElement>& Other);
 		void Add(TElement Element);
 		void Add(const LinkedList<TElement>& Collection);
 		bool Contains(TElement Element) const;
@@ -92,22 +89,6 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline LinkedList<TElement>::LinkedList(const LinkedList<TElement>& Other)
-	{
-		m_List = std::list<TElement>();
-		for (auto Element : Other.m_List)
-		{
-			m_List.push_back(Element);
-		}
-	}
-
-	template<typename TElement>
-	inline LinkedList<TElement>::LinkedList(const LinkedList<TElement>&& Other)
-	{
-		m_List = Other.m_List;
-	}
-
-	template<typename TElement>
 	inline TElement& LinkedList<TElement>::operator [] (int32 Index)
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_List.size())
@@ -143,20 +124,6 @@ namespace EasyContainer
 			}
 			Iter++;
 		}
-	}
-
-	template<typename TElement>
-	inline LinkedList<TElement>& LinkedList<TElement>::operator = (const LinkedList<TElement>& Other)
-	{
-		if (this != &Other)
-		{
-			m_List = std::list<TElement>();
-			for (auto Element : Other.m_List)
-			{
-				m_List.push_back(Element);
-			}
-		}
-		return *this;
 	}
 
 	template<typename TElement>

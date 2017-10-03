@@ -25,13 +25,10 @@ namespace EasyContainer
 
 		HashMap();
 		HashMap(MapInitializer Initializer);
-		HashMap(const HashMap<TKey, TValue>& Other);
-		HashMap(const HashMap<TKey, TValue>&& Other);
 
 	public:
 
-		TValue& operator [] (TKey&& Key);
-		TValue& operator [] (const TKey& Key);
+		TValue& operator [] (TKey Key);
 		bool Add(TKey Key, TValue Value);
 		bool TryGetValue(TKey Key, TValue*& OutValuePtr);
 		bool ContainsKey(TKey Key) const;
@@ -64,29 +61,7 @@ namespace EasyContainer
 	}
 
 	template<typename TKey, typename TValue>
-	inline HashMap<TKey, TValue>::HashMap(const HashMap<TKey, TValue>& Other)
-	{
-		m_Map = std::unordered_map<TKey, TValue>();
-		for (auto Iter = m_Map.begin(); Iter != m_Map.end(); Iter++)
-		{
-			m_Map.insert(Pair(Iter.first, Iter.second));
-		}
-	}
-
-	template<typename TKey, typename TValue>
-	inline HashMap<TKey, TValue>::HashMap(const HashMap<TKey, TValue>&& Other)
-	{
-		m_Map = Other.m_Map;
-	}
-
-	template<typename TKey, typename TValue>
-	inline TValue& HashMap<TKey, TValue>::operator [] (TKey&& Key)
-	{
-		return m_Map[std::forward(Key)];
-	}
-
-	template<typename TKey, typename TValue>
-	inline TValue& HashMap<TKey, TValue>::operator [] (const TKey& Key)
+	inline TValue& HashMap<TKey, TValue>::operator [] (TKey Key)
 	{
 		return m_Map[Key];
 	}
