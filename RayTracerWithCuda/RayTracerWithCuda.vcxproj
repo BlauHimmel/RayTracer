@@ -139,34 +139,33 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Array.h" />
-    <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="Array.hpp" />
+    <ClInclude Include="ArrayList.hpp" />
     <ClInclude Include="GlobalDependency.h" />
     <ClInclude Include="GlobalMacro.h" />
     <ClInclude Include="GlobalTypedef.h" />
-    <ClInclude Include="HashMap.h" />
-    <ClInclude Include="HashSet.h" />
-    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="HashMap.hpp" />
+    <ClInclude Include="HashSet.hpp" />
+    <ClInclude Include="LinkedList.hpp" />
     <ClInclude Include="MathDependency.h" />
-    <ClInclude Include="MathFunction.h" />
+    <ClInclude Include="MathFunction.hpp" />
     <ClInclude Include="MathMacro.h" />
     <ClInclude Include="Matrix4f.h" />
-    <ClInclude Include="PriorityQueue.h" />
-    <ClInclude Include="Queue.h" />
-    <ClInclude Include="Stack.h" />
+    <ClInclude Include="PriorityQueue.hpp" />
+    <ClInclude Include="Queue.hpp" />
+    <ClInclude Include="Stack.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ContainerDependency.h" />
     <ClInclude Include="ContainerMacro.h" />
     <ClInclude Include="Transform.h" />
-    <ClInclude Include="TreeMap.h" />
-    <ClInclude Include="TreeSet.h" />
+    <ClInclude Include="TreeMap.hpp" />
+    <ClInclude Include="TreeSet.hpp" />
     <ClInclude Include="Vector2f.h" />
     <ClInclude Include="Vector3f.h" />
     <ClInclude Include="Vector4f.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MathIO.cpp" />
     <ClCompile Include="Matrix4f.cpp" />
     <ClCompile Include="RayTracerWithCuda.cpp" />
     <ClCompile Include="stdafx.cpp">
