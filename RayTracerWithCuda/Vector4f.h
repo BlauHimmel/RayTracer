@@ -39,6 +39,7 @@ namespace EasyMath
 	public:
 
 		bool operator == (const Vector4f& Vector) const;
+		bool operator != (const Vector4f& Vector) const;
 		Vector4f& operator = (const Vector4f& Vector);
 		Vector4f& operator += (const Vector4f& Vector);
 		Vector4f& operator -= (const Vector4f& Vector);

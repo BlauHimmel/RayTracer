@@ -3,11 +3,12 @@
 #include "MathDependency.h"
 #include "MathMacro.h"
 
+#include "Transform.h"
+#include "Matrix4f.h"
+#include "Vector4f.h"
+
 namespace EasyMath
 {
-
-	class Matrix4f;
-	class Vector4f;
 
 	class Transform
 	{

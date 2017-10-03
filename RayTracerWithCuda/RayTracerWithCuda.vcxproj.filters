@@ -58,6 +58,15 @@
     <Filter Include="源文件\Tools">
       <UniqueIdentifier>{1f1143ff-260d-4b83-aa86-e1a5e86374f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Tools\Image">
+      <UniqueIdentifier>{9ede4a32-9e1f-499a-9fa5-ad18012e2ef0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Tools\Dependency">
+      <UniqueIdentifier>{7ca6d061-8d9f-4891-89fe-9cdf1cbd6a24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Tools\Image">
+      <UniqueIdentifier>{5ac1c77e-3cbf-49bb-ac0d-d3751b855166}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -138,6 +147,18 @@
     <ClInclude Include="TreeSet.hpp">
       <Filter>头文件\Container\Set</Filter>
     </ClInclude>
+    <ClInclude Include="ToolsDependency.h">
+      <Filter>头文件\Tools\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap---.h">
+      <Filter>头文件\Tools\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Bitmap.h">
+      <Filter>头文件\Tools\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>头文件\Tools\Image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -160,6 +181,12 @@
     </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>源文件\Math\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Bitmap.cpp">
+      <Filter>源文件\Tools\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>源文件\Tools\Image</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

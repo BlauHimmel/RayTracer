@@ -24,8 +24,8 @@ namespace EasyContainer
 
 		TreeSet();
 		TreeSet(SetInitializer Initializer);
-		TreeSet(TreeSet<TElement>& Other);
-		TreeSet(TreeSet<TElement>&& Other);
+		TreeSet(const TreeSet<TElement>& Other);
+		TreeSet(const TreeSet<TElement>&& Other);
 
 	public:
 
@@ -65,7 +65,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline TreeSet<TElement>::TreeSet(TreeSet<TElement>& Other)
+	inline TreeSet<TElement>::TreeSet(const TreeSet<TElement>& Other)
 	{
 		m_Set = std::set<TElement>();
 		for (auto Iter = m_Set.begin(); Iter != m_Set.end(); Iter++)
@@ -75,7 +75,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline TreeSet<TElement>::TreeSet(TreeSet<TElement>&& Other)
+	inline TreeSet<TElement>::TreeSet(const TreeSet<TElement>&& Other)
 	{
 		m_Set = Other.m_Set;
 	}

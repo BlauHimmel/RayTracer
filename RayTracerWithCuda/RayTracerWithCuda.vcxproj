@@ -141,11 +141,14 @@
   <ItemGroup>
     <ClInclude Include="Array.hpp" />
     <ClInclude Include="ArrayList.hpp" />
+    <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="GlobalDependency.h" />
     <ClInclude Include="GlobalMacro.h" />
     <ClInclude Include="GlobalTypedef.h" />
     <ClInclude Include="HashMap.hpp" />
     <ClInclude Include="HashSet.hpp" />
+    <ClInclude Include="Bitmap---.h" />
     <ClInclude Include="LinkedList.hpp" />
     <ClInclude Include="MathDependency.h" />
     <ClInclude Include="MathFunction.hpp" />
@@ -158,6 +161,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ContainerDependency.h" />
     <ClInclude Include="ContainerMacro.h" />
+    <ClInclude Include="ToolsDependency.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TreeMap.hpp" />
     <ClInclude Include="TreeSet.hpp" />
@@ -166,6 +170,8 @@
     <ClInclude Include="Vector4f.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="Matrix4f.cpp" />
     <ClCompile Include="RayTracerWithCuda.cpp" />
     <ClCompile Include="stdafx.cpp">

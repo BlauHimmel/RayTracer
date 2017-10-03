@@ -30,6 +30,7 @@ namespace EasyContainer
 	public:
 
 		TElement& operator [] (int32 Index);
+		TElement operator [] (int32 Index) const;
 		int32 Length() const;
 
 	public:
@@ -106,6 +107,17 @@ namespace EasyContainer
 
 	template<typename TElement>
 	inline TElement& Array<TElement>::operator [] (int32 Index)
+	{
+		if (Index >= m_Length || Index < 0)
+		{
+			DEBUG_ERROR("Array Index Out Of Range");
+		}
+
+		return m_Datas[Index];
+	}
+
+	template<typename TElement>
+	inline TElement Array<TElement>::operator [] (int32 Index) const
 	{
 		if (Index >= m_Length || Index < 0)
 		{

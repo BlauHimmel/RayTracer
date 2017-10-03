@@ -26,12 +26,14 @@ namespace EasyContainer
 		LinkedList(int32 Capacity);
 		LinkedList(int32 Capacity, TElement Value);
 		LinkedList(ListInitializer Initializer);
-		LinkedList(LinkedList<TElement>& Other);
-		LinkedList(LinkedList<TElement>&& Other);
+		LinkedList(const LinkedList<TElement>& Other);
+		LinkedList(const LinkedList<TElement>&& Other);
 
 	public:
 
 		TElement& operator [] (int32 Index);
+		const TElement& operator [] (int32 Index) const;
+		LinkedList<TElement>& operator = (const LinkedList<TElement>& Other);
 		void Add(TElement Element);
 		void Add(const LinkedList<TElement>& Collection);
 		bool Contains(TElement Element) const;
@@ -90,17 +92,17 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline LinkedList<TElement>::LinkedList(LinkedList<TElement>& Other)
+	inline LinkedList<TElement>::LinkedList(const LinkedList<TElement>& Other)
 	{
-		m_List = std::list<TElement>(Other.m_List.size());
-		for (uint32 i = 0; i < m_Vector.size(); i++)
+		m_List = std::list<TElement>();
+		for (auto Element : Other.m_List)
 		{
-			m_List[i] = Other.m_List[i];
+			m_List.push_back(Element);
 		}
 	}
 
 	template<typename TElement>
-	inline LinkedList<TElement>::LinkedList(LinkedList<TElement>&& Other)
+	inline LinkedList<TElement>::LinkedList(const LinkedList<TElement>&& Other)
 	{
 		m_List = Other.m_List;
 	}
@@ -122,6 +124,39 @@ namespace EasyContainer
 			}
 			Iter++;
 		}
+	}
+
+	template<typename TElement>
+	inline const TElement& LinkedList<TElement>::operator [] (int32 Index) const
+	{
+		if (Index < 0 || static_cast<uint32>(Index) >= m_List.size())
+		{
+			DEBUG_ERROR("LinkedList Index Out Of Range");
+		}
+
+		auto Iter = m_List.begin();
+		for (uint32 i = 0; i < m_List.size(); i++)
+		{
+			if (i == Index)
+			{
+				return *Iter;
+			}
+			Iter++;
+		}
+	}
+
+	template<typename TElement>
+	inline LinkedList<TElement>& LinkedList<TElement>::operator = (const LinkedList<TElement>& Other)
+	{
+		if (this != &Other)
+		{
+			m_List = std::list<TElement>();
+			for (auto Element : Other.m_List)
+			{
+				m_List.push_back(Element);
+			}
+		}
+		return *this;
 	}
 
 	template<typename TElement>
@@ -161,14 +196,15 @@ namespace EasyContainer
 	template<typename TElement>
 	inline int32 LinkedList<TElement>::LastIndexOf(TElement Element) const
 	{
-		auto Iter = m_List.begin();
-		for (uint32 i = i < m_List.size() - 1; i >= 0; i--)
+		auto Iter = m_List.end();
+		Iter--;
+		for (uint32 i = m_List.size() - 1; i >= 0; i--)
 		{
 			if (*Iter == Element)
 			{
 				return static_cast<int32>(i);
 			}
-			Iter++;
+			Iter--;
 		}
 		return -1;
 	}
@@ -181,7 +217,13 @@ namespace EasyContainer
 			DEBUG_ERROR("LinkedList Index Out Of Range When Insert");
 		}
 
-		m_List.insert(m_List.begin() + Index, Element);
+		auto BeginIter = m_List.begin();
+		for (auto i = 0; i < Index; i++)
+		{
+			BeginIter ++;
+		}
+
+		m_List.insert(BeginIter, Element);
 	}
 
 	template<typename TElement>
@@ -192,7 +234,13 @@ namespace EasyContainer
 			DEBUG_ERROR("LinkedList Index Out Of Range When InsertRange");
 		}
 
-		m_List.insert(m_List.begin() + Index, Collection.m_List.begin(), Collection.m_List.end());
+		auto BeginIter = m_List.begin();
+		for (auto i = 0; i < Index; i++)
+		{
+			BeginIter++;
+		}
+
+		m_List.insert(BeginIter, Collection.m_List.begin(), Collection.m_List.end());
 	}
 
 	template<typename TElement>
@@ -210,7 +258,18 @@ namespace EasyContainer
 			DEBUG_ERROR("LinkedList Index Out Of Range When Reverse");
 		}
 
-		std::reverse(m_List.begin() + BeginIndex, m_List.begin() + EndIndex);
+		auto BeginIter = m_List.begin();
+		auto EndIter = m_List.begin();
+		for (auto i = 0; i < BeginIndex; i++)
+		{
+			BeginIter++;
+		}
+		for (auto i = 0; i < EndIndex; i++)
+		{
+			EndIter++;
+		}
+
+		std::reverse(BeginIter, EndIter);
 	}
 
 	template<typename TElement>
@@ -275,7 +334,13 @@ namespace EasyContainer
 			DEBUG_ERROR("LinkedList Index Out Of Range When RemoveAt");
 		}
 
-		m_List.erase(m_List.begin() + Index);
+		auto BeginIter = m_List.begin();
+		for (auto i = 0; i < Index; i++)
+		{
+			BeginIter++;
+		}
+
+		m_List.erase(BeginIter);
 	}
 
 	template<typename TElement>
@@ -287,7 +352,18 @@ namespace EasyContainer
 			DEBUG_ERROR("LinkedList Index Out Of Range When RemoveAt");
 		}
 
-		m_List.erase(m_List.begin() + BeginIndex, m_List.begin() + EndIndex);
+		auto BeginIter = m_List.begin();
+		auto EndIter = m_List.begin();
+		for (auto i = 0; i < BeginIndex; i++)
+		{
+			BeginIter++;
+		}
+		for (auto i = 0; i < EndIndex; i++)
+		{
+			EndIter++;
+		}
+
+		m_List.erase(BeginIter, EndIter);
 	}
 
 	template<typename TElement>

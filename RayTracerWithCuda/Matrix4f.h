@@ -46,6 +46,7 @@ namespace EasyMath
 		float& operator () (int32 Row, int32 Column);
 		float operator () (int32 Row, int32 Column) const;
 		bool operator == (const Matrix4f& Other) const;
+		bool operator != (const Matrix4f& Other) const;
 		Matrix4f operator * (const Matrix4f& Matrix); 
 		Matrix4f& operator = (const Matrix4f& Other);
 		Matrix4f& operator += (const Matrix4f& Matrix);

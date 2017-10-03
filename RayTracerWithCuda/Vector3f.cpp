@@ -4,6 +4,7 @@
 
 namespace EasyMath
 {
+
 	Vector3f::Vector3f() : m_X(0.0f), m_Y(0.0f), m_Z(0.0f)
 	{
 
@@ -81,6 +82,11 @@ namespace EasyMath
 	bool Vector3f::operator == (const Vector3f& Vector) const
 	{
 		return m_X == Vector.m_X && m_Y == Vector.m_Y && m_Z == Vector.m_Z;
+	}
+
+	bool Vector3f::operator != (const Vector3f& Vector) const
+	{
+		return m_X != Vector.m_X || m_Y != Vector.m_Y || m_Z != Vector.m_Z;
 	}
 
 	Vector3f& Vector3f::operator = (const Vector3f& Vector)

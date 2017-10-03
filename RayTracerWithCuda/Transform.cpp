@@ -1,8 +1,6 @@
 #include "stdafx.h"
 
 #include "Transform.h"
-#include "Matrix4f.h"
-#include "Vector4f.h"
 
 namespace EasyMath
 {

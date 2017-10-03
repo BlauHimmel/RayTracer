@@ -156,6 +156,21 @@ namespace EasyMath
 		return true;
 	}
 
+	bool Matrix4f::operator!=(const Matrix4f& Other) const
+	{
+		for (auto Row = 0; Row < 4; Row++)
+		{
+			for (auto Column = 0; Column < 4; Column++)
+			{
+				if (m_Data[Row][Column] != Other.m_Data[Row][Column])
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	Matrix4f Matrix4f::operator * (const Matrix4f & Matrix)
 	{
 		Matrix4f Ret;

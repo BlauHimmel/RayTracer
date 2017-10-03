@@ -35,6 +35,7 @@ namespace EasyMath
 	public:
 
 		bool operator == (const Vector3f& Vector) const;
+		bool operator != (const Vector3f& Vector) const;
 		Vector3f& operator = (const Vector3f& Vector);
 		Vector3f& operator += (const Vector3f& Vector);
 		Vector3f& operator -= (const Vector3f& Vector);

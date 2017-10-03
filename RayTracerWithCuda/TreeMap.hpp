@@ -25,23 +25,24 @@ namespace EasyContainer
 
 		TreeMap();
 		TreeMap(MapInitializer Initializer);
-		TreeMap(TreeMap<TKey, TValue>& Other);
-		TreeMap(TreeMap<TKey, TValue>&& Other);
+		TreeMap(const TreeMap<TKey, TValue>& Other);
+		TreeMap(const TreeMap<TKey, TValue>&& Other);
 
 	public:
 
-		virtual TValue& operator [] (TKey Key);
-		virtual bool Add(TKey Key, TValue Value);
-		virtual bool TryGetValue(TKey Key, TValue*& OutValuePtr);
-		virtual bool ContainsKey(TKey Key) const;
-		virtual bool Remove(TKey Key);
-		virtual int32 Size() const;
-		virtual void Clear();
+		TValue& operator [] (TKey&& Key);
+		TValue& operator [] (const TKey& Key);
+		bool Add(TKey Key, TValue Value);
+		bool TryGetValue(TKey Key, TValue*& OutValuePtr);
+		bool ContainsKey(TKey Key) const;
+		bool Remove(TKey Key);
+		int32 Size() const;
+		void Clear();
 
 	public:
 
-		virtual void ForEach(MapDelegate Delegate) const;
-		virtual void ForEach(MapDelegate Delegate, MapFilter Filter) const;
+		void ForEach(MapDelegate Delegate) const;
+		void ForEach(MapDelegate Delegate, MapFilter Filter) const;
 
 	public:
 
@@ -63,7 +64,7 @@ namespace EasyContainer
 	}
 
 	template<typename TKey, typename TValue>
-	inline TreeMap<TKey, TValue>::TreeMap(TreeMap<TKey, TValue>& Other)
+	inline TreeMap<TKey, TValue>::TreeMap(const TreeMap<TKey, TValue>& Other)
 	{
 		m_Map = std::map<TKey, TValue>();
 		for (auto Iter = m_Map.begin(); Iter != m_Map.end(); Iter++)
@@ -73,13 +74,19 @@ namespace EasyContainer
 	}
 
 	template<typename TKey, typename TValue>
-	inline TreeMap<TKey, TValue>::TreeMap(TreeMap<TKey, TValue>&& Other)
+	inline TreeMap<TKey, TValue>::TreeMap(const TreeMap<TKey, TValue>&& Other)
 	{
 		m_Map = Other.m_Map;
 	}
 
 	template<typename TKey, typename TValue>
-	inline TValue& TreeMap<TKey, TValue>::operator [] (TKey Key)
+	inline TValue& TreeMap<TKey, TValue>::operator [] (TKey&& Key)
+	{
+		return m_Map[std::forward(Key)];
+	}
+
+	template<typename TKey, typename TValue>
+	inline TValue& TreeMap<TKey, TValue>::operator[](const TKey& Key)
 	{
 		return m_Map[Key];
 	}

@@ -26,12 +26,14 @@ namespace EasyContainer
 		ArrayList(int32 Capacity);
 		ArrayList(int32 Capacity, TElement Value);
 		ArrayList(ListInitializer Initializer);
-		ArrayList(ArrayList<TElement>& Other);
-		ArrayList(ArrayList<TElement>&& Other);
+		ArrayList(const ArrayList<TElement>& Other);
+		ArrayList(const ArrayList<TElement>&& Other);
 
 	public:
 
 		TElement& operator [] (int32 Index);
+		const TElement& operator [] (int32 Index) const;
+		ArrayList<TElement>& operator = (const ArrayList<TElement>& Other);
 		void Add(TElement Element);
 		void Add(const ArrayList<TElement>& Collection);
 		bool Contains(TElement Element) const;
@@ -91,7 +93,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline ArrayList<TElement>::ArrayList(ArrayList<TElement>& Other)
+	inline ArrayList<TElement>::ArrayList(const ArrayList<TElement>& Other)
 	{
 		m_Vector = std::vector<TElement>(Other.m_Vector.size());
 		for (uint32 i = 0; i < m_Vector.size(); i++)
@@ -101,7 +103,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline ArrayList<TElement>::ArrayList(ArrayList<TElement>&& Other)
+	inline ArrayList<TElement>::ArrayList(const ArrayList<TElement>&& Other)
 	{
 		m_Vector = Other.m_Vector;
 	}
@@ -109,12 +111,37 @@ namespace EasyContainer
 	template<typename TElement>
 	inline TElement& ArrayList<TElement>::operator [] (int32 Index)
 	{
-		if (Index < 0 || static_cast<UInt32>(Index) >= m_Vector.size())
+		if (Index < 0 || static_cast<uint32>(Index) >= m_Vector.size())
 		{
 			DEBUG_ERROR("ArrayList Index Out Of Range");
 		}
 
 		return m_Vector[Index];
+	}
+
+	template<typename TElement>
+	inline const TElement& ArrayList<TElement>::operator [] (int32 Index) const
+	{
+		if (Index < 0 || static_cast<uint32>(Index) >= m_Vector.size())
+		{
+			DEBUG_ERROR("ArrayList Index Out Of Range");
+		}
+
+		return m_Vector[Index];
+	}
+
+	template<typename TElement>
+	inline ArrayList<TElement>& ArrayList<TElement>::operator = (const ArrayList<TElement>& Other)
+	{
+		if (this != &Other)
+		{
+			m_Vector = std::vector<TElement>(Other.m_Vector.size());
+			for (uint32 i = 0; i < m_Vector.size(); i++)
+			{
+				m_Vector[i] = Other.m_Vector[i];
+			}
+		}
+		return *this;
 	}
 
 	template<typename TElement>
@@ -156,7 +183,7 @@ namespace EasyContainer
 		{
 			if (m_Vector[i] == Element)
 			{
-				return static_cast<Int32>(i);
+				return static_cast<int32>(i);
 			}
 		}
 		return -1;
@@ -170,7 +197,10 @@ namespace EasyContainer
 			DEBUG_ERROR("ArrayList Index Out Of Range When Insert");
 		}
 
-		m_Vector.insert(m_Vector.begin() + Index, Element);
+		auto BeginIter = m_Vector.begin();
+		BeginIter += Index;
+
+		m_Vector.insert(BeginIter, Element);
 	}
 
 	template<typename TElement>
@@ -181,7 +211,10 @@ namespace EasyContainer
 			DEBUG_ERROR("ArrayList Index Out Of Range When InsertRange");
 		}
 
-		m_Vector.insert(m_Vector.begin() + Index, Collection.m_Vector.begin(), Collection.m_Vector.end());
+		auto BeginIter = m_Vector.begin();
+		BeginIter += Index;
+
+		m_Vector.insert(BeginIter, Collection.m_Vector.begin(), Collection.m_Vector.end());
 	}
 
 	template<typename TElement>
@@ -199,7 +232,12 @@ namespace EasyContainer
 			DEBUG_ERROR("ArrayList Index Out Of Range When Reverse");
 		}
 
-		std::reverse(m_Vector.begin() + BeginIndex, m_Vector.begin() + EndIndex);
+		auto BeginIter = m_Vector.begin();
+		auto EndIter = m_Vector.begin();
+		BeginIter += BeginIndex;
+		EndIter += EndIndex;
+
+		std::reverse(BeginIter, EndIter);
 	}
 
 	template<typename TElement>
@@ -264,7 +302,10 @@ namespace EasyContainer
 			DEBUG_ERROR("ArrayList Index Out Of Range When RemoveAt");
 		}
 
-		m_Vector.erase(m_Vector.begin() + Index);
+		auto BeginIter = m_Vector.begin();
+		BeginIter += Index;
+
+		m_Vector.erase(BeginIter);
 	}
 
 	template<typename TElement>
@@ -276,7 +317,12 @@ namespace EasyContainer
 			DEBUG_ERROR("ArrayList Index Out Of Range When RemoveAt");
 		}
 
-		m_Vector.erase(m_Vector.begin() + BeginIndex, m_Vector.begin() + EndIndex);
+		auto BeginIter = m_Vector.begin();
+		auto EndIter = m_Vector.begin();
+		BeginIter += BeginIndex;
+		EndIter += EndIndex;
+
+		m_Vector.erase(BeginIter, EndIter);
 	}
 
 	template<typename TElement>

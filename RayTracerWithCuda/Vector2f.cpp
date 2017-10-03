@@ -4,6 +4,7 @@
 
 namespace EasyMath
 {
+
 	Vector2f::Vector2f() : m_X(0.0f), m_Y(0.0f)
 	{
 
@@ -75,6 +76,11 @@ namespace EasyMath
 	bool Vector2f::operator == (const Vector2f& Vector) const
 	{
 		return m_X == Vector.m_X && m_Y == Vector.m_Y;
+	}
+
+	bool Vector2f::operator != (const Vector2f& Vector) const
+	{
+		return m_X != Vector.m_X || m_Y != Vector.m_Y;
 	}
 
 	Vector2f& Vector2f::operator = (const Vector2f& Vector)
