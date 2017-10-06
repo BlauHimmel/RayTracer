@@ -75,12 +75,6 @@ int main()
 	al2.RemoveAt(3);
 	al2.Remove(9);
 
-	EasyTools::Bitmap bit("1.bmp");
-	if (bit.IsValid())
-	{
-		bit.Save("2.bmp");
-	}
-
 	EasyContainer::Stack<int> s1;
 	EasyContainer::Stack<int> s2;
 
@@ -116,7 +110,16 @@ int main()
 	EasyContainer::ArrayList<int> all2;
 	all2 = all1;
 
-	all1[1] = 33;
+	EasyTools::Bitmap bits(100, 100);
+	EasyContainer::Array<uint8> reds(10000);
+	
+	for (auto i = 0; i < reds.Length(); i++)
+	{
+		reds[i] = 255;
+	}
+
+	bits.SetBlueChannel(reds);
+	bits.Save("Red.bmp");
 
 	return 0;
 }

@@ -150,9 +150,6 @@
     <ClInclude Include="ToolsDependency.h">
       <Filter>头文件\Tools\Dependency</Filter>
     </ClInclude>
-    <ClInclude Include="Bitmap---.h">
-      <Filter>头文件\Tools\Image</Filter>
-    </ClInclude>
     <ClInclude Include="Bitmap.h">
       <Filter>头文件\Tools\Image</Filter>
     </ClInclude>

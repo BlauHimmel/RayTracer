@@ -148,7 +148,6 @@
     <ClInclude Include="GlobalTypedef.h" />
     <ClInclude Include="HashMap.hpp" />
     <ClInclude Include="HashSet.hpp" />
-    <ClInclude Include="Bitmap---.h" />
     <ClInclude Include="LinkedList.hpp" />
     <ClInclude Include="MathDependency.h" />
     <ClInclude Include="MathFunction.hpp" />
