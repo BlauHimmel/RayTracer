@@ -53,6 +53,7 @@ namespace EasyTools
 		void SetChannels(Array<uint8>& RedArray, Array<uint8>& GreenArray, Array<uint8>& BlueArray);
 		Color GetPixel(uint8 X, uint8 Y) const;
 		void SetPixel(uint8 X, uint8 Y, const Color& Color);
+		void SetPixel(Array<Color>& ColorArray);
 		uint32 Width() const;
 		uint32 Height() const;
 		uint32 BytesPerPixel() const;

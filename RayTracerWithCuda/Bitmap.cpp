@@ -284,6 +284,25 @@ namespace EasyTools
 		m_Data[YOffset + XOffset + 1] = Color.G();
 		m_Data[YOffset + XOffset + 2] = Color.R();
 	}
+
+	void Bitmap::SetPixel(Array<Color>& ColorArray)
+	{
+		if (ColorArray.Length != m_Width * m_Height)
+		{
+			DEBUG_ERROR("The Length Of Array Does Not Equal To Pixel Number When SetChannels")
+		}
+
+		uint8* Data = m_Data.Data();
+		uint32 Index = 0;
+
+		for (auto i = 0; i < m_Data.Size(); i += 3)
+		{
+			Data[i] = ColorArray[Index].B();
+			Data[i + 1] = ColorArray[Index].G();
+			Data[i + 2] = ColorArray[Index].R();
+			Index++;
+		}
+	}
 	
 	uint32 Bitmap::Width() const
 	{
