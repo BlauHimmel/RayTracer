@@ -10,14 +10,16 @@ using namespace EasyContainer;
 namespace EasyTools
 {
 
-	enum class ChannelMode
-	{
-		RGB_MODE,
-		BGR_MODE
-	};
-
 	class Bitmap
 	{
+
+	private:
+
+		enum class ChannelMode
+		{
+			RGB_MODE,
+			BGR_MODE
+		};
 
 	private:
 
