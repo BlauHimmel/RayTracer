@@ -3,6 +3,7 @@
 #include "ToolsDependency.h"
 
 #include "ArrayList.hpp"
+#include "Array.hpp"
 #include "Color.h"
 
 using namespace EasyContainer;
@@ -15,16 +16,7 @@ namespace EasyTools
 
 	private:
 
-		enum class ChannelMode
-		{
-			RGB_MODE,
-			BGR_MODE
-		};
-
-	private:
-
 		String m_Filename;
-		ChannelMode m_ChannelMode;
 		uint32 m_Width;
 		uint32 m_Height;
 		uint32 m_RowIncrement;
@@ -40,6 +32,11 @@ namespace EasyTools
 
 	public:
 
+		Bitmap& operator = (const Bitmap& Other);
+		bool operator ! () const;
+
+	public:
+
 		bool IsValid() const;
 		uint8 GetRedChannel(uint32 X, uint32 Y) const;
 		uint8 GetGreenChannel(uint32 X, uint32 Y) const;
@@ -47,6 +44,13 @@ namespace EasyTools
 		void SetRedChannel(uint32 X, uint32 Y, uint8 Value);
 		void SetGreenChannel(uint32 X, uint32 Y, uint8 Value);
 		void SetBlueChannel(uint32 X, uint32 Y, uint8 Value);
+		Array<uint8> GetRedChannel() const;
+		Array<uint8> GetGreenChannel() const;
+		Array<uint8> GetBlueChannel() const;
+		void SetRedChannel(Array<uint8>& RedArray);
+		void SetGreenChannel(Array<uint8>& GreenArray);
+		void SetBlueChannel(Array<uint8>& BlueArray);
+		void SetChannels(Array<uint8>& RedArray, Array<uint8>& GreenArray, Array<uint8>& BlueArray);
 		Color GetPixel(uint8 X, uint8 Y) const;
 		void SetPixel(uint8 X, uint8 Y, const Color& Color);
 		uint32 Width() const;

@@ -8,7 +8,6 @@ namespace EasyTools
 
 	Bitmap::Bitmap() : 
 		m_Filename(""), 
-		m_ChannelMode(ChannelMode::BGR_MODE),
 		m_Width(0), 
 		m_Height(0), 
 		m_RowIncrement(0), 
@@ -19,7 +18,6 @@ namespace EasyTools
 
 	Bitmap::Bitmap(uint32 Width, uint32 Height) :
 		m_Filename(""),
-		m_ChannelMode(ChannelMode::BGR_MODE),
 		m_Width(Width),
 		m_Height(Height),
 		m_RowIncrement(0),
@@ -30,7 +28,6 @@ namespace EasyTools
 
 	Bitmap::Bitmap(const String& Filename) :
 		m_Filename(Filename),
-		m_ChannelMode(ChannelMode::BGR_MODE),
 		m_Width(0),
 		m_Height(0),
 		m_RowIncrement(0),
@@ -41,14 +38,37 @@ namespace EasyTools
 
 	Bitmap::Bitmap(const Bitmap& Other) :
 		m_Filename(Other.m_Filename),
-		m_ChannelMode(ChannelMode::BGR_MODE),
 		m_Width(Other.m_Width),
 		m_Height(Other.m_Height),
 		m_RowIncrement(0),
-		m_BytesPerPixel(3), 
-		m_Data(Other.m_Data)
+		m_BytesPerPixel(3)
 	{
 		CreateBitmap();
+		m_Data = Other.m_Data;
+	}
+
+	Bitmap& Bitmap::operator = (const Bitmap& Other)
+	{
+		if (this != &Other)
+		{
+			m_Filename = Other.m_Filename;
+			m_Width = Other.m_Width;
+			m_Height = Other.m_Height;
+			m_RowIncrement = Other.m_RowIncrement;
+			m_BytesPerPixel = Other.m_BytesPerPixel;
+			CreateBitmap();
+			m_Data = Other.m_Data;
+		}
+		return *this;
+	}
+
+	bool Bitmap::operator ! () const
+	{
+		return
+			m_Data.Size() == 0 ||
+			m_Width == 0 ||
+			m_Height == 0 ||
+			m_RowIncrement;
 	}
 
 	bool Bitmap::IsValid() const
@@ -62,36 +82,187 @@ namespace EasyTools
 
 	uint8 Bitmap::GetRedChannel(uint32 X, uint32 Y) const
 	{
+		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
+		{
+			DEBUG_ERROR("Invalid Coordinate When GetRedChannel")
+		}
+
 		return m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 2)];
 	}
 
 	uint8 Bitmap::GetGreenChannel(uint32 X, uint32 Y) const
 	{
+		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
+		{
+			DEBUG_ERROR("Invalid Coordinate When GetGreenChannel")
+		}
+
 		return m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 1)];
 	}
 
 	uint8 Bitmap::GetBlueChannel(uint32 X, uint32 Y) const
 	{
+		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
+		{
+			DEBUG_ERROR("Invalid Coordinate When GetBlueChannel")
+		}
+
 		return m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 0)];
 	}
 	
 	void Bitmap::SetRedChannel(uint32 X, uint32 Y, uint8 Value)
 	{
+		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
+		{
+			DEBUG_ERROR("Invalid Coordinate When SetRedChannel")
+		}
+
 		m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 2)] = Value;
 	}
 	
 	void Bitmap::SetGreenChannel(uint32 X, uint32 Y, uint8 Value)
 	{
+		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
+		{
+			DEBUG_ERROR("Invalid Coordinate When SetGreenChannel")
+		}
+
 		m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 1)] = Value;
 	}
 	
 	void Bitmap::SetBlueChannel(uint32 X, uint32 Y, uint8 Value)
 	{
+		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
+		{
+			DEBUG_ERROR("Invalid Coordinate When SetBlueChannel")
+		}
+
 		m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 0)] = Value;
+	}
+
+	Array<uint8> Bitmap::GetRedChannel() const
+	{
+		Array<uint8> RedChannels(m_Data.Size());
+		uint8* Data = m_Data.Data();
+		uint32 Index = 0;
+		
+		for (auto i = 2; i < m_Data.Size(); i += 3)
+		{
+			RedChannels[Index] = Data[i];
+			Index++;
+		}
+
+		return RedChannels;
+	}
+
+	Array<uint8> Bitmap::GetGreenChannel() const
+	{
+		Array<uint8> GreenChannels(m_Data.Size());
+		uint8* Data = m_Data.Data();
+		uint32 Index = 0;
+
+		for (auto i = 1; i < m_Data.Size(); i += 3)
+		{
+			GreenChannels[Index] = Data[i];
+			Index++;
+		}
+
+		return GreenChannels;
+	}
+
+	Array<uint8> Bitmap::GetBlueChannel() const
+	{
+		Array<uint8> BlueChannels(m_Data.Size());
+		uint8* Data = m_Data.Data();
+		uint32 Index = 0;
+
+		for (auto i = 0; i < m_Data.Size(); i += 3)
+		{
+			BlueChannels[Index] = Data[i];
+			Index++;
+		}
+
+		return BlueChannels;
+	}
+
+	void Bitmap::SetRedChannel(Array<uint8>& RedArray)
+	{
+		if (RedArray.Length != m_Width * m_Height)
+		{
+			DEBUG_ERROR("The Length Of RedArray Does Not Equal To Pixel Number When SetRedChannel")
+		}
+
+		uint8* Data = m_Data.Data();
+		uint32 Index = 0;
+
+		for (auto i = 2; i < m_Data.Size(); i += 3)
+		{
+			Data[i] = RedArray[Index];
+			Index++;
+		}
+	}
+
+	void Bitmap::SetGreenChannel(Array<uint8>& GreenArray)
+	{
+		if (GreenArray.Length != m_Width * m_Height)
+		{
+			DEBUG_ERROR("The Length Of RedArray Does Not Equal To Pixel Number When SetGreenChannel")
+		}
+
+		uint8* Data = m_Data.Data();
+		uint32 Index = 0;
+
+		for (auto i = 1; i < m_Data.Size(); i += 3)
+		{
+			Data[i] = GreenArray[Index];
+			Index++;
+		}
+	}
+
+	void Bitmap::SetBlueChannel(Array<uint8>& BlueArray)
+	{
+		if (BlueArray.Length != m_Width * m_Height)
+		{
+			DEBUG_ERROR("The Length Of RedArray Does Not Equal To Pixel Number When SetBlueChannel")
+		}
+
+		uint8* Data = m_Data.Data();
+		uint32 Index = 0;
+
+		for (auto i = 0; i < m_Data.Size(); i += 3)
+		{
+			Data[i] = BlueArray[Index];
+			Index++;
+		}
+	}
+
+	void Bitmap::SetChannels(Array<uint8>& RedArray, Array<uint8>& GreenArray, Array<uint8>& BlueArray)
+	{
+		uint32 PixelCounts = m_Width * m_Height;
+		if (RedArray.Length != PixelCounts || GreenArray.Length != PixelCounts || BlueArray.Length != PixelCounts)
+		{
+			DEBUG_ERROR("The Length Of Array Does Not Equal To Pixel Number When SetChannels")
+		}
+
+		uint8* Data = m_Data.Data();
+		uint32 Index = 0;
+
+		for (auto i = 0; i < m_Data.Size(); i += 3)
+		{
+			Data[i] = BlueArray[Index];
+			Data[i + 1] = GreenArray[Index];
+			Data[i + 2] = RedArray[Index];
+			Index++;
+		}
 	}
 	
 	Color Bitmap::GetPixel(uint8 X, uint8 Y) const
 	{
+		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
+		{
+			DEBUG_ERROR("Invalid Coordinate When GetPixel")
+		}
+
 		uint32 YOffset = Y * m_RowIncrement;
 		uint32 XOffset = X * m_BytesPerPixel;
 		uint8 B = m_Data[YOffset + XOffset + 0];
@@ -102,6 +273,11 @@ namespace EasyTools
 	
 	void Bitmap::SetPixel(uint8 X, uint8 Y, const Color& Color)
 	{
+		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
+		{
+			DEBUG_ERROR("Invalid Coordinate When SetPixel")
+		}
+
 		uint32 YOffset = Y * m_RowIncrement;
 		uint32 XOffset = X * m_BytesPerPixel;
 		m_Data[YOffset + XOffset + 0] = Color.B();
