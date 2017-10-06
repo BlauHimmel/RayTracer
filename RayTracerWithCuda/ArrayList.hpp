@@ -46,6 +46,7 @@ namespace EasyContainer
 		void RemoveAt(int32 Index);
 		void RemoveAt(int32 BeginIndex, int32 EndIndex);
 		void CopyTo(TElement* Array) const;
+		TElement* Data() const;
 		void Resize(int32 Size);
 		void Resize(int32 Size, TElement Value);
 		void Sort();
@@ -299,6 +300,12 @@ namespace EasyContainer
 		{
 			Array[i] = m_Vector[i];
 		}
+	}
+
+	template<typename TElement>
+	inline TElement* ArrayList<TElement>::Data() const
+	{
+		return const_cast<TElement*>(m_Vector.data());
 	}
 
 	template<typename TElement>
