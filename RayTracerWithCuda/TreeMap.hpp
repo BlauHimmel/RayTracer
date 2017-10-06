@@ -43,8 +43,8 @@ namespace EasyContainer
 
 	public:
 
-		decltype(auto) begin();
-		decltype(auto) end();
+		decltype(auto) begin() const;
+		decltype(auto) end() const;
 
 	};
 
@@ -134,13 +134,13 @@ namespace EasyContainer
 	}
 
 	template<typename TKey, typename TValue>
-	inline decltype(auto) TreeMap<TKey, TValue>::begin()
+	inline decltype(auto) TreeMap<TKey, TValue>::begin() const
 	{
 		m_Map.begin();
 	}
 
 	template<typename TKey, typename TValue>
-	inline decltype(auto) TreeMap<TKey, TValue>::end()
+	inline decltype(auto) TreeMap<TKey, TValue>::end() const
 	{
 		m_Map.end();
 	}

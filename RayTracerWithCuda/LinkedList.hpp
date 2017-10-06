@@ -59,8 +59,8 @@ namespace EasyContainer
 
 	public:
 
-		decltype(auto) begin();
-		decltype(auto) end();
+		decltype(auto) begin() const;
+		decltype(auto) end() const;
 
 	};
 
@@ -396,13 +396,13 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline decltype(auto) LinkedList<TElement>::begin()
+	inline decltype(auto) LinkedList<TElement>::begin() const
 	{
 		m_List.begin();
 	}
 
 	template<typename TElement>
-	inline decltype(auto) LinkedList<TElement>::end()
+	inline decltype(auto) LinkedList<TElement>::end() const
 	{
 		m_List.end();
 	}

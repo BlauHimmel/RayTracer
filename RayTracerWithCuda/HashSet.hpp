@@ -45,8 +45,9 @@ namespace EasyContainer
 
 	public:
 
-		decltype(auto) begin();
-		decltype(auto) end();
+		decltype(auto) begin() const;
+		decltype(auto) end() const;
+
 	};
 
 	template<typename TElement>
@@ -172,13 +173,13 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline decltype(auto) HashSet<TElement>::begin()
+	inline decltype(auto) HashSet<TElement>::begin() const
 	{
 		m_Set.begin();
 	}
 
 	template<typename TElement>
-	inline decltype(auto) HashSet<TElement>::end()
+	inline decltype(auto) HashSet<TElement>::end() const
 	{
 		m_Set.end();
 	}

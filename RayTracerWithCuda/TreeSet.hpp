@@ -45,8 +45,8 @@ namespace EasyContainer
 
 	public:
 
-		decltype(auto) begin();
-		decltype(auto) end();
+		decltype(auto) begin() const;
+		decltype(auto) end() const;
 
 	};
 
@@ -173,13 +173,13 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline decltype(auto) TreeSet<TElement>::begin()
+	inline decltype(auto) TreeSet<TElement>::begin() const
 	{
 		m_Set.begin();
 	}
 
 	template<typename TElement>
-	inline decltype(auto) TreeSet<TElement>::end()
+	inline decltype(auto) TreeSet<TElement>::end() const
 	{
 		m_Set.end();
 	}

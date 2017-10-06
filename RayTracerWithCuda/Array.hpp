@@ -35,8 +35,8 @@ namespace EasyContainer
 
 	public:
 
-		decltype(auto) begin();
-		decltype(auto) end();
+		decltype(auto) begin() const;
+		decltype(auto) end() const;
 
 	};
 
@@ -134,13 +134,13 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline decltype(auto) Array<TElement>::begin()
+	inline decltype(auto) Array<TElement>::begin() const
 	{
 		return m_Datas;
 	}
 
 	template<typename TElement>
-	inline decltype(auto) Array<TElement>::end()
+	inline decltype(auto) Array<TElement>::end() const
 	{
 		return m_Datas + m_Length;
 	}
