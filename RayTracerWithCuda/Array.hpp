@@ -92,7 +92,7 @@ namespace EasyContainer
 	{
 		m_Datas = new TElement[Other.m_Length];
 		m_Length = Other.m_Length;
-		for (Int32 i = 0; i < m_Length; i++)
+		for (int32 i = 0; i < m_Length; i++)
 		{
 			m_Datas[i] = Other.m_Datas[i];
 		}
@@ -142,6 +142,6 @@ namespace EasyContainer
 	template<typename TElement>
 	inline decltype(auto) Array<TElement>::end() const
 	{
-		return m_Datas + m_Length;
+		return &m_Datas[m_Length - 1];
 	}
 }
