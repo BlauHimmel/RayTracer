@@ -2,7 +2,6 @@
 
 #include "Bitmap.h"
 
-
 namespace EasyTools
 {
 
