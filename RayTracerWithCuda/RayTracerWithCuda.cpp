@@ -15,14 +15,16 @@
 #include "TreeSet.hpp"
 #include "MathFunction.hpp"
 #include "Bitmap.h"
+#include "Window.h"
 
 int main()
 {
 	EasyMath::Matrix4f m(1.0f, 1.1f, 1.2f, 1.3f, 1.41122341121111f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2.0f, 2.1f, 2.2f, 2.3f, 2.4f, 2.5f);
 	EasyMath::Vector2f v2;
+	EasyMath::Vector2f v22;
 	EasyMath::Vector3f v3;
 	EasyMath::Vector4f v4(1.222f, 2.556f, 8.13f, 0.1111111564f);
-	
+
 	EasyContainer::Array<int> a(4);
 	EasyContainer::ArrayList<int> al = { 1,2,3,4 };
 	EasyContainer::LinkedList<int> ll = { 1,2,3,4 };
@@ -34,11 +36,6 @@ int main()
 	EasyContainer::HashMap<int, int> hm;
 	EasyContainer::TreeSet<int> ts;
 	EasyContainer::HashSet<int> hs;
-
-	std::cout << v2 << std::endl;
-	std::cout << v3 << std::endl;
-	std::cout << v4 << std::endl;
-	std::cout << m << std::endl;
 
 	EasyContainer::LinkedList<int> ll2 = ll;
 	ll2.Reverse();
@@ -63,7 +60,7 @@ int main()
 	al2.Contains(9);
 	al2.Contains(9);
 	EasyContainer::ArrayList<int>tmp2 = al2.Find(
-		LIST_FILTER
+	LIST_FILTER
 	{
 		return Element % 2 == 0;
 	}
@@ -110,16 +107,43 @@ int main()
 	EasyContainer::ArrayList<int> all2;
 	all2 = all1;
 
-	EasyTools::Bitmap bits(100, 100);
-	EasyContainer::Array<uint8> reds(10000);
-	
+	EasyTools::Bitmap bits(200, 200);
+	EasyContainer::Array<uint8> reds(40000);
+
 	for (auto i = 0; i < reds.Length(); i++)
 	{
-		reds[i] = 255;
+		if (i < 100)
+			reds[i] = 255;
+		else
+			reds[i] = 125;
 	}
 
 	bits.SetBlueChannel(reds);
 	bits.Save("Red.bmp");
 
+	EasyContainer::Array<EasyTools::Color> reds2(40000);
+
+	EasyTools::Color c1 = EasyTools::Color(255, 0, 0);
+	EasyTools::Color c2 = EasyTools::Color(125, 0, 0);
+
+	for (int i = 0; i < 40000; i++)
+	{
+		if (i < 100)
+			reds2[i] = c1;
+		else
+			reds2[i] = c2;
+	}
+
+	std::function<void(String&)> Callback = [](String& String)
+	{
+		PRINTF("Cmd : %s\n", String.c_str());
+	};
+
+	WINDOW_CREATE(200, 200, "≤‚ ‘Test", "Output");
+	WINDOW_MAINLOOP_BEGIN(Callback)
+		WINDOW_UPDATE_PIXELS(reds2);
+		WINDOW_UPDATE_FLAG(false);
+	WINDOW_MAINLOOP_END()
+		
 	return 0;
 }

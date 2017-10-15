@@ -7,5 +7,7 @@
 #include <string.h>
 #include <exception>
 #include <functional>
+#include <thread>
+#include <future>
 
 #include "GlobalTypedef.h"

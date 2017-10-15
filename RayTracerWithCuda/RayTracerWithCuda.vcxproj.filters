@@ -67,6 +67,12 @@
     <Filter Include="源文件\Tools\Image">
       <UniqueIdentifier>{5ac1c77e-3cbf-49bb-ac0d-d3751b855166}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Tools\UI">
+      <UniqueIdentifier>{648aa3ad-fadc-4c7a-903e-4d9113d0316f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Tools\UI">
+      <UniqueIdentifier>{53b7e185-32d4-4f8f-98ac-7125d41f1f79}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -156,6 +162,12 @@
     <ClInclude Include="Color.h">
       <Filter>头文件\Tools\Image</Filter>
     </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>头文件\Tools\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolsMacro.h">
+      <Filter>头文件\Tools\Dependency</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -184,6 +196,9 @@
     </ClCompile>
     <ClCompile Include="Color.cpp">
       <Filter>源文件\Tools\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>源文件\Tools\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
