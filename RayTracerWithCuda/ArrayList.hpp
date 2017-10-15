@@ -13,8 +13,8 @@ namespace EasyContainer
 	public:
 
 		using ListInitializer = std::initializer_list<TElement>;
-		using ListDelegate = std::function<void(TElement)>;
-		using ListFilter = std::function<bool(TElement)>;
+		using ListDelegate = std::function<void(TElement&)>;
+		using ListFilter = std::function<bool(TElement&)>;
 
 	private:
 
@@ -67,31 +67,31 @@ namespace EasyContainer
 	};
 
 	template<typename TElement>
-	inline ArrayList<TElement>::ArrayList() : m_Vector()
+	INLINE ArrayList<TElement>::ArrayList() : m_Vector()
 	{
 	
 	}
 
 	template<typename TElement>
-	inline ArrayList<TElement>::ArrayList(int32 Capacity) : m_Vector(Capacity)
+	INLINE ArrayList<TElement>::ArrayList(int32 Capacity) : m_Vector(Capacity)
 	{
 	
 	}
 
 	template<typename TElement>
-	inline ArrayList<TElement>::ArrayList(int32 Capacity, TElement Value) : m_Vector(Capacity, Value)
+	INLINE ArrayList<TElement>::ArrayList(int32 Capacity, TElement Value) : m_Vector(Capacity, Value)
 	{
 	
 	}
 
 	template<typename TElement>
-	inline ArrayList<TElement>::ArrayList(ListInitializer Initializer) : m_Vector(Initializer)
+	INLINE ArrayList<TElement>::ArrayList(ListInitializer Initializer) : m_Vector(Initializer)
 	{
 	
 	}
 
 	template<typename TElement>
-	inline TElement& ArrayList<TElement>::operator [] (int32 Index)
+	INLINE TElement& ArrayList<TElement>::operator [] (int32 Index)
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_Vector.size())
 		{
@@ -102,7 +102,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline const TElement& ArrayList<TElement>::operator [] (int32 Index) const
+	INLINE const TElement& ArrayList<TElement>::operator [] (int32 Index) const
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_Vector.size())
 		{
@@ -113,26 +113,26 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::Add(TElement Element)
+	INLINE void ArrayList<TElement>::Add(TElement Element)
 	{
 		m_Vector.push_back(Element);
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::Add(const ArrayList<TElement>& Collection)
+	INLINE void ArrayList<TElement>::Add(const ArrayList<TElement>& Collection)
 	{
 		m_Vector.insert(m_Vector.end(), Collection.m_Vector.begin(), Collection.m_Vector.end());
 	}
 
 	template<typename TElement>
-	inline bool ArrayList<TElement>::Contains(TElement Element) const
+	INLINE bool ArrayList<TElement>::Contains(TElement Element) const
 	{
 		auto Iter = std::find(m_Vector.begin(), m_Vector.end(), Element);
 		return Iter != m_Vector.end();
 	}
 
 	template<typename TElement>
-	inline int32 ArrayList<TElement>::IndexOf(TElement Element) const
+	INLINE int32 ArrayList<TElement>::IndexOf(TElement Element) const
 	{
 		for (UInt32 i = 0; i < m_Vector.size(); i++)
 		{
@@ -145,7 +145,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline int32 ArrayList<TElement>::LastIndexOf(TElement Element) const
+	INLINE int32 ArrayList<TElement>::LastIndexOf(TElement Element) const
 	{
 		for (uint32 i = m_Vector.size() - 1; i >= 0; i--)
 		{
@@ -158,7 +158,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::Insert(int32 Index, TElement Element)
+	INLINE void ArrayList<TElement>::Insert(int32 Index, TElement Element)
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_Vector.size())
 		{
@@ -172,7 +172,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::InsertRange(int32 Index, ArrayList<TElement> Collection)
+	INLINE void ArrayList<TElement>::InsertRange(int32 Index, ArrayList<TElement> Collection)
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_Vector.size())
 		{
@@ -186,13 +186,13 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::Reverse()
+	INLINE void ArrayList<TElement>::Reverse()
 	{
 		std::reverse(m_Vector.begin(), m_Vector.end());
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::Reverse(int32 BeginIndex, int32 EndIndex)
+	INLINE void ArrayList<TElement>::Reverse(int32 BeginIndex, int32 EndIndex)
 	{
 		if (BeginIndex < 0 || static_cast<uint32>(BeginIndex) >= m_Vector.size() ||
 			EndIndex < 0 || static_cast<uint32>(EndIndex) >= m_Vector.size())
@@ -209,7 +209,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline ArrayList<TElement> ArrayList<TElement>::Find(ListFilter Filter) const
+	INLINE ArrayList<TElement> ArrayList<TElement>::Find(ListFilter Filter) const
 	{
 		ArrayList<TElement> Result;
 		for (auto Item : m_Vector)
@@ -223,7 +223,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline int32 ArrayList<TElement>::Remove(TElement Element)
+	INLINE int32 ArrayList<TElement>::Remove(TElement Element)
 	{
 		int32 RemoveCount = 0;
 		auto Iter = m_Vector.begin();
@@ -243,7 +243,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline int32 ArrayList<TElement>::Remove(ListFilter Filter)
+	INLINE int32 ArrayList<TElement>::Remove(ListFilter Filter)
 	{
 		int32 RemoveCount = 0;
 		auto Iter = m_Vector.begin();
@@ -263,7 +263,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::RemoveAt(int32 Index)
+	INLINE void ArrayList<TElement>::RemoveAt(int32 Index)
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_Vector.size())
 		{
@@ -277,7 +277,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::RemoveAt(int32 BeginIndex, int32 EndIndex)
+	INLINE void ArrayList<TElement>::RemoveAt(int32 BeginIndex, int32 EndIndex)
 	{
 		if (BeginIndex < 0 || static_cast<uint32>(BeginIndex) >= m_Vector.size() ||
 			EndIndex < 0 || static_cast<uint32>(EndIndex) >= m_Vector.size())
@@ -294,7 +294,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::CopyTo(TElement* Array) const
+	INLINE void ArrayList<TElement>::CopyTo(TElement* Array) const
 	{
 		for (uint32 i = 0; i < m_Vector.size(); i++)
 		{
@@ -303,49 +303,49 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline TElement* ArrayList<TElement>::Data() const
+	INLINE TElement* ArrayList<TElement>::Data() const
 	{
 		return const_cast<TElement*>(m_Vector.data());
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::Resize(int32 Size)
+	INLINE void ArrayList<TElement>::Resize(int32 Size)
 	{
 		m_Vector.resize(Size);
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::Resize(int32 Size, TElement Value)
+	INLINE void ArrayList<TElement>::Resize(int32 Size, TElement Value)
 	{
 		m_Vector.resize(Size, Value);
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::Sort()
+	INLINE void ArrayList<TElement>::Sort()
 	{
 		std::sort(m_Vector.begin(), m_Vector.end());
 	}
 
 	template<typename TElement>
-	inline int32 ArrayList<TElement>::Size() const
+	INLINE int32 ArrayList<TElement>::Size() const
 	{
 		return m_Vector.size();
 	}
 
 	template<typename TElement>
-	inline int32 ArrayList<TElement>::Capacity() const
+	INLINE int32 ArrayList<TElement>::Capacity() const
 	{
 		return m_Vector.capacity();
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::Clear()
+	INLINE void ArrayList<TElement>::Clear()
 	{
 		m_Vector.clear();
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::ForEach(ListDelegate Delegate) const
+	INLINE void ArrayList<TElement>::ForEach(ListDelegate Delegate) const
 	{
 		for (auto Item : m_Vector)
 		{
@@ -354,7 +354,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void ArrayList<TElement>::ForEach(ListDelegate Delegate, ListFilter Filter) const
+	INLINE void ArrayList<TElement>::ForEach(ListDelegate Delegate, ListFilter Filter) const
 	{
 		for (auto Item : m_Vector)
 		{
@@ -366,13 +366,13 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline decltype(auto) ArrayList<TElement>::begin() const
+	INLINE decltype(auto) ArrayList<TElement>::begin() const
 	{
 		return m_Vector.begin();
 	}
 
 	template<typename TElement>
-	inline decltype(auto) ArrayList<TElement>::end() const
+	INLINE decltype(auto) ArrayList<TElement>::end() const
 	{
 		return m_Vector.end();
 	}

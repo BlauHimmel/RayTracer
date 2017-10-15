@@ -13,8 +13,8 @@ namespace EasyContainer
 	public:
 
 		using ListInitializer = std::initializer_list<TElement>;
-		using ListDelegate = std::function<void(TElement)>;
-		using ListFilter = std::function<bool(TElement)>;
+		using ListDelegate = std::function<void(TElement&)>;
+		using ListFilter = std::function<bool(TElement&)>;
 
 	private:
 
@@ -65,31 +65,31 @@ namespace EasyContainer
 	};
 
 	template<typename TElement>
-	inline LinkedList<TElement>::LinkedList() : m_List()
+	INLINE LinkedList<TElement>::LinkedList() : m_List()
 	{
 	
 	}
 
 	template<typename TElement>
-	inline LinkedList<TElement>::LinkedList(int32 Capacity) : m_List(Capacity)
+	INLINE LinkedList<TElement>::LinkedList(int32 Capacity) : m_List(Capacity)
 	{
 	
 	}
 
 	template<typename TElement>
-	inline LinkedList<TElement>::LinkedList(int32 Capacity, TElement Value) : m_List(Capacity, Value)
+	INLINE LinkedList<TElement>::LinkedList(int32 Capacity, TElement Value) : m_List(Capacity, Value)
 	{
 	
 	}
 
 	template<typename TElement>
-	inline LinkedList<TElement>::LinkedList(ListInitializer Initializer) : m_List(Initializer)
+	INLINE LinkedList<TElement>::LinkedList(ListInitializer Initializer) : m_List(Initializer)
 	{
 	
 	}
 
 	template<typename TElement>
-	inline TElement& LinkedList<TElement>::operator [] (int32 Index)
+	INLINE TElement& LinkedList<TElement>::operator [] (int32 Index)
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_List.size())
 		{
@@ -108,7 +108,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline const TElement& LinkedList<TElement>::operator [] (int32 Index) const
+	INLINE const TElement& LinkedList<TElement>::operator [] (int32 Index) const
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_List.size())
 		{
@@ -127,26 +127,26 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::Add(TElement Element)
+	INLINE void LinkedList<TElement>::Add(TElement Element)
 	{
 		m_List.push_back(Element);
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::Add(const LinkedList<TElement>& Collection)
+	INLINE void LinkedList<TElement>::Add(const LinkedList<TElement>& Collection)
 	{
 		m_List.insert(m_List.end(), Collection.m_List.begin(), Collection.m_List.end());
 	}
 
 	template<typename TElement>
-	inline bool LinkedList<TElement>::Contains(TElement Element) const
+	INLINE bool LinkedList<TElement>::Contains(TElement Element) const
 	{
 		auto Iter = std::find(m_List.begin(), m_List.end(), Element);
 		return Iter != m_List.end();
 	}
 
 	template<typename TElement>
-	inline int32 LinkedList<TElement>::IndexOf(TElement Element) const
+	INLINE int32 LinkedList<TElement>::IndexOf(TElement Element) const
 	{
 		auto Iter = m_List.begin();
 		for (uint32 i = 0; i < m_List.size(); i++)
@@ -161,7 +161,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline int32 LinkedList<TElement>::LastIndexOf(TElement Element) const
+	INLINE int32 LinkedList<TElement>::LastIndexOf(TElement Element) const
 	{
 		auto Iter = m_List.end();
 		Iter--;
@@ -177,7 +177,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::Insert(int32 Index, TElement Element)
+	INLINE void LinkedList<TElement>::Insert(int32 Index, TElement Element)
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_List.size())
 		{
@@ -194,7 +194,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::InsertRange(int32 Index, const LinkedList<TElement>& Collection)
+	INLINE void LinkedList<TElement>::InsertRange(int32 Index, const LinkedList<TElement>& Collection)
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_List.size())
 		{
@@ -211,13 +211,13 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::Reverse()
+	INLINE void LinkedList<TElement>::Reverse()
 	{
 		std::reverse(m_List.begin(), m_List.end());
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::Reverse(int32 BeginIndex, int32 EndIndex)
+	INLINE void LinkedList<TElement>::Reverse(int32 BeginIndex, int32 EndIndex)
 	{
 		if (BeginIndex < 0 || static_cast<uint32>(BeginIndex) >= m_List.size() ||
 			EndIndex < 0 || static_cast<uint32>(EndIndex) >= m_List.size())
@@ -240,7 +240,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline LinkedList<TElement> LinkedList<TElement>::Find(ListFilter Filter) const
+	INLINE LinkedList<TElement> LinkedList<TElement>::Find(ListFilter Filter) const
 	{
 		LinkedList<TElement> Result;
 		for (auto Item : m_List)
@@ -254,7 +254,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline int32 LinkedList<TElement>::Remove(TElement Element)
+	INLINE int32 LinkedList<TElement>::Remove(TElement Element)
 	{
 		int32 RemoveCount = 0;
 		auto Iter = m_List.begin();
@@ -274,7 +274,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline int32 LinkedList<TElement>::Remove(ListFilter Filter)
+	INLINE int32 LinkedList<TElement>::Remove(ListFilter Filter)
 	{
 		int32 RemoveCount = 0;
 		auto Iter = m_List.begin();
@@ -294,7 +294,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::RemoveAt(int32 Index)
+	INLINE void LinkedList<TElement>::RemoveAt(int32 Index)
 	{
 		if (Index < 0 || static_cast<uint32>(Index) >= m_List.size())
 		{
@@ -311,7 +311,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::RemoveAt(int32 BeginIndex, int32 EndIndex)
+	INLINE void LinkedList<TElement>::RemoveAt(int32 BeginIndex, int32 EndIndex)
 	{
 		if (BeginIndex < 0 || static_cast<uint32>(BeginIndex) >= m_List.size() ||
 			EndIndex < 0 || static_cast<uint32>(EndIndex) >= m_List.size())
@@ -334,7 +334,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::CopyTo(TElement* Array) const
+	INLINE void LinkedList<TElement>::CopyTo(TElement* Array) const
 	{
 		auto Iter = m_List.begin();
 		for (uint32 i = 0; i < m_List.size(); i++)
@@ -345,37 +345,37 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::Resize(int32 Size)
+	INLINE void LinkedList<TElement>::Resize(int32 Size)
 	{
 		m_List.resize(Size);
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::Resize(int32 Size, TElement Value)
+	INLINE void LinkedList<TElement>::Resize(int32 Size, TElement Value)
 	{
 		m_List.resize(Size, Value);
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::Sort()
+	INLINE void LinkedList<TElement>::Sort()
 	{
 		m_List.sort();
 	}
 
 	template<typename TElement>
-	inline int32 LinkedList<TElement>::Size() const
+	INLINE int32 LinkedList<TElement>::Size() const
 	{
 		return m_List.size();
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::Clear()
+	INLINE void LinkedList<TElement>::Clear()
 	{
 		m_List.clear();
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::ForEach(ListDelegate Delegate) const
+	INLINE void LinkedList<TElement>::ForEach(ListDelegate Delegate) const
 	{
 		for (auto Item : m_List)
 		{
@@ -384,7 +384,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void LinkedList<TElement>::ForEach(ListDelegate Delegate, ListFilter Filter) const
+	INLINE void LinkedList<TElement>::ForEach(ListDelegate Delegate, ListFilter Filter) const
 	{
 		for (auto Item : m_List)
 		{
@@ -396,13 +396,13 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline decltype(auto) LinkedList<TElement>::begin() const
+	INLINE decltype(auto) LinkedList<TElement>::begin() const
 	{
 		m_List.begin();
 	}
 
 	template<typename TElement>
-	inline decltype(auto) LinkedList<TElement>::end() const
+	INLINE decltype(auto) LinkedList<TElement>::end() const
 	{
 		m_List.end();
 	}

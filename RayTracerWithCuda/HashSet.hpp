@@ -13,8 +13,8 @@ namespace EasyContainer
 	public:
 
 		using SetInitializer = std::initializer_list<TElement>;
-		using SetDelegate = std::function<void(TElement)>;
-		using SetFilter = std::function<bool(TElement)>;
+		using SetDelegate = std::function<void(TElement&)>;
+		using SetFilter = std::function<bool(TElement&)>;
 
 	private:
 
@@ -51,43 +51,43 @@ namespace EasyContainer
 	};
 
 	template<typename TElement>
-	inline HashSet<TElement>::HashSet() : m_Set()
+	INLINE HashSet<TElement>::HashSet() : m_Set()
 	{
 	
 	}
 
 	template<typename TElement>
-	inline HashSet<TElement>::HashSet(SetInitializer Initializer) : m_Set(Initializer)
+	INLINE HashSet<TElement>::HashSet(SetInitializer Initializer) : m_Set(Initializer)
 	{
 	
 	}
 
 	template<typename TElement>
-	inline bool HashSet<TElement>::Add(TElement Element)
+	INLINE bool HashSet<TElement>::Add(TElement Element)
 	{
 		return m_Set.insert(Element);
 	}
 
 	template<typename TElement>
-	inline void HashSet<TElement>::Clear()
+	INLINE void HashSet<TElement>::Clear()
 	{
 		m_Set.clear();
 	}
 
 	template<typename TElement>
-	inline bool HashSet<TElement>::Contains(TElement Element) const
+	INLINE bool HashSet<TElement>::Contains(TElement Element) const
 	{
 		return m_Set.count(Element) > 0;
 	}
 
 	template<typename TElement>
-	inline bool HashSet<TElement>::Remove(TElement Element)
+	INLINE bool HashSet<TElement>::Remove(TElement Element)
 	{
 		return m_Set.erase(Element) > 0;
 	}
 
 	template<typename TElement>
-	inline int32 HashSet<TElement>::Remove(SetFilter Filter)
+	INLINE int32 HashSet<TElement>::Remove(SetFilter Filter)
 	{
 		int32 RemoveCount = 0;
 		auto Iter = m_Set.begin();
@@ -107,7 +107,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void HashSet<TElement>::CopyTo(TElement* Array) const
+	INLINE void HashSet<TElement>::CopyTo(TElement* Array) const
 	{
 		for (uint32 i = 0; i < m_Set.size(); i++)
 		{
@@ -116,7 +116,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline HashSet<TElement> HashSet<TElement>::Intersect(const HashSet<TElement>& OtherSet) const
+	INLINE HashSet<TElement> HashSet<TElement>::Intersect(const HashSet<TElement>& OtherSet) const
 	{
 		HashSet<TElement> Result;
 		std::set_intersection(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
@@ -125,7 +125,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline HashSet<TElement> HashSet<TElement>::Union(const HashSet<TElement>& OtherSet) const
+	INLINE HashSet<TElement> HashSet<TElement>::Union(const HashSet<TElement>& OtherSet) const
 	{
 		HashSet<TElement> Result;
 		std::set_union(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
@@ -134,7 +134,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline HashSet<TElement> HashSet<TElement>::Difference(const HashSet<TElement>& OtherSet) const
+	INLINE HashSet<TElement> HashSet<TElement>::Difference(const HashSet<TElement>& OtherSet) const
 	{
 		HashSet<TElement> Result;
 		std::set_difference(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
@@ -143,7 +143,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline HashSet<TElement> HashSet<TElement>::SymmetricDifference(const HashSet<TElement>& OtherSet) const
+	INLINE HashSet<TElement> HashSet<TElement>::SymmetricDifference(const HashSet<TElement>& OtherSet) const
 	{
 		HashSet<TElement> Result;
 		std::set_symmetric_difference(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
@@ -152,7 +152,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void HashSet<TElement>::ForEach(SetDelegate Delegate) const
+	INLINE void HashSet<TElement>::ForEach(SetDelegate Delegate) const
 	{
 		for (auto Item : m_Set)
 		{
@@ -161,7 +161,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline void HashSet<TElement>::ForEach(SetDelegate Delegate, SetFilter Filter) const
+	INLINE void HashSet<TElement>::ForEach(SetDelegate Delegate, SetFilter Filter) const
 	{
 		for (auto Item : m_Set)
 		{
@@ -173,13 +173,13 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline decltype(auto) HashSet<TElement>::begin() const
+	INLINE decltype(auto) HashSet<TElement>::begin() const
 	{
 		m_Set.begin();
 	}
 
 	template<typename TElement>
-	inline decltype(auto) HashSet<TElement>::end() const
+	INLINE decltype(auto) HashSet<TElement>::end() const
 	{
 		m_Set.end();
 	}

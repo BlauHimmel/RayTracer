@@ -29,37 +29,37 @@ namespace EasyContainer
 	};
 
 	template<typename TElement>
-	inline Queue<TElement>::Queue() : m_Queue()
+	INLINE Queue<TElement>::Queue() : m_Queue()
 	{
 	
 	}
 
 	template<typename TElement>
-	inline void Queue<TElement>::Push(TElement Element)
+	INLINE void Queue<TElement>::Push(TElement Element)
 	{
 		m_Queue.push(Element);
 	}
 
 	template<typename TElement>
-	inline void Queue<TElement>::Pop()
+	INLINE void Queue<TElement>::Pop()
 	{
 		m_Queue.pop();
 	}
 
 	template<typename TElement>
-	inline TElement Queue<TElement>::Front()
+	INLINE TElement Queue<TElement>::Front()
 	{
 		return m_Queue.front();
 	}
 
 	template<typename TElement>
-	inline int32 Queue<TElement>::Size() const
+	INLINE int32 Queue<TElement>::Size() const
 	{
 		return m_Queue.size();
 	}
 
 	template<typename TElement>
-	inline bool Queue<TElement>::Empty() const
+	INLINE bool Queue<TElement>::Empty() const
 	{
 		return m_Queue.empty();
 	}

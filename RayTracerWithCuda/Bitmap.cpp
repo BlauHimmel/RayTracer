@@ -83,7 +83,7 @@ namespace EasyTools
 	{
 		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
 		{
-			DEBUG_ERROR("Invalid Coordinate When GetRedChannel")
+			DEBUG_ERROR("Invalid Coordinate When GetRedChannel");
 		}
 
 		return m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 2)];
@@ -93,7 +93,7 @@ namespace EasyTools
 	{
 		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
 		{
-			DEBUG_ERROR("Invalid Coordinate When GetGreenChannel")
+			DEBUG_ERROR("Invalid Coordinate When GetGreenChannel");
 		}
 
 		return m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 1)];
@@ -103,7 +103,7 @@ namespace EasyTools
 	{
 		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
 		{
-			DEBUG_ERROR("Invalid Coordinate When GetBlueChannel")
+			DEBUG_ERROR("Invalid Coordinate When GetBlueChannel");
 		}
 
 		return m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 0)];
@@ -113,7 +113,7 @@ namespace EasyTools
 	{
 		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
 		{
-			DEBUG_ERROR("Invalid Coordinate When SetRedChannel")
+			DEBUG_ERROR("Invalid Coordinate When SetRedChannel");
 		}
 
 		m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 2)] = Value;
@@ -123,7 +123,7 @@ namespace EasyTools
 	{
 		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
 		{
-			DEBUG_ERROR("Invalid Coordinate When SetGreenChannel")
+			DEBUG_ERROR("Invalid Coordinate When SetGreenChannel");
 		}
 
 		m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 1)] = Value;
@@ -133,15 +133,15 @@ namespace EasyTools
 	{
 		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
 		{
-			DEBUG_ERROR("Invalid Coordinate When SetBlueChannel")
+			DEBUG_ERROR("Invalid Coordinate When SetBlueChannel");
 		}
 
 		m_Data[static_cast<int32>(Y * m_RowIncrement + X * m_BytesPerPixel + 0)] = Value;
 	}
 
-	Array<uint8> Bitmap::GetRedChannel() const
+	EasyContainer::Array<uint8> Bitmap::GetRedChannel() const
 	{
-		Array<uint8> RedChannels(m_Data.Size());
+		EasyContainer::Array<uint8> RedChannels(m_Data.Size());
 		uint8* Data = m_Data.Data();
 		uint32 Index = 0;
 		
@@ -154,9 +154,9 @@ namespace EasyTools
 		return RedChannels;
 	}
 
-	Array<uint8> Bitmap::GetGreenChannel() const
+	EasyContainer::Array<uint8> Bitmap::GetGreenChannel() const
 	{
-		Array<uint8> GreenChannels(m_Data.Size());
+		EasyContainer::Array<uint8> GreenChannels(m_Data.Size());
 		uint8* Data = m_Data.Data();
 		uint32 Index = 0;
 
@@ -169,9 +169,9 @@ namespace EasyTools
 		return GreenChannels;
 	}
 
-	Array<uint8> Bitmap::GetBlueChannel() const
+	EasyContainer::Array<uint8> Bitmap::GetBlueChannel() const
 	{
-		Array<uint8> BlueChannels(m_Data.Size());
+		EasyContainer::Array<uint8> BlueChannels(m_Data.Size());
 		uint8* Data = m_Data.Data();
 		uint32 Index = 0;
 
@@ -184,11 +184,11 @@ namespace EasyTools
 		return BlueChannels;
 	}
 
-	void Bitmap::SetRedChannel(Array<uint8>& RedArray)
+	void Bitmap::SetRedChannel(EasyContainer::Array<uint8>& RedArray)
 	{
-		if (RedArray.Length != m_Width * m_Height)
+		if (RedArray.Length() != m_Width * m_Height)
 		{
-			DEBUG_ERROR("The Length Of RedArray Does Not Equal To Pixel Number When SetRedChannel")
+			DEBUG_ERROR("The Length Of RedArray Does Not Equal To Pixel Number When SetRedChannel");
 		}
 
 		uint8* Data = m_Data.Data();
@@ -201,11 +201,11 @@ namespace EasyTools
 		}
 	}
 
-	void Bitmap::SetGreenChannel(Array<uint8>& GreenArray)
+	void Bitmap::SetGreenChannel(EasyContainer::Array<uint8>& GreenArray)
 	{
-		if (GreenArray.Length != m_Width * m_Height)
+		if (GreenArray.Length() != m_Width * m_Height)
 		{
-			DEBUG_ERROR("The Length Of RedArray Does Not Equal To Pixel Number When SetGreenChannel")
+			DEBUG_ERROR("The Length Of RedArray Does Not Equal To Pixel Number When SetGreenChannel");
 		}
 
 		uint8* Data = m_Data.Data();
@@ -218,11 +218,11 @@ namespace EasyTools
 		}
 	}
 
-	void Bitmap::SetBlueChannel(Array<uint8>& BlueArray)
+	void Bitmap::SetBlueChannel(EasyContainer::Array<uint8>& BlueArray)
 	{
-		if (BlueArray.Length != m_Width * m_Height)
+		if (BlueArray.Length() != m_Width * m_Height)
 		{
-			DEBUG_ERROR("The Length Of RedArray Does Not Equal To Pixel Number When SetBlueChannel")
+			DEBUG_ERROR("The Length Of RedArray Does Not Equal To Pixel Number When SetBlueChannel");
 		}
 
 		uint8* Data = m_Data.Data();
@@ -235,12 +235,12 @@ namespace EasyTools
 		}
 	}
 
-	void Bitmap::SetChannels(Array<uint8>& RedArray, Array<uint8>& GreenArray, Array<uint8>& BlueArray)
+	void Bitmap::SetChannels(EasyContainer::Array<uint8>& RedArray, EasyContainer::Array<uint8>& GreenArray, EasyContainer::Array<uint8>& BlueArray)
 	{
 		uint32 PixelCounts = m_Width * m_Height;
-		if (RedArray.Length != PixelCounts || GreenArray.Length != PixelCounts || BlueArray.Length != PixelCounts)
+		if (RedArray.Length() != PixelCounts || GreenArray.Length() != PixelCounts || BlueArray.Length() != PixelCounts)
 		{
-			DEBUG_ERROR("The Length Of Array Does Not Equal To Pixel Number When SetChannels")
+			DEBUG_ERROR("The Length Of Array Does Not Equal To Pixel Number When SetChannels");
 		}
 
 		uint8* Data = m_Data.Data();
@@ -259,7 +259,7 @@ namespace EasyTools
 	{
 		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
 		{
-			DEBUG_ERROR("Invalid Coordinate When GetPixel")
+			DEBUG_ERROR("Invalid Coordinate When GetPixel");
 		}
 
 		uint32 YOffset = Y * m_RowIncrement;
@@ -274,7 +274,7 @@ namespace EasyTools
 	{
 		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
 		{
-			DEBUG_ERROR("Invalid Coordinate When SetPixel")
+			DEBUG_ERROR("Invalid Coordinate When SetPixel");
 		}
 
 		uint32 YOffset = Y * m_RowIncrement;
@@ -284,11 +284,11 @@ namespace EasyTools
 		m_Data[YOffset + XOffset + 2] = Color.R();
 	}
 
-	void Bitmap::SetPixel(Array<Color>& ColorArray)
+	void Bitmap::SetPixel(EasyContainer::Array<Color>& ColorArray)
 	{
-		if (ColorArray.Length != m_Width * m_Height)
+		if (ColorArray.Length() != m_Width * m_Height)
 		{
-			DEBUG_ERROR("The Length Of Array Does Not Equal To Pixel Number When SetChannels")
+			DEBUG_ERROR("The Length Of Array Does Not Equal To Pixel Number When SetChannels");
 		}
 
 		uint8* Data = m_Data.Data();
@@ -360,7 +360,7 @@ namespace EasyTools
 
 		for (uint32 i = 0; i < m_Height; ++i)
 		{
-			const uint8* DataPtr = &m_Data[(m_RowIncrement * (m_Height - i - 1))];
+			const uint8* DataPtr = &m_Data[(m_RowIncrement * i)];
 
 			Stream.write(reinterpret_cast<const char*>(DataPtr), sizeof(unsigned char) * m_BytesPerPixel * m_Width);
 			Stream.write(PaddingData, PaddingSize);
@@ -467,7 +467,7 @@ namespace EasyTools
 
 		for (uint32 i = 0; i < m_Height; i++)
 		{
-			uint8* DataPtr = Row(m_Height - i - 1);
+			uint8* DataPtr = Row(i);
 
 			Stream.read(reinterpret_cast<int8*>(DataPtr), m_BytesPerPixel * m_Width * sizeof(int8));
 			Stream.read(PaddingData, PaddingSize);

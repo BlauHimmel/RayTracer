@@ -4,6 +4,7 @@
 
 namespace EasyTools
 {
+
 	Color::Color() : m_R(0), m_G(0), m_B(0)
 	{
 
@@ -133,7 +134,6 @@ namespace EasyTools
 	{
 		return m_B;
 	}
-
 }
 
 

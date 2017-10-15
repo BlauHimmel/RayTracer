@@ -41,7 +41,7 @@ namespace EasyContainer
 	};
 
 	template<typename TElement>
-	inline Array<TElement>::Array(int32 Length)
+	INLINE Array<TElement>::Array(int32 Length)
 	{
 		m_Datas = new TElement[Length];
 		if (m_Datas == nullptr)
@@ -54,7 +54,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline Array<TElement>::Array(TElement* Data, int32 Length)
+	INLINE Array<TElement>::Array(TElement* Data, int32 Length)
 	{
 		m_Length = Length;
 		m_Datas = new TElement[m_Length];
@@ -70,7 +70,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline Array<TElement>::Array(ArrayInitializer Initializer)
+	INLINE Array<TElement>::Array(ArrayInitializer Initializer)
 	{
 		m_Length = Initializer.size();
 		m_Datas = new TElement[m_Length];
@@ -88,7 +88,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline Array<TElement>::Array(Array<TElement>& Other)
+	INLINE Array<TElement>::Array(Array<TElement>& Other)
 	{
 		m_Datas = new TElement[Other.m_Length];
 		m_Length = Other.m_Length;
@@ -99,14 +99,14 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline Array<TElement>::~Array()
+	INLINE Array<TElement>::~Array()
 	{
 		delete[] m_Datas;
 		m_Datas = nullptr;
 	}
 
 	template<typename TElement>
-	inline TElement& Array<TElement>::operator [] (int32 Index)
+	INLINE TElement& Array<TElement>::operator [] (int32 Index)
 	{
 		if (Index >= m_Length || Index < 0)
 		{
@@ -117,7 +117,7 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline TElement Array<TElement>::operator [] (int32 Index) const
+	INLINE TElement Array<TElement>::operator [] (int32 Index) const
 	{
 		if (Index >= m_Length || Index < 0)
 		{
@@ -128,19 +128,19 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	inline int32 Array<TElement>::Length() const
+	INLINE int32 Array<TElement>::Length() const
 	{
 		return m_Length;
 	}
 
 	template<typename TElement>
-	inline decltype(auto) Array<TElement>::begin() const
+	INLINE decltype(auto) Array<TElement>::begin() const
 	{
 		return m_Datas;
 	}
 
 	template<typename TElement>
-	inline decltype(auto) Array<TElement>::end() const
+	INLINE decltype(auto) Array<TElement>::end() const
 	{
 		return &m_Datas[m_Length - 1];
 	}

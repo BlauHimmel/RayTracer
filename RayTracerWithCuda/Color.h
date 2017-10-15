@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ToolsDependency.h"
+#include "ToolsMacro.h"
 
 namespace EasyTools
 {

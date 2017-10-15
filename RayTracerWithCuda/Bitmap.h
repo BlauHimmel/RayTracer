@@ -1,12 +1,11 @@
 #pragma once
 
 #include "ToolsDependency.h"
+#include "ToolsMacro.h"
 
 #include "ArrayList.hpp"
 #include "Array.hpp"
 #include "Color.h"
-
-using namespace EasyContainer;
 
 namespace EasyTools
 {
@@ -21,7 +20,7 @@ namespace EasyTools
 		uint32 m_Height;
 		uint32 m_RowIncrement;
 		uint32 m_BytesPerPixel;
-		ArrayList<uint8> m_Data;
+		EasyContainer::ArrayList<uint8> m_Data;
 
 	public:
 
@@ -44,16 +43,16 @@ namespace EasyTools
 		void SetRedChannel(uint32 X, uint32 Y, uint8 Value);
 		void SetGreenChannel(uint32 X, uint32 Y, uint8 Value);
 		void SetBlueChannel(uint32 X, uint32 Y, uint8 Value);
-		Array<uint8> GetRedChannel() const;
-		Array<uint8> GetGreenChannel() const;
-		Array<uint8> GetBlueChannel() const;
-		void SetRedChannel(Array<uint8>& RedArray);
-		void SetGreenChannel(Array<uint8>& GreenArray);
-		void SetBlueChannel(Array<uint8>& BlueArray);
-		void SetChannels(Array<uint8>& RedArray, Array<uint8>& GreenArray, Array<uint8>& BlueArray);
+		EasyContainer::Array<uint8> GetRedChannel() const;
+		EasyContainer::Array<uint8> GetGreenChannel() const;
+		EasyContainer::Array<uint8> GetBlueChannel() const;
+		void SetRedChannel(EasyContainer::Array<uint8>& RedArray);
+		void SetGreenChannel(EasyContainer::Array<uint8>& GreenArray);
+		void SetBlueChannel(EasyContainer::Array<uint8>& BlueArray);
+		void SetChannels(EasyContainer::Array<uint8>& RedArray, EasyContainer::Array<uint8>& GreenArray, EasyContainer::Array<uint8>& BlueArray);
 		Color GetPixel(uint8 X, uint8 Y) const;
 		void SetPixel(uint8 X, uint8 Y, const Color& Color);
-		void SetPixel(Array<Color>& ColorArray);
+		void SetPixel(EasyContainer::Array<Color>& ColorArray);
 		uint32 Width() const;
 		uint32 Height() const;
 		uint32 BytesPerPixel() const;
