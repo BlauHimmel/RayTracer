@@ -55,30 +55,44 @@ namespace EasyMath
 		return VectorA + (VectorB - VectorA) * T;
 	}
 
-	FORCE_INLINE float Range(float Value, float Min, float Max)
+	FORCE_INLINE float Clamp(float Value, float Min, float Max)
 	{
-		if (Value < Min)
-		{
-			return Min;
-		}
-		if (Value > Max)
-		{
-			return Max;
-		}
-		return Value;
+		return Value < Max ? (Value > Min ? Value : Min) : Max;
 	}
 
-	FORCE_INLINE double Range(double Value, double Min, double Max)
+	FORCE_INLINE double Clamp(double Value, double Min, double Max)
 	{
-		if (Value < Min)
-		{
-			return Min;
-		}
-		if (Value > Max)
-		{
-			return Max;
-		}
-		return Value;
+		return Value < Max ? (Value > Min ? Value : Min) : Max;
+	}
+
+	FORCE_INLINE float Floor(float Value)
+	{
+		return floorf(Value);
+	}
+
+	FORCE_INLINE double Floor(double Value)
+	{
+		return floor(Value);
+	}
+
+	FORCE_INLINE float Ceil(float Value)
+	{
+		return ceilf(Value);
+	}
+
+	FORCE_INLINE double Ceil(double Value)
+	{
+		return ceil(Value);
+	}
+
+	FORCE_INLINE float Round(float Value)
+	{
+		return roundf(Value);
+	}
+
+	FORCE_INLINE double Round(double Value)
+	{
+		return round(Value);
 	}
 
 	template<typename TValue>
