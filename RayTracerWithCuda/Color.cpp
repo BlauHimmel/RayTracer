@@ -2,7 +2,7 @@
 
 #include "Color.h"
 
-namespace EasyTools
+namespace EasyMath
 {
 
 	Color::Color() : m_R(0), m_G(0), m_B(0)

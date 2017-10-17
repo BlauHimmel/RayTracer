@@ -35,7 +35,7 @@ if (EasyTools::Window::GWindow->m_Update)\
 	}\
 	for (auto __i = 0, __j = 0; __j < Pixels.Length(); __i += 4, __j++)\
 	{\
-		EasyTools::Color __Color = Pixels[__j];\
+		EasyMath::Color __Color = Pixels[__j];\
 		EasyTools::Window::GWindow->m_ScreenBuffer[__i] = __Color.B();\
 		EasyTools::Window::GWindow->m_ScreenBuffer[__i + 1] = __Color.G();\
 		EasyTools::Window::GWindow->m_ScreenBuffer[__i + 2] = __Color.R();\

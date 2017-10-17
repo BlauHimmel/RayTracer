@@ -255,7 +255,7 @@ namespace EasyTools
 		}
 	}
 	
-	Color Bitmap::GetPixel(uint8 X, uint8 Y) const
+	EasyMath::Color Bitmap::GetPixel(uint8 X, uint8 Y) const
 	{
 		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
 		{
@@ -267,10 +267,10 @@ namespace EasyTools
 		uint8 B = m_Data[YOffset + XOffset + 0];
 		uint8 G = m_Data[YOffset + XOffset + 1];
 		uint8 R = m_Data[YOffset + XOffset + 2];
-		return Color(R, G, B);
+		return EasyMath::Color(R, G, B);
 	}
 	
-	void Bitmap::SetPixel(uint8 X, uint8 Y, const Color& Color)
+	void Bitmap::SetPixel(uint8 X, uint8 Y, const EasyMath::Color& Color)
 	{
 		if (X < 0 || X >= m_Width || Y < 0 || Y >= m_Height)
 		{
@@ -284,7 +284,7 @@ namespace EasyTools
 		m_Data[YOffset + XOffset + 2] = Color.R();
 	}
 
-	void Bitmap::SetPixel(EasyContainer::Array<Color>& ColorArray)
+	void Bitmap::SetPixel(EasyContainer::Array<EasyMath::Color>& ColorArray)
 	{
 		if (ColorArray.Length() != m_Width * m_Height)
 		{

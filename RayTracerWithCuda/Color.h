@@ -1,9 +1,9 @@
 #pragma once
 
-#include "ToolsDependency.h"
-#include "ToolsMacro.h"
+#include "MathDependency.h"
+#include "MathMacro.h"
 
-namespace EasyTools
+namespace EasyMath
 {
 
 	class Color

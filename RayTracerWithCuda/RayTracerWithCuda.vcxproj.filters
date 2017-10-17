@@ -73,6 +73,39 @@
     <Filter Include="头文件\Tools\UI">
       <UniqueIdentifier>{53b7e185-32d4-4f8f-98ac-7125d41f1f79}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\RayTracer">
+      <UniqueIdentifier>{2f459008-bdd6-47f8-a71d-52f14bb5bd74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\RayTracer\Dependency">
+      <UniqueIdentifier>{0c9b1ad3-9772-4c69-a551-b98b933c5895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\RayTracer\Material">
+      <UniqueIdentifier>{e2a1fcd9-f6f4-46e1-a194-b7e27607acad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\RayTracer\Object">
+      <UniqueIdentifier>{f85f93ee-0b88-412c-ad04-e51913b83dad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\RayTracer\Camera">
+      <UniqueIdentifier>{68bcb927-91c6-4849-abf3-00ca68bae130}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\RayTracer">
+      <UniqueIdentifier>{b0436904-8a63-40c9-9ce3-21007ec7632c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\RayTracer\Material">
+      <UniqueIdentifier>{30618c84-de69-448d-b40b-a3d862622ca5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\RayTracer\Camera">
+      <UniqueIdentifier>{35e8cd9d-5f6c-4e33-90b2-f03d872fba54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\RayTracer\Object">
+      <UniqueIdentifier>{06292a5f-cca1-4ec1-9e99-99332baa5fa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\RayTracer\Light">
+      <UniqueIdentifier>{a6bb5c2a-534a-4eab-95fd-3193adf4d9f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\RayTracer\Light">
+      <UniqueIdentifier>{920cfa5c-8b1e-4889-805f-f387429eecc7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -159,14 +192,38 @@
     <ClInclude Include="Bitmap.h">
       <Filter>头文件\Tools\Image</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>头文件\Tools\Image</Filter>
-    </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>头文件\Tools\UI</Filter>
     </ClInclude>
     <ClInclude Include="ToolsMacro.h">
       <Filter>头文件\Tools\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracerDependency.h">
+      <Filter>头文件\RayTracer\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracerMacro.h">
+      <Filter>头文件\RayTracer\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>头文件\RayTracer</Filter>
+    </ClInclude>
+    <ClInclude Include="Hit.h">
+      <Filter>头文件\RayTracer</Filter>
+    </ClInclude>
+    <ClInclude Include="IMaterial.h">
+      <Filter>头文件\RayTracer\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="ICamera.h">
+      <Filter>头文件\RayTracer\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="IObject.h">
+      <Filter>头文件\RayTracer\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ILight.h">
+      <Filter>头文件\RayTracer\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>头文件\Math\Vector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -194,11 +251,26 @@
     <ClCompile Include="Bitmap.cpp">
       <Filter>源文件\Tools\Image</Filter>
     </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>源文件\Tools\Image</Filter>
-    </ClCompile>
     <ClCompile Include="Window.cpp">
       <Filter>源文件\Tools\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>源文件\RayTracer</Filter>
+    </ClCompile>
+    <ClCompile Include="IObject.cpp">
+      <Filter>源文件\RayTracer\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="ICamera.cpp">
+      <Filter>源文件\RayTracer\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="IMaterial.cpp">
+      <Filter>源文件\RayTracer\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="ILight.cpp">
+      <Filter>源文件\RayTracer\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>源文件\Math\Vector</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

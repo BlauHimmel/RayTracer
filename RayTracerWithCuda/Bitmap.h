@@ -50,9 +50,9 @@ namespace EasyTools
 		void SetGreenChannel(EasyContainer::Array<uint8>& GreenArray);
 		void SetBlueChannel(EasyContainer::Array<uint8>& BlueArray);
 		void SetChannels(EasyContainer::Array<uint8>& RedArray, EasyContainer::Array<uint8>& GreenArray, EasyContainer::Array<uint8>& BlueArray);
-		Color GetPixel(uint8 X, uint8 Y) const;
-		void SetPixel(uint8 X, uint8 Y, const Color& Color);
-		void SetPixel(EasyContainer::Array<Color>& ColorArray);
+		EasyMath::Color GetPixel(uint8 X, uint8 Y) const;
+		void SetPixel(uint8 X, uint8 Y, const EasyMath::Color& Color);
+		void SetPixel(EasyContainer::Array<EasyMath::Color>& ColorArray);
 		uint32 Width() const;
 		uint32 Height() const;
 		uint32 BytesPerPixel() const;

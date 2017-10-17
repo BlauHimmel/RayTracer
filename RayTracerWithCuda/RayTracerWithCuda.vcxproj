@@ -142,19 +142,27 @@
     <ClInclude Include="Array.hpp" />
     <ClInclude Include="ArrayList.hpp" />
     <ClInclude Include="Bitmap.h" />
+    <ClInclude Include="ICamera.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="GlobalDependency.h" />
     <ClInclude Include="GlobalMacro.h" />
     <ClInclude Include="GlobalTypedef.h" />
     <ClInclude Include="HashMap.hpp" />
     <ClInclude Include="HashSet.hpp" />
+    <ClInclude Include="Hit.h" />
+    <ClInclude Include="ILight.h" />
     <ClInclude Include="LinkedList.hpp" />
+    <ClInclude Include="IMaterial.h" />
     <ClInclude Include="MathDependency.h" />
     <ClInclude Include="MathFunction.hpp" />
     <ClInclude Include="MathMacro.h" />
     <ClInclude Include="Matrix4f.h" />
+    <ClInclude Include="IObject.h" />
     <ClInclude Include="PriorityQueue.hpp" />
     <ClInclude Include="Queue.hpp" />
+    <ClInclude Include="Ray.h" />
+    <ClInclude Include="RayTracerDependency.h" />
+    <ClInclude Include="RayTracerMacro.h" />
     <ClInclude Include="Stack.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -172,8 +180,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="ICamera.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="ILight.cpp" />
+    <ClCompile Include="IMaterial.cpp" />
     <ClCompile Include="Matrix4f.cpp" />
+    <ClCompile Include="IObject.cpp" />
+    <ClCompile Include="Ray.cpp" />
     <ClCompile Include="RayTracerWithCuda.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

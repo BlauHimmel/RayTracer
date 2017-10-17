@@ -121,10 +121,10 @@ int main()
 	bits.SetBlueChannel(reds);
 	bits.Save("Red.bmp");
 
-	EasyContainer::Array<EasyTools::Color> reds2(40000);
+	EasyContainer::Array<EasyMath::Color> reds2(40000);
 
-	EasyTools::Color c1 = EasyTools::Color(255, 0, 0);
-	EasyTools::Color c2 = EasyTools::Color(125, 0, 0);
+	EasyMath::Color c1 = EasyMath::Color(255, 0, 0);
+	EasyMath::Color c2 = EasyMath::Color(125, 0, 0);
 
 	for (int i = 0; i < 40000; i++)
 	{
