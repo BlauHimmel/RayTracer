@@ -189,8 +189,8 @@ namespace EasyMath
 	Vector2f Vector2f::Negation() const
 	{
 		Vector2f Ret;
-		Ret.m_X *= -1.0f;
-		Ret.m_Y *= -1.0f;
+		Ret.m_X = -1.0f * m_X;
+		Ret.m_Y = -1.0f * m_Y;
 		return Vector2f();
 	}
 

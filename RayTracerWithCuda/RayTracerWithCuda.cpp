@@ -16,6 +16,7 @@
 #include "MathFunction.hpp"
 #include "Bitmap.h"
 #include "Window.h"
+#include "ILight.h"
 
 int main()
 {

@@ -214,9 +214,9 @@ namespace EasyMath
 	Vector3f Vector3f::Negation() const
 	{
 		Vector3f Ret;
-		Ret.m_X *= -1.0f;
-		Ret.m_Y *= -1.0f;
-		Ret.m_Z *= -1.0f;
+		Ret.m_X = -1.0f * m_X;
+		Ret.m_Y = -1.0f * m_Y;
+		Ret.m_Z = -1.0f * m_Z;
 		return Ret;
 	}
 

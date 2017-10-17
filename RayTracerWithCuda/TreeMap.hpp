@@ -30,7 +30,7 @@ namespace EasyContainer
 
 		TValue& operator [] (TKey Key);
 		bool Add(TKey Key, TValue Value);
-		bool TryGetValue(TKey Key, TValue*& OutValuePtr);
+		bool TryGetValue(TKey Key, TValue*& Out_ValuePtr);
 		bool ContainsKey(TKey Key) const;
 		bool Remove(TKey Key);
 		int32 Size() const;
@@ -73,7 +73,7 @@ namespace EasyContainer
 	}
 
 	template<typename TKey, typename TValue>
-	INLINE bool TreeMap<TKey, TValue>::TryGetValue(TKey Key, TValue*& OutValuePtr)
+	INLINE bool TreeMap<TKey, TValue>::TryGetValue(TKey Key, TValue*& Out_ValuePtr)
 	{
 		auto iter = m_Map.find(Key);
 		if (iter != m_Map.end())

@@ -239,10 +239,10 @@ namespace EasyMath
 	Vector4f Vector4f::Negation() const
 	{
 		Vector4f Ret;
-		Ret.m_X *= -1.0f;
-		Ret.m_Y *= -1.0f;
-		Ret.m_Z *= -1.0f;
-		Ret.m_W *= -1.0f;
+		Ret.m_X = -1.0f * m_X;
+		Ret.m_Y = -1.0f * m_Y;
+		Ret.m_Z = -1.0f * m_Z;
+		Ret.m_W = -1.0f * m_W;
 		return Ret;
 	}
 
