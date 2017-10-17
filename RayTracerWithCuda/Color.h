@@ -3,6 +3,8 @@
 #include "MathDependency.h"
 #include "MathMacro.h"
 
+#include "MathFunction.hpp"
+
 namespace EasyMath
 {
 
@@ -11,20 +13,20 @@ namespace EasyMath
 
 	private:
 
-		uint8 m_R, m_G, m_B;
+		float m_R, m_G, m_B;
 
 	public:
 
 		Color();
-		Color(uint8 R, uint8 G, uint8 B);
+		Color(float R, float G, float B);
 
 	public:
 
-		friend Color operator + (const Color& Colour, uint8 Value);
-		friend Color operator - (const Color& Colour, uint8 Value);
-		friend Color operator / (const Color& Colour, uint8 Value);
-		friend Color operator * (const Color& Colour, uint8 Value);
-		friend Color operator * (uint8 Value, const Color& Colour);
+		friend Color operator + (const Color& Colour, float Value);
+		friend Color operator - (const Color& Colour, float Value);
+		friend Color operator / (const Color& Colour, float Value);
+		friend Color operator * (const Color& Colour, float Value);
+		friend Color operator * (float Value, const Color& Colour);
 	
 	public:
 
@@ -36,19 +38,16 @@ namespace EasyMath
 		bool operator == (const Color& Colour) const;
 		bool operator != (const Color& Colour) const;
 		Color& operator = (const Color& Colour);
-		Color& operator += (uint8 Value);
-		Color& operator -= (uint8 Value);
-		Color& operator *= (uint8 Value);
-		Color& operator /= (uint8 Value);
+		Color& operator += (float Value);
+		Color& operator -= (float Value);
+		Color& operator *= (float Value);
+		Color& operator /= (float Value);
 
 	public:
 
-		uint8& R();
-		uint8& G();
-		uint8& B();
-		uint8 R() const;
-		uint8 G() const;
-		uint8 B() const;
+		float R() const;
+		float G() const;
+		float B() const;
 
 	};
 }

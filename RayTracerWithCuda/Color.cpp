@@ -5,37 +5,39 @@
 namespace EasyMath
 {
 
-	Color::Color() : m_R(0), m_G(0), m_B(0)
+	Color::Color() : m_R(0.0f), m_G(0.0f), m_B(0.0f)
 	{
 
 	}
 
-	Color::Color(uint8 R, uint8 G, uint8 B) : m_R(R), m_G(G), m_B(B)
+	Color::Color(float R, float G, float B) : m_R(R), m_G(G), m_B(B)
 	{
-
+		ClampRef(m_R, 0.0f, 1.0f);
+		ClampRef(m_G, 0.0f, 1.0f);
+		ClampRef(m_B, 0.0f, 1.0f);
 	}
 
-	Color operator + (const Color& Colour, uint8 Value)
+	Color operator + (const Color& Colour, float Value)
 	{
 		return Color(Colour.m_R + Value, Colour.m_G + Value, Colour.m_B + Value);
 	}
 
-	Color operator - (const Color& Colour, uint8 Value)
+	Color operator - (const Color& Colour, float Value)
 	{
 		return Color(Colour.m_R - Value, Colour.m_G - Value, Colour.m_B - Value);
 	}
 
-	Color operator / (const Color& Colour, uint8 Value)
+	Color operator / (const Color& Colour, float Value)
 	{
 		return Color(Colour.m_R / Value, Colour.m_G / Value, Colour.m_B / Value);
 	}
 
-	Color operator * (const Color& Colour, uint8 Value)
+	Color operator * (const Color& Colour, float Value)
 	{
 		return Color(Colour.m_R * Value, Colour.m_G * Value, Colour.m_B * Value);
 	}
 
-	Color operator * (uint8 Value, const Color& Colour)
+	Color operator * (float Value, const Color& Colour)
 	{
 		return Color(Colour.m_R * Value, Colour.m_G * Value, Colour.m_B * Value);
 	}
@@ -73,64 +75,61 @@ namespace EasyMath
 		return *this;
 	}
 
-	Color& Color::operator += (uint8 Value)
+	Color& Color::operator += (float Value)
 	{
 		m_R += Value;
 		m_G += Value;
 		m_B += Value;
+		ClampRef(m_R, 0.0f, 1.0f);
+		ClampRef(m_G, 0.0f, 1.0f);
+		ClampRef(m_B, 0.0f, 1.0f);
 		return *this;
 	}
 
-	Color& Color::operator -= (uint8 Value)
+	Color& Color::operator -= (float Value)
 	{
 		m_R -= Value;
 		m_G -= Value;
 		m_B -= Value;
+		ClampRef(m_R, 0.0f, 1.0f);
+		ClampRef(m_G, 0.0f, 1.0f);
+		ClampRef(m_B, 0.0f, 1.0f);
 		return *this;
 	}
 
-	Color& Color::operator *= (uint8 Value)
+	Color& Color::operator *= (float Value)
 	{
 		m_R *= Value;
 		m_G *= Value;
 		m_B *= Value;
+		ClampRef(m_R, 0.0f, 1.0f);
+		ClampRef(m_G, 0.0f, 1.0f);
+		ClampRef(m_B, 0.0f, 1.0f);
 		return *this;
 	}
 
-	Color& Color::operator /= (uint8 Value)
+	Color& Color::operator /= (float Value)
 	{
 		m_R /= Value;
 		m_G /= Value;
 		m_B /= Value;
+		ClampRef(m_R, 0.0f, 1.0f);
+		ClampRef(m_G, 0.0f, 1.0f);
+		ClampRef(m_B, 0.0f, 1.0f);
 		return *this;
 	}
 
-	uint8& Color::R()
+	float Color::R() const
 	{
 		return m_R;
 	}
 
-	uint8& Color::G()
+	float Color::G() const
 	{
 		return m_G;
 	}
 
-	uint8& Color::B()
-	{
-		return m_B;
-	}
-
-	uint8 Color::R() const
-	{
-		return m_R;
-	}
-
-	uint8 Color::G() const
-	{
-		return m_G;
-	}
-
-	uint8 Color::B() const
+	float Color::B() const
 	{
 		return m_B;
 	}

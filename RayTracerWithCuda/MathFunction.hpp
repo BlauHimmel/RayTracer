@@ -9,7 +9,7 @@
 
 namespace EasyMath
 {
-	
+
 	FORCE_INLINE bool NearlyEqual(float A, float B, float Epsilon = EPSILON_FLOAT)
 	{
 		return A - B < Epsilon && A - B > -Epsilon;
@@ -65,6 +65,16 @@ namespace EasyMath
 		return Value < Max ? (Value > Min ? Value : Min) : Max;
 	}
 
+	FORCE_INLINE void ClampRef(float& Value, float Min, float Max)
+	{
+		Value = Value < Max ? (Value > Min ? Value : Min) : Max;
+	}
+
+	FORCE_INLINE void ClampRef(double& Value, double Min, double Max)
+	{
+		Value = Value < Max ? (Value > Min ? Value : Min) : Max;
+	}
+
 	FORCE_INLINE float Floor(float Value)
 	{
 		return floorf(Value);
@@ -73,6 +83,16 @@ namespace EasyMath
 	FORCE_INLINE double Floor(double Value)
 	{
 		return floor(Value);
+	}
+
+	FORCE_INLINE void FloorRef(float& Value)
+	{
+		Value = floorf(Value);
+	}
+
+	FORCE_INLINE void FloorRef(double& Value)
+	{
+		Value = floor(Value);
 	}
 
 	FORCE_INLINE float Ceil(float Value)
@@ -85,6 +105,16 @@ namespace EasyMath
 		return ceil(Value);
 	}
 
+	FORCE_INLINE void CeilRef(float& Value)
+	{
+		Value = ceilf(Value);
+	}
+
+	FORCE_INLINE void CeilRef(double& Value)
+	{
+		Value = ceil(Value);
+	}
+
 	FORCE_INLINE float Round(float Value)
 	{
 		return roundf(Value);
@@ -93,6 +123,76 @@ namespace EasyMath
 	FORCE_INLINE double Round(double Value)
 	{
 		return round(Value);
+	}
+
+	FORCE_INLINE void RoundRef(float& Value)
+	{
+		Value = roundf(Value);
+	}
+
+	FORCE_INLINE void RoundRef(double& Value)
+	{
+		Value = round(Value);
+	}
+
+	FORCE_INLINE float Sin(float Value)
+	{
+		return sinf(Value);
+	}
+
+	FORCE_INLINE double Sin(double Value)
+	{
+		return sin(Value);
+	}
+
+	FORCE_INLINE float Cos(float Value)
+	{
+		return cosf(Value);
+	}
+
+	FORCE_INLINE double Cos(double Value)
+	{
+		return cos(Value);
+	}
+
+	FORCE_INLINE float Tan(float Value)
+	{
+		return tanf(Value);
+	}
+
+	FORCE_INLINE double Tan(double Value)
+	{
+		return tan(Value);
+	}
+
+	FORCE_INLINE float ArcSin(float Value)
+	{
+		return asinf(Value);
+	}
+
+	FORCE_INLINE double ArcSin(double Value)
+	{
+		return asin(Value);
+	}
+
+	FORCE_INLINE float ArcCos(float Value)
+	{
+		return acosf(Value);
+	}
+
+	FORCE_INLINE double ArcCos(double Value)
+	{
+		return acos(Value);
+	}
+
+	FORCE_INLINE float ArcTan(float Value)
+	{
+		return atanf(Value);
+	}
+
+	FORCE_INLINE double ArcTan(double Value)
+	{
+		return atan(Value);
 	}
 
 	template<typename TValue>
@@ -111,6 +211,12 @@ namespace EasyMath
 	FORCE_INLINE TValue Abs(TValue Value)
 	{
 		return Value < 0 ? -Value : Value;
+	}
+
+	template<typename TValue>
+	FORCE_INLINE void AbsRef(TValue& Value)
+	{
+		Value = Value < 0 ? -Value : Value;
 	}
 
 	template<typename TValue>

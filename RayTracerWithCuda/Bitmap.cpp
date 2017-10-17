@@ -267,7 +267,7 @@ namespace EasyTools
 		uint8 B = m_Data[YOffset + XOffset + 0];
 		uint8 G = m_Data[YOffset + XOffset + 1];
 		uint8 R = m_Data[YOffset + XOffset + 2];
-		return EasyMath::Color(R, G, B);
+		return EasyMath::Color(static_cast<float>(R) / 255.0f, static_cast<float>(G) / 255.0f, static_cast<float>(B) / 255.0f);
 	}
 	
 	void Bitmap::SetPixel(uint8 X, uint8 Y, const EasyMath::Color& Color)
@@ -279,9 +279,9 @@ namespace EasyTools
 
 		uint32 YOffset = Y * m_RowIncrement;
 		uint32 XOffset = X * m_BytesPerPixel;
-		m_Data[YOffset + XOffset + 0] = Color.B();
-		m_Data[YOffset + XOffset + 1] = Color.G();
-		m_Data[YOffset + XOffset + 2] = Color.R();
+		m_Data[YOffset + XOffset + 0] = static_cast<uint8>(Color.B() * 255.0f);
+		m_Data[YOffset + XOffset + 1] = static_cast<uint8>(Color.G() * 255.0f);
+		m_Data[YOffset + XOffset + 2] = static_cast<uint8>(Color.R() * 255.0f);
 	}
 
 	void Bitmap::SetPixel(EasyContainer::Array<EasyMath::Color>& ColorArray)
@@ -296,9 +296,9 @@ namespace EasyTools
 
 		for (auto i = 0; i < m_Data.Size(); i += 3)
 		{
-			Data[i] = ColorArray[Index].B();
-			Data[i + 1] = ColorArray[Index].G();
-			Data[i + 2] = ColorArray[Index].R();
+			Data[i] = static_cast<uint8>(ColorArray[Index].B() * 255.0f);
+			Data[i + 1] = static_cast<uint8>(ColorArray[Index].G() * 255.0f);
+			Data[i + 2] = static_cast<uint8>(ColorArray[Index].R() * 255.0f);
 			Index++;
 		}
 	}
