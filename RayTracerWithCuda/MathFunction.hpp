@@ -96,6 +96,18 @@ namespace EasyMath
 	}
 
 	template<typename TValue>
+	FORCE_INLINE TValue Max(TValue ValueA, TValue ValueB)
+	{
+		return ValueA > ValueB ? ValueA : ValueB;
+	}
+
+	template<typename TValue>
+	FORCE_INLINE TValue Min(TValue ValueA, TValue ValueB)
+	{
+		return ValueA > ValueB ? ValueB : ValueA;
+	}
+
+	template<typename TValue>
 	FORCE_INLINE TValue Abs(TValue Value)
 	{
 		return Value < 0 ? -Value : Value;

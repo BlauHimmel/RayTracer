@@ -266,7 +266,7 @@ namespace EasyMath
 
 	void Matrix4f::SetIdentity()
 	{
-		memset(m_Data, 0, 25 * sizeof(float));
+		memset(m_Data, 0, 16 * sizeof(float));
 		for (auto Row = 0; Row < 4; Row++)
 		{
 			m_Data[Row][Row] = 1.0f;
@@ -275,7 +275,7 @@ namespace EasyMath
 
 	void Matrix4f::SetZero()
 	{
-		memset(m_Data, 0, 25 * sizeof(float));
+		memset(m_Data, 0, 16 * sizeof(float));
 	}
 
 	void Matrix4f::Trim()
