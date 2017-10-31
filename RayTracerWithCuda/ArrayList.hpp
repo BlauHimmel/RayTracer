@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __ARRAYLIST__
+#define __ARRAYLIST__
+
 #include "ContainerDependency.h"
 #include "ContainerMacro.h"
 
@@ -377,3 +380,5 @@ namespace EasyContainer
 		return m_Vector.end();
 	}
 }
+
+#endif

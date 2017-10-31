@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __TREESET__
+#define __TREESET__
+
 #include "ContainerDependency.h"
 #include "ContainerMacro.h"
 
@@ -184,3 +187,5 @@ namespace EasyContainer
 		m_Set.end();
 	}
 }
+
+#endif

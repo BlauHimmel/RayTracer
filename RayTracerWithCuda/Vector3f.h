@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __VECTOR_3F__
+#define __VECTOR_3F__
+
 #include "MathDependency.h"
 #include "MathMacro.h"
 
@@ -63,3 +66,5 @@ namespace EasyMath
 
 	};
 }
+
+#endif

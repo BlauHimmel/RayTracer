@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __TRANSFORM__
+#define __TRANSFORM__
+
 #include "MathDependency.h"
 #include "MathMacro.h"
 
@@ -26,3 +29,5 @@ namespace EasyMath
 	Vector4f operator * (Matrix4f& Matrix, Vector4f& Vector);
 	Vector4f operator * (Vector4f& Vector, Matrix4f& Matrix);
 }
+
+#endif

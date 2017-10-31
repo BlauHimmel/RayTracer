@@ -51,6 +51,9 @@ namespace EasyMath
 	std::istream& operator >> (std::istream& In, Color& Colour)
 	{
 		In >> Colour.m_R >> Colour.m_G >> Colour.m_B;
+		ClampRef(Colour.m_R, 0.0f, 1.0f);
+		ClampRef(Colour.m_G, 0.0f, 1.0f);
+		ClampRef(Colour.m_B, 0.0f, 1.0f);
 		return In;
 	}
 
@@ -62,6 +65,16 @@ namespace EasyMath
 	bool Color::operator != (const Color& Colour) const
 	{
 		return m_R != Colour.m_R || m_G != Colour.m_G || m_B != Colour.m_B;
+	}
+
+	Color Color::operator * (const Color& Colour) const
+	{
+		return Color(m_R * Colour.m_R, m_G * Colour.m_G, m_B * Colour.m_B);
+	}
+
+	Color Color::operator + (const Color& Colour) const
+	{
+		return Color(m_R + Colour.m_R, m_G + Colour.m_G, m_B + Colour.m_B);
 	}
 
 	Color& Color::operator = (const Color& Colour)

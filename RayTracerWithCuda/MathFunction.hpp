@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __MATH_FUNCTION__
+#define __MATH_FUNCTION__
+
 #include "MathDependency.h"
 #include "MathMacro.h"
 
@@ -9,6 +12,45 @@
 
 namespace EasyMath
 {
+
+	/**
+	* 计算光线折射后的方向
+	* @param InDirection:光线射入的方向向量
+	* @param Normal:介质交界处的法向量
+	* @param InRefractionCoefficiency:入射光线所处介质的折射系数
+	* @param OutRefractionCoefficiency:出射光线所处介质的折射系数
+	* @return OutDirection:折射光线的方向向量
+	*/
+	INLINE Vector3f Refraction(Vector3f InDirection, Vector3f Normal, float InRefractionCoefficiency, float OutRefractionCoefficiency)
+	{
+		//[ ηr (N · I) – √(1 – ηr^2 (1 –(N · I)^2)) ] N – ηr I
+		//ηr = ηi / ηo
+		
+		float CoefficiencyRatio = InRefractionCoefficiency / OutRefractionCoefficiency;
+		float NormalDotInComing = Normal.Dot(-InDirection);
+
+		Vector3f OutDirection = (
+			CoefficiencyRatio * NormalDotInComing - 
+			sqrtf(1.0f - CoefficiencyRatio * CoefficiencyRatio * (1.0f - NormalDotInComing * NormalDotInComing))
+			) * Normal - CoefficiencyRatio * InDirection;
+		OutDirection.Normalize();
+		return OutDirection;
+	}
+
+	/**
+	* 计算光线反射后的方向
+	* @param InDirection:光线射入的方向向量
+	* @param Normal:介质交界处的法向量
+	* @return OutDirection:反射光线的方向向量
+	*/
+	INLINE Vector3f Reflection(Vector3f InDirection, Vector3f Normal)
+	{
+		//I – 2 (I · N) N
+
+		Vector3f OutDirection = InDirection - 2.0f * InDirection.Dot(Normal) * Normal;
+		OutDirection.Normalize();
+		return OutDirection;
+	}
 
 	FORCE_INLINE bool NearlyEqual(float A, float B, float Epsilon = EPSILON_FLOAT)
 	{
@@ -195,6 +237,26 @@ namespace EasyMath
 		return atan(Value);
 	}
 
+	FORCE_INLINE float Pow(float Base, float Power)
+	{
+		return powf(Base, Power);
+	}
+
+	FORCE_INLINE double Pow(double Base, double Power)
+	{
+		return pow(Base, Power);
+	}
+
+	FORCE_INLINE float Sqrt(float Value)
+	{
+		return sqrtf(Value);
+	}
+
+	FORCE_INLINE double Sqrt(double Value)
+	{
+		return sqrt(Value);
+	}
+
 	template<typename TValue>
 	FORCE_INLINE TValue Max(TValue ValueA, TValue ValueB)
 	{
@@ -227,3 +289,5 @@ namespace EasyMath
 		B = std::move(Temp);
 	}
 }
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __COLOR__
+#define __COLOR__
+
 #include "MathDependency.h"
 #include "MathMacro.h"
 
@@ -37,6 +40,8 @@ namespace EasyMath
 
 		bool operator == (const Color& Colour) const;
 		bool operator != (const Color& Colour) const;
+		Color operator * (const Color& Colour) const;
+		Color operator + (const Color& Colour) const;
 		Color& operator = (const Color& Colour);
 		Color& operator += (float Value);
 		Color& operator -= (float Value);
@@ -51,3 +56,5 @@ namespace EasyMath
 
 	};
 }
+
+#endif

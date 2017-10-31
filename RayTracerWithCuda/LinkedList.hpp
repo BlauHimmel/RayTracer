@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __LINKEDLIST__
+#define __LINKEDLIST__
+
 #include "ContainerDependency.h"
 #include "ContainerMacro.h"
 
@@ -407,3 +410,5 @@ namespace EasyContainer
 		m_List.end();
 	}
 }
+
+#endif

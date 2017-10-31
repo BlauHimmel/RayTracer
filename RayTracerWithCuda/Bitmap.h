@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __BITMAP__
+#define __BITMAP__
+
 #include "ToolsDependency.h"
 #include "ToolsMacro.h"
 
@@ -142,3 +145,5 @@ namespace EasyTools
 		Stream.write(reinterpret_cast<const int8*>(&Value), sizeof(TValue));
 	}
 }
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __CONTAINER_DEPENDENCY__
+#define __CONTAINER_DEPENDENCY__
+
 #include <stack>
 #include <queue>
 #include <set>
@@ -12,3 +15,5 @@
 
 #include "GlobalDependency.h"
 #include "GlobalMacro.h"
+
+#endif

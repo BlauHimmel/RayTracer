@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __STACK__
+#define __STACK__
+
 #include "ContainerDependency.h"
 #include "ContainerMacro.h"
 
@@ -63,5 +66,6 @@ namespace EasyContainer
 	{
 		return m_Stack.empty();
 	}
-
 }
+
+#endif

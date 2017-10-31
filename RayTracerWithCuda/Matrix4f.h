@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __MATRIX_4F__
+#define __MATRIX_4F__
+
 #include "MathDependency.h"
 #include "MathMacro.h"
 
@@ -78,3 +81,5 @@ namespace EasyMath
 
 	};
 }
+
+#endif

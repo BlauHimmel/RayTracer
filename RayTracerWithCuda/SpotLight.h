@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __SPOT_LIGHT__
+#define __SPOT_LIGHT__
+
 #include "RayTracerDependency.h"
 #include "RayTracerMacro.h"
 
@@ -42,3 +45,5 @@ namespace EasyRayTracer
 
 	};
 }
+
+#endif

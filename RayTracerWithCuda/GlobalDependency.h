@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __GLOBAL_DEPENDENCY__
+#define __GLOBAL_DEPENDENCY__
+
 #include <iomanip>
 #include <iostream>
 #include <fstream>
@@ -11,3 +14,5 @@
 #include <future>
 
 #include "GlobalTypedef.h"
+
+#endif

@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __HASHSET__
+#define __HASHSET__
+
 #include "ContainerDependency.h"
 #include "ContainerMacro.h"
 
@@ -184,3 +187,5 @@ namespace EasyContainer
 		m_Set.end();
 	}
 }
+
+#endif

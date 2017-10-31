@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __PRIORITY_QUEUE__
+#define __PRIORITY_QUEUE__
+
 #include "ContainerDependency.h"
 #include "ContainerMacro.h"
 
@@ -53,3 +56,5 @@ namespace EasyContainer
 
 	};
 }
+
+#endif

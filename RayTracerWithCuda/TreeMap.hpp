@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __TREEMAP__
+#define __TREEMAP__
+
 #include "ContainerDependency.h"
 #include "ContainerMacro.h"
 
@@ -146,3 +149,4 @@ namespace EasyContainer
 	}
 }
 
+#endif

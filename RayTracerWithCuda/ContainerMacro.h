@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __CONTAINER_MACRO__
+#define __CONTAINER_MACRO__
+
 #define MAP_DELEGATE [&](auto& Key, auto& Value)
 #define MAP_FILTER [&](auto& Key, auto& Value)
 
@@ -9,4 +12,5 @@
 #define SET_DELEGATE [&](auto& Element)
 #define SET_FILTER [&](auto& Element)
 
+#endif
 

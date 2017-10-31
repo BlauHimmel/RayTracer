@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __DIRECTIONAL_LIGHT__
+#define __DIRECTIONAL_LIGHT__
+
 #include "RayTracerDependency.h"
 #include "RayTracerMacro.h"
 
@@ -32,3 +35,5 @@ namespace EasyRayTracer
 
 	};
 }
+
+#endif

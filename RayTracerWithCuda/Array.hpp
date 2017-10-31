@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __ARRAY__
+#define __ARRAY__
+
 #include "ContainerDependency.h"
 #include "ContainerMacro.h"
 
@@ -145,3 +148,5 @@ namespace EasyContainer
 		return &m_Datas[m_Length - 1];
 	}
 }
+
+#endif

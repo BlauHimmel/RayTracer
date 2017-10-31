@@ -1,5 +1,7 @@
 #pragma once
 
+#ifndef __TOOLS_MACRO__
+#define __TOOLS_MACRO__
 
 #define WINDOW_CREATE(Width, Height, Title, OutputConsoleTitle) __WINDOW_CREATE(Width, Height, Title, OutputConsoleTitle)
 
@@ -74,3 +76,5 @@ while (!EasyTools::Window::GWindow->m_ScreenExit && !EasyTools::Window::GWindow-
 #define __WINDOW_MAINLOOP_END() EasyTools::Window::GWindow->UpdateDC();}
 
 /** ============================================================== */
+
+#endif

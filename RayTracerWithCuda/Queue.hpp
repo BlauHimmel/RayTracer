@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __QUEUE__
+#define __QUEUE__
+
 #include "ContainerDependency.h"
 #include "ContainerMacro.h"
 
@@ -65,3 +68,5 @@ namespace EasyContainer
 	}
 
 }
+
+#endif

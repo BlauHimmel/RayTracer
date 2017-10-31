@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __HASHMAP__
+#define __HASHMAP__
+
 #include "ContainerDependency.h"
 #include "ContainerMacro.h"
 
@@ -146,3 +149,4 @@ namespace EasyContainer
 	}
 }
 
+#endif

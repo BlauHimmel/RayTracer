@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef __WINDOW__
+#define __WINDOW__
+
 #include "ToolsDependency.h"
 #include "ToolsMacro.h"
 
@@ -65,3 +68,5 @@ namespace EasyTools
 	
 	};
 }
+
+#endif
