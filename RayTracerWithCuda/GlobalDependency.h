@@ -12,6 +12,7 @@
 #include <functional>
 #include <thread>
 #include <future>
+#include <memory>
 
 #include "GlobalTypedef.h"
 

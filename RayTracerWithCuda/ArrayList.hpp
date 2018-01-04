@@ -43,7 +43,7 @@ namespace EasyContainer
 		void InsertRange(int32 Index, ArrayList<TElement> Collection);
 		void Reverse();
 		void Reverse(int32 BeginIndex, int32 EndIndex);
-		ArrayList<TElement> Find(ListFilter Filter) const;
+		std::unique_ptr<ArrayList<TElement>> Find(ListFilter Filter) const;
 		int32 Remove(TElement Element);
 		int32 Remove(ListFilter Filter);
 		void RemoveAt(int32 Index);
@@ -150,7 +150,7 @@ namespace EasyContainer
 	template<typename TElement>
 	INLINE int32 ArrayList<TElement>::LastIndexOf(TElement Element) const
 	{
-		for (uint32 i = m_Vector.size() - 1; i >= 0; i--)
+		for (auto i = m_Vector.size() - 1; i >= 0; i--)
 		{
 			if (m_Vector[i] == Element)
 			{
@@ -212,17 +212,17 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	INLINE ArrayList<TElement> ArrayList<TElement>::Find(ListFilter Filter) const
+	INLINE std::unique_ptr<ArrayList<TElement>> ArrayList<TElement>::Find(ListFilter Filter) const
 	{
-		ArrayList<TElement> Result;
+		std::unique_ptr<ArrayList<TElement>> PtrResult(new ArrayList<TElement>());
 		for (auto Item : m_Vector)
 		{
 			if (Filter(Item))
 			{
-				Result.Add(Item);
+				PtrResult->Add(Item);
 			}
 		}
-		return Result;
+		return PtrResult;
 	}
 
 	template<typename TElement>

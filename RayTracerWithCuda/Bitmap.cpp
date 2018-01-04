@@ -388,7 +388,9 @@ namespace EasyTools
 			DEBUG_ERROR("File Not Found");
 		}
 		File.seekg(0, std::ios::end);
-		return static_cast<uint32>(File.tellg());
+		uint32 Size = static_cast<uint32>(File.tellg());
+		File.close();
+		return Size;
 	}
 
 	void Bitmap::LoadBitmap()
@@ -472,6 +474,8 @@ namespace EasyTools
 			Stream.read(reinterpret_cast<int8*>(DataPtr), m_BytesPerPixel * m_Width * sizeof(int8));
 			Stream.read(PaddingData, PaddingSize);
 		}
+
+		Stream.close();
 	}
 
 	void Bitmap::CreateBitmap()

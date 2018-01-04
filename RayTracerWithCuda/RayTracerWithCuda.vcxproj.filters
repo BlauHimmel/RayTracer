@@ -290,5 +290,8 @@
     <ClCompile Include="SpotLight.cpp">
       <Filter>源文件\RayTracer\Light</Filter>
     </ClCompile>
+    <ClCompile Include="Hit.cpp">
+      <Filter>源文件\RayTracer</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

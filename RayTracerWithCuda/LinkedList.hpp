@@ -43,7 +43,7 @@ namespace EasyContainer
 		void InsertRange(int32 Index, const LinkedList<TElement>& Collection);
 		void Reverse();
 		void Reverse(int32 BeginIndex, int32 EndIndex);
-		LinkedList<TElement> Find(ListFilter Filter) const;
+		std::unique_ptr<LinkedList<TElement>> Find(ListFilter Filter) const;
 		int32 Remove(TElement Element);
 		int32 Remove(ListFilter Filter);
 		void RemoveAt(int32 Index);
@@ -168,7 +168,7 @@ namespace EasyContainer
 	{
 		auto Iter = m_List.end();
 		Iter--;
-		for (uint32 i = m_List.size() - 1; i >= 0; i--)
+		for (auto i = m_List.size() - 1; i >= 0; i--)
 		{
 			if (*Iter == Element)
 			{
@@ -243,17 +243,17 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	INLINE LinkedList<TElement> LinkedList<TElement>::Find(ListFilter Filter) const
+	INLINE std::unique_ptr<LinkedList<TElement>> LinkedList<TElement>::Find(ListFilter Filter) const
 	{
-		LinkedList<TElement> Result;
+		std::unique_ptr<LinkedList<TElement>> PtrResult(new LinkedList<TElement>());
 		for (auto Item : m_List)
 		{
 			if (Filter(Item))
 			{
-				Result.Add(Item);
+				PtrResult->Add(Item);
 			}
 		}
-		return Result;
+		return PtrResult;
 	}
 
 	template<typename TElement>

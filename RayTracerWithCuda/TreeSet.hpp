@@ -36,10 +36,10 @@ namespace EasyContainer
 		bool Remove(TElement Element);
 		int32 Remove(SetFilter Filter);
 		void CopyTo(TElement* Array) const;
-		TreeSet<TElement> Intersect(const TreeSet<TElement>& OtherSet) const;
-		TreeSet<TElement> Union(const TreeSet<TElement>& OtherSet) const;
-		TreeSet<TElement> Difference(const TreeSet<TElement>& OtherSet) const;
-		TreeSet<TElement> SymmetricDifference(const TreeSet<TElement>& OtherSet) const;
+		std::unique_ptr<TreeSet<TElement>> Intersect(const TreeSet<TElement>& OtherSet) const;
+		std::unique_ptr<TreeSet<TElement>> Union(const TreeSet<TElement>& OtherSet) const;
+		std::unique_ptr<TreeSet<TElement>> Difference(const TreeSet<TElement>& OtherSet) const;
+		std::unique_ptr<TreeSet<TElement>> SymmetricDifference(const TreeSet<TElement>& OtherSet) const;
 
 	public:
 
@@ -119,39 +119,39 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	INLINE TreeSet<TElement> TreeSet<TElement>::Intersect(const TreeSet<TElement>& OtherSet) const
+	INLINE std::unique_ptr<TreeSet<TElement>> TreeSet<TElement>::Intersect(const TreeSet<TElement>& OtherSet) const
 	{
-		TreeSet<TElement> Result;
+		std::unique_ptr<TreeSet<TElement>> PtrResult(new TreeSet<TElement>());
 		std::set_intersection(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
-		return Result;
+			std::insert_iterator<std::unordered_set<int32>>(PtrResult->m_Set, PtrResult->m_Set.begin()));
+		return PtrResult;
 	}
 
 	template<typename TElement>
-	INLINE TreeSet<TElement> TreeSet<TElement>::Union(const TreeSet<TElement>& OtherSet) const
+	INLINE std::unique_ptr<TreeSet<TElement>> TreeSet<TElement>::Union(const TreeSet<TElement>& OtherSet) const
 	{
-		TreeSet<TElement> Result;
+		std::unique_ptr<TreeSet<TElement>> PtrResult(new TreeSet<TElement>());
 		std::set_union(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
-		return Result;
+			std::insert_iterator<std::unordered_set<int32>>(PtrResult->m_Set, PtrResult->m_Set.begin()));
+		return PtrResult;
 	}
 
 	template<typename TElement>
-	INLINE TreeSet<TElement> TreeSet<TElement>::Difference(const TreeSet<TElement>& OtherSet) const
+	INLINE std::unique_ptr<TreeSet<TElement>> TreeSet<TElement>::Difference(const TreeSet<TElement>& OtherSet) const
 	{
-		TreeSet<TElement> Result;
+		std::unique_ptr<TreeSet<TElement>> PtrResult(new TreeSet<TElement>());
 		std::set_difference(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
-		return Result;
+			std::insert_iterator<std::unordered_set<int32>>(PtrResult->m_Set, PtrResult->m_Set.begin()));
+		return PtrResult;
 	}
 
 	template<typename TElement>
-	INLINE TreeSet<TElement> TreeSet<TElement>::SymmetricDifference(const TreeSet<TElement>& OtherSet) const
+	INLINE std::unique_ptr<TreeSet<TElement>> TreeSet<TElement>::SymmetricDifference(const TreeSet<TElement>& OtherSet) const
 	{
-		TreeSet<TElement> Result;
+		std::unique_ptr<TreeSet<TElement>> PtrResult(new TreeSet<TElement>());
 		std::set_symmetric_difference(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
-		return Result;
+			std::insert_iterator<std::unordered_set<int32>>(PtrResult->m_Set, PtrResult->m_Set.begin()));
+		return PtrResult;
 	}
 
 	template<typename TElement>

@@ -43,7 +43,7 @@ int main()
 	ll2.Reverse();
 	ll2.Reverse(1, 3);
 	ll2.Contains(9);
-	EasyContainer::LinkedList<int> tmp1 = ll2.Find(
+	std::unique_ptr<EasyContainer::LinkedList<int>> tmp1 = ll2.Find(
 	LIST_FILTER
 	{
 		return Element % 2 == 0;
@@ -61,7 +61,7 @@ int main()
 	al2.Reverse(1, 3);
 	al2.Contains(9);
 	al2.Contains(9);
-	EasyContainer::ArrayList<int>tmp2 = al2.Find(
+	std::unique_ptr<EasyContainer::ArrayList<int>> tmp2 = al2.Find(
 	LIST_FILTER
 	{
 		return Element % 2 == 0;
@@ -135,7 +135,7 @@ int main()
 		else
 			reds2[i] = c2;
 	}
-
+	
 	std::function<void(String&)> Callback = [](String& String)
 	{
 		PRINTF("Cmd : %s\n", String.c_str());

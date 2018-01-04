@@ -27,7 +27,7 @@ namespace EasyContainer
 
 		HashSet();
 		HashSet(SetInitializer Initializer);
-		
+
 	public:
 
 		bool Add(TElement Element);
@@ -36,10 +36,10 @@ namespace EasyContainer
 		bool Remove(TElement Element);
 		int32 Remove(SetFilter Filter);
 		void CopyTo(TElement* Array) const;
-		HashSet<TElement> Intersect(const HashSet<TElement>& OtherSet) const;
-		HashSet<TElement> Union(const HashSet<TElement>& OtherSet) const;
-		HashSet<TElement> Difference(const HashSet<TElement>& OtherSet) const;
-		HashSet<TElement> SymmetricDifference(const HashSet<TElement>& OtherSet) const;
+		std::unique_ptr<HashSet<TElement>> Intersect(const HashSet<TElement>& OtherSet) const;
+		std::unique_ptr<HashSet<TElement>> Union(const HashSet<TElement>& OtherSet) const;
+		std::unique_ptr<HashSet<TElement>> Difference(const HashSet<TElement>& OtherSet) const;
+		std::unique_ptr<HashSet<TElement>> SymmetricDifference(const HashSet<TElement>& OtherSet) const;
 
 	public:
 
@@ -119,39 +119,39 @@ namespace EasyContainer
 	}
 
 	template<typename TElement>
-	INLINE HashSet<TElement> HashSet<TElement>::Intersect(const HashSet<TElement>& OtherSet) const
+	INLINE std::unique_ptr<HashSet<TElement>> HashSet<TElement>::Intersect(const HashSet<TElement>& OtherSet) const
 	{
-		HashSet<TElement> Result;
+		std::unique_ptr<HashSet<TElement>> PtrResult(new HashSet<TElement>());
 		std::set_intersection(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
-		return Result;
+			std::insert_iterator<std::unordered_set<int32>>(PtrResult->m_Set, PtrResult->m_Set.begin()));
+		return PtrResult;
 	}
 
 	template<typename TElement>
-	INLINE HashSet<TElement> HashSet<TElement>::Union(const HashSet<TElement>& OtherSet) const
+	INLINE std::unique_ptr<HashSet<TElement>> HashSet<TElement>::Union(const HashSet<TElement>& OtherSet) const
 	{
-		HashSet<TElement> Result;
+		std::unique_ptr<HashSet<TElement>> PtrResult(new HashSet<TElement>());
 		std::set_union(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
-		return Result;
+			std::insert_iterator<std::unordered_set<int32>>(PtrResult->m_Set, PtrResult->m_Set.begin()));
+		return PtrResult;
 	}
 
 	template<typename TElement>
-	INLINE HashSet<TElement> HashSet<TElement>::Difference(const HashSet<TElement>& OtherSet) const
+	INLINE std::unique_ptr<HashSet<TElement>> HashSet<TElement>::Difference(const HashSet<TElement>& OtherSet) const
 	{
-		HashSet<TElement> Result;
+		std::unique_ptr<HashSet<TElement>> PtrResult(new HashSet<TElement>());
 		std::set_difference(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
-		return Result;
+			std::insert_iterator<std::unordered_set<int32>>(PtrResult->m_Set, PtrResult->m_Set.begin()));
+		return PtrResult;
 	}
 
 	template<typename TElement>
-	INLINE HashSet<TElement> HashSet<TElement>::SymmetricDifference(const HashSet<TElement>& OtherSet) const
+	INLINE std::unique_ptr<HashSet<TElement>> HashSet<TElement>::SymmetricDifference(const HashSet<TElement>& OtherSet) const
 	{
-		HashSet<TElement> Result;
+		std::unique_ptr<HashSet<TElement>> PtrResult(new HashSet<TElement>());
 		std::set_symmetric_difference(m_Set.begin(), m_Set.end(), OtherSet.m_Set.begin(), OtherSet.m_Set.end(), 
-			std::insert_iterator<std::unordered_set<int32>>(Result.m_Set, Result.m_Set.begin()));
-		return Result;
+			std::insert_iterator<std::unordered_set<int32>>(PtrResult->m_Set, PtrResult->m_Set.begin()));
+		return PtrResult;
 	}
 
 	template<typename TElement>
