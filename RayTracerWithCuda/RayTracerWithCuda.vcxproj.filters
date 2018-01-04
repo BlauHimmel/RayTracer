@@ -126,113 +126,113 @@
     <ClInclude Include="GlobalTypedef.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MathDependency.h">
-      <Filter>头文件\Math\Dependency</Filter>
-    </ClInclude>
-    <ClInclude Include="MathMacro.h">
-      <Filter>头文件\Math\Dependency</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3f.h">
-      <Filter>头文件\Math\Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2f.h">
-      <Filter>头文件\Math\Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector4f.h">
-      <Filter>头文件\Math\Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix4f.h">
-      <Filter>头文件\Math\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>头文件\Math\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="ContainerDependency.h">
+    <ClInclude Include="Container\Dependency\ContainerDependency.h">
       <Filter>头文件\Container\Dependency</Filter>
     </ClInclude>
-    <ClInclude Include="ContainerMacro.h">
+    <ClInclude Include="Container\Dependency\ContainerMacro.h">
       <Filter>头文件\Container\Dependency</Filter>
     </ClInclude>
-    <ClInclude Include="MathFunction.hpp">
+    <ClInclude Include="Container\List\Array.hpp">
+      <Filter>头文件\Container\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Container\List\ArrayList.hpp">
+      <Filter>头文件\Container\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Container\List\LinkedList.hpp">
+      <Filter>头文件\Container\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Container\List\PriorityQueue.hpp">
+      <Filter>头文件\Container\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Container\List\Queue.hpp">
+      <Filter>头文件\Container\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Container\List\Stack.hpp">
+      <Filter>头文件\Container\List</Filter>
+    </ClInclude>
+    <ClInclude Include="Container\Map\HashMap.hpp">
+      <Filter>头文件\Container\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Container\Map\TreeMap.hpp">
+      <Filter>头文件\Container\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Container\Set\HashSet.hpp">
+      <Filter>头文件\Container\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="Container\Set\TreeSet.hpp">
+      <Filter>头文件\Container\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Common\MathFunction.hpp">
       <Filter>头文件\Math\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Array.hpp">
-      <Filter>头文件\Container\List</Filter>
+    <ClInclude Include="Math\Dependency\MathDependency.h">
+      <Filter>头文件\Math\Dependency</Filter>
     </ClInclude>
-    <ClInclude Include="ArrayList.hpp">
-      <Filter>头文件\Container\List</Filter>
+    <ClInclude Include="Math\Dependency\MathMacro.h">
+      <Filter>头文件\Math\Dependency</Filter>
     </ClInclude>
-    <ClInclude Include="LinkedList.hpp">
-      <Filter>头文件\Container\List</Filter>
+    <ClInclude Include="Math\Matrix\Matrix4f.h">
+      <Filter>头文件\Math\Matrix</Filter>
     </ClInclude>
-    <ClInclude Include="PriorityQueue.hpp">
-      <Filter>头文件\Container\List</Filter>
+    <ClInclude Include="Math\Matrix\Transform.h">
+      <Filter>头文件\Math\Matrix</Filter>
     </ClInclude>
-    <ClInclude Include="Queue.hpp">
-      <Filter>头文件\Container\List</Filter>
-    </ClInclude>
-    <ClInclude Include="Stack.hpp">
-      <Filter>头文件\Container\List</Filter>
-    </ClInclude>
-    <ClInclude Include="HashMap.hpp">
-      <Filter>头文件\Container\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="TreeMap.hpp">
-      <Filter>头文件\Container\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="HashSet.hpp">
-      <Filter>头文件\Container\Set</Filter>
-    </ClInclude>
-    <ClInclude Include="TreeSet.hpp">
-      <Filter>头文件\Container\Set</Filter>
-    </ClInclude>
-    <ClInclude Include="ToolsDependency.h">
-      <Filter>头文件\Tools\Dependency</Filter>
-    </ClInclude>
-    <ClInclude Include="Bitmap.h">
-      <Filter>头文件\Tools\Image</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>头文件\Tools\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="ToolsMacro.h">
-      <Filter>头文件\Tools\Dependency</Filter>
-    </ClInclude>
-    <ClInclude Include="RayTracerDependency.h">
-      <Filter>头文件\RayTracer\Dependency</Filter>
-    </ClInclude>
-    <ClInclude Include="RayTracerMacro.h">
-      <Filter>头文件\RayTracer\Dependency</Filter>
-    </ClInclude>
-    <ClInclude Include="Ray.h">
-      <Filter>头文件\RayTracer</Filter>
-    </ClInclude>
-    <ClInclude Include="Hit.h">
-      <Filter>头文件\RayTracer</Filter>
-    </ClInclude>
-    <ClInclude Include="IMaterial.h">
-      <Filter>头文件\RayTracer\Material</Filter>
-    </ClInclude>
-    <ClInclude Include="ICamera.h">
-      <Filter>头文件\RayTracer\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="IObject.h">
-      <Filter>头文件\RayTracer\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="ILight.h">
-      <Filter>头文件\RayTracer\Light</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.h">
+    <ClInclude Include="Math\Vector\Color.h">
       <Filter>头文件\Math\Vector</Filter>
     </ClInclude>
-    <ClInclude Include="DirectionalLight.h">
+    <ClInclude Include="Math\Vector\Vector2f.h">
+      <Filter>头文件\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector\Vector3f.h">
+      <Filter>头文件\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector\Vector4f.h">
+      <Filter>头文件\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Camera\ICamera.h">
+      <Filter>头文件\RayTracer\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Dependency\RayTracerDependency.h">
+      <Filter>头文件\RayTracer\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Dependency\RayTracerMacro.h">
+      <Filter>头文件\RayTracer\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Light\DirectionalLight.h">
       <Filter>头文件\RayTracer\Light</Filter>
     </ClInclude>
-    <ClInclude Include="PointLight.h">
+    <ClInclude Include="RayTracer\Light\ILight.h">
       <Filter>头文件\RayTracer\Light</Filter>
     </ClInclude>
-    <ClInclude Include="SpotLight.h">
+    <ClInclude Include="RayTracer\Light\PointLight.h">
       <Filter>头文件\RayTracer\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Light\SpotLight.h">
+      <Filter>头文件\RayTracer\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Material\IMaterial.h">
+      <Filter>头文件\RayTracer\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Object\IObject.h">
+      <Filter>头文件\RayTracer\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Hit.h">
+      <Filter>头文件\RayTracer</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Ray.h">
+      <Filter>头文件\RayTracer</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Dependency\ToolsDependency.h">
+      <Filter>头文件\Tools\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Dependency\ToolsMacro.h">
+      <Filter>头文件\Tools\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Image\Bitmap.h">
+      <Filter>头文件\Tools\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\UI\Window.h">
+      <Filter>头文件\Tools\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -242,56 +242,56 @@
     <ClCompile Include="RayTracerWithCuda.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Vector3f.cpp">
-      <Filter>源文件\Math\Vector</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector2f.cpp">
-      <Filter>源文件\Math\Vector</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector4f.cpp">
-      <Filter>源文件\Math\Vector</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix4f.cpp">
+    <ClCompile Include="Math\Matrix\Matrix4f.cpp">
       <Filter>源文件\Math\Matrix</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
+    <ClCompile Include="Math\Matrix\Transform.cpp">
       <Filter>源文件\Math\Matrix</Filter>
     </ClCompile>
-    <ClCompile Include="Bitmap.cpp">
-      <Filter>源文件\Tools\Image</Filter>
+    <ClCompile Include="Math\Vector\Color.cpp">
+      <Filter>源文件\Math\Vector</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>源文件\Tools\UI</Filter>
+    <ClCompile Include="Math\Vector\Vector2f.cpp">
+      <Filter>源文件\Math\Vector</Filter>
     </ClCompile>
-    <ClCompile Include="Ray.cpp">
-      <Filter>源文件\RayTracer</Filter>
+    <ClCompile Include="Math\Vector\Vector3f.cpp">
+      <Filter>源文件\Math\Vector</Filter>
     </ClCompile>
-    <ClCompile Include="IObject.cpp">
-      <Filter>源文件\RayTracer\Object</Filter>
+    <ClCompile Include="Math\Vector\Vector4f.cpp">
+      <Filter>源文件\Math\Vector</Filter>
     </ClCompile>
-    <ClCompile Include="ICamera.cpp">
+    <ClCompile Include="RayTracer\Camera\ICamera.cpp">
       <Filter>源文件\RayTracer\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="IMaterial.cpp">
+    <ClCompile Include="RayTracer\Light\DirectionalLight.cpp">
+      <Filter>源文件\RayTracer\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Light\ILight.cpp">
+      <Filter>源文件\RayTracer\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Light\PointLight.cpp">
+      <Filter>源文件\RayTracer\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Light\SpotLight.cpp">
+      <Filter>源文件\RayTracer\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Material\IMaterial.cpp">
       <Filter>源文件\RayTracer\Material</Filter>
     </ClCompile>
-    <ClCompile Include="ILight.cpp">
-      <Filter>源文件\RayTracer\Light</Filter>
+    <ClCompile Include="RayTracer\Object\IObject.cpp">
+      <Filter>源文件\RayTracer\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>源文件\Math\Vector</Filter>
-    </ClCompile>
-    <ClCompile Include="DirectionalLight.cpp">
-      <Filter>源文件\RayTracer\Light</Filter>
-    </ClCompile>
-    <ClCompile Include="PointLight.cpp">
-      <Filter>源文件\RayTracer\Light</Filter>
-    </ClCompile>
-    <ClCompile Include="SpotLight.cpp">
-      <Filter>源文件\RayTracer\Light</Filter>
-    </ClCompile>
-    <ClCompile Include="Hit.cpp">
+    <ClCompile Include="RayTracer\Hit.cpp">
       <Filter>源文件\RayTracer</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Ray.cpp">
+      <Filter>源文件\RayTracer</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\Image\Bitmap.cpp">
+      <Filter>源文件\Tools\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools\UI\Window.cpp">
+      <Filter>源文件\Tools\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

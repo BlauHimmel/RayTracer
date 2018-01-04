@@ -72,16 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)Template;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -113,6 +116,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,73 +144,73 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Array.hpp" />
-    <ClInclude Include="ArrayList.hpp" />
-    <ClInclude Include="Bitmap.h" />
-    <ClInclude Include="DirectionalLight.h" />
-    <ClInclude Include="ICamera.h" />
-    <ClInclude Include="Color.h" />
+    <ClInclude Include="Container\Dependency\ContainerDependency.h" />
+    <ClInclude Include="Container\Dependency\ContainerMacro.h" />
+    <ClInclude Include="Container\List\Array.hpp" />
+    <ClInclude Include="Container\List\ArrayList.hpp" />
+    <ClInclude Include="Container\List\LinkedList.hpp" />
+    <ClInclude Include="Container\List\PriorityQueue.hpp" />
+    <ClInclude Include="Container\List\Queue.hpp" />
+    <ClInclude Include="Container\List\Stack.hpp" />
+    <ClInclude Include="Container\Map\HashMap.hpp" />
+    <ClInclude Include="Container\Map\TreeMap.hpp" />
+    <ClInclude Include="Container\Set\HashSet.hpp" />
+    <ClInclude Include="Container\Set\TreeSet.hpp" />
     <ClInclude Include="GlobalDependency.h" />
     <ClInclude Include="GlobalMacro.h" />
     <ClInclude Include="GlobalTypedef.h" />
-    <ClInclude Include="HashMap.hpp" />
-    <ClInclude Include="HashSet.hpp" />
-    <ClInclude Include="Hit.h" />
-    <ClInclude Include="ILight.h" />
-    <ClInclude Include="LinkedList.hpp" />
-    <ClInclude Include="IMaterial.h" />
-    <ClInclude Include="MathDependency.h" />
-    <ClInclude Include="MathFunction.hpp" />
-    <ClInclude Include="MathMacro.h" />
-    <ClInclude Include="Matrix4f.h" />
-    <ClInclude Include="IObject.h" />
-    <ClInclude Include="PointLight.h" />
-    <ClInclude Include="PriorityQueue.hpp" />
-    <ClInclude Include="Queue.hpp" />
-    <ClInclude Include="Ray.h" />
-    <ClInclude Include="RayTracerDependency.h" />
-    <ClInclude Include="RayTracerMacro.h" />
-    <ClInclude Include="SpotLight.h" />
-    <ClInclude Include="Stack.hpp" />
+    <ClInclude Include="Math\Common\MathFunction.hpp" />
+    <ClInclude Include="Math\Dependency\MathDependency.h" />
+    <ClInclude Include="Math\Dependency\MathMacro.h" />
+    <ClInclude Include="Math\Matrix\Matrix4f.h" />
+    <ClInclude Include="Math\Matrix\Transform.h" />
+    <ClInclude Include="Math\Vector\Color.h" />
+    <ClInclude Include="Math\Vector\Vector2f.h" />
+    <ClInclude Include="Math\Vector\Vector3f.h" />
+    <ClInclude Include="Math\Vector\Vector4f.h" />
+    <ClInclude Include="RayTracer\Camera\ICamera.h" />
+    <ClInclude Include="RayTracer\Dependency\RayTracerDependency.h" />
+    <ClInclude Include="RayTracer\Dependency\RayTracerMacro.h" />
+    <ClInclude Include="RayTracer\Hit.h" />
+    <ClInclude Include="RayTracer\Light\DirectionalLight.h" />
+    <ClInclude Include="RayTracer\Light\ILight.h" />
+    <ClInclude Include="RayTracer\Light\PointLight.h" />
+    <ClInclude Include="RayTracer\Light\SpotLight.h" />
+    <ClInclude Include="RayTracer\Material\IMaterial.h" />
+    <ClInclude Include="RayTracer\Object\IObject.h" />
+    <ClInclude Include="RayTracer\Ray.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="ContainerDependency.h" />
-    <ClInclude Include="ContainerMacro.h" />
-    <ClInclude Include="ToolsDependency.h" />
-    <ClInclude Include="ToolsMacro.h" />
-    <ClInclude Include="Transform.h" />
-    <ClInclude Include="TreeMap.hpp" />
-    <ClInclude Include="TreeSet.hpp" />
-    <ClInclude Include="Vector2f.h" />
-    <ClInclude Include="Vector3f.h" />
-    <ClInclude Include="Vector4f.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="Tools\Dependency\ToolsDependency.h" />
+    <ClInclude Include="Tools\Dependency\ToolsMacro.h" />
+    <ClInclude Include="Tools\Image\Bitmap.h" />
+    <ClInclude Include="Tools\UI\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bitmap.cpp" />
-    <ClCompile Include="DirectionalLight.cpp" />
-    <ClCompile Include="Hit.cpp" />
-    <ClCompile Include="ICamera.cpp" />
-    <ClCompile Include="Color.cpp" />
-    <ClCompile Include="ILight.cpp" />
-    <ClCompile Include="IMaterial.cpp" />
-    <ClCompile Include="Matrix4f.cpp" />
-    <ClCompile Include="IObject.cpp" />
-    <ClCompile Include="PointLight.cpp" />
-    <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="Math\Matrix\Matrix4f.cpp" />
+    <ClCompile Include="Math\Matrix\Transform.cpp" />
+    <ClCompile Include="Math\Vector\Color.cpp" />
+    <ClCompile Include="Math\Vector\Vector2f.cpp" />
+    <ClCompile Include="Math\Vector\Vector3f.cpp" />
+    <ClCompile Include="Math\Vector\Vector4f.cpp" />
     <ClCompile Include="RayTracerWithCuda.cpp" />
-    <ClCompile Include="SpotLight.cpp" />
+    <ClCompile Include="RayTracer\Camera\ICamera.cpp" />
+    <ClCompile Include="RayTracer\Hit.cpp" />
+    <ClCompile Include="RayTracer\Light\DirectionalLight.cpp" />
+    <ClCompile Include="RayTracer\Light\ILight.cpp" />
+    <ClCompile Include="RayTracer\Light\PointLight.cpp" />
+    <ClCompile Include="RayTracer\Light\SpotLight.cpp" />
+    <ClCompile Include="RayTracer\Material\IMaterial.cpp" />
+    <ClCompile Include="RayTracer\Object\IObject.cpp" />
+    <ClCompile Include="RayTracer\Ray.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Transform.cpp" />
-    <ClCompile Include="Vector2f.cpp" />
-    <ClCompile Include="Vector3f.cpp" />
-    <ClCompile Include="Vector4f.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="Tools\Image\Bitmap.cpp" />
+    <ClCompile Include="Tools\UI\Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
