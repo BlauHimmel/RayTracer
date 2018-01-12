@@ -106,7 +106,7 @@ namespace EasyContainer
 	template<typename TKey, typename TValue>
 	INLINE int32 TreeMap<TKey, TValue>::Size() const
 	{
-		return m_Map.size();
+		return static_cast<int32>(m_Map.size());
 	}
 
 	template<typename TKey, typename TValue>

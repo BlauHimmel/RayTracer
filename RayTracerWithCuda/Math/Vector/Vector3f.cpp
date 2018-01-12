@@ -40,6 +40,24 @@ namespace EasyMath
 		return Ret;
 	}
 
+	Vector3f operator * (const Vector3f& Vector1, const Vector3f& Vector2)
+	{
+		Vector3f Ret;
+		Ret.m_X = Vector1.m_X * Vector2.m_X;
+		Ret.m_Y = Vector1.m_Y * Vector2.m_Y;
+		Ret.m_Z = Vector1.m_Z * Vector2.m_Z;
+		return Ret;
+	}
+
+	Vector3f operator / (const Vector3f & Vector1, const Vector3f & Vector2)
+	{
+		Vector3f Ret;
+		Ret.m_X = Vector1.m_X / Vector2.m_X;
+		Ret.m_Y = Vector1.m_Y / Vector2.m_Y;
+		Ret.m_Z = Vector1.m_Z / Vector2.m_Z;
+		return Ret;
+	}
+
 	Vector3f operator * (const Vector3f& Vector, float Scale)
 	{
 		Vector3f Ret;

@@ -1,0 +1,108 @@
+{
+  "Background" :
+  {
+    "AmbientColor" : "0.2 0.1 0.5",
+    "BackgroundColor" : "0.1 0.1 0.1"
+  },
+
+  "Camera" :
+  {
+    "Type" : "PerspectiveCamera",
+    "Origin" : "0.0 0.0 -5.0",
+    "Up" : "0.0 1.0 0.0",
+    "Direction" : "0.0 0.0 1.0",
+    "FieldAngle" : "45.0"
+  },
+
+  "Light" :
+  [
+    {
+      "Type" : "PointLight",
+      "Intensity" : "1.0",
+      "Color" : "0.6 0.6 0.6",
+      "Position" : "1.0 5.0 1.0",
+      "Attenuation" : "1.0 0.5 0.2"
+    },
+
+    {
+      "Type" : "DirectionalLight",
+      "Intensity" : "1.0",
+      "Color" : "0.6 0.6 0.6",
+      "Direction" : "-1.0 -1.0 -1.0"
+    },
+
+    {
+      "Type" : "SpotLight",
+      "Intensity" : "1.0",
+      "Color" : "0.6 0.6 0.6",
+      "Direction" : "-1.0 1.0 -1.0",
+      "Position" : "1.0 -1.0 1.0",
+      "Attenuation" : "1.0 0.5 0.2",
+      "Angle" : "90.0"
+    }
+  ],
+
+  "Material" :
+  [
+    {
+      "Type" : "BlinPhongMaterial",
+      "ReflectionRate" : "0.5 0.5 0.5",
+      "RefractionRate" : "0.5 0.5 0.5",
+      "DiffuseCoefficiency" : "0.2 0.2 0.2",
+      "SpecularCoefficiency" : "1.0 1.0 1.0",
+      "Exponent" : "20.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "PhongMaterial",
+      "ReflectionRate" : "0.5 0.5 0.5",
+      "RefractionRate" : "0.5 0.5 0.5",
+      "DiffuseCoefficiency" : "0.2 0.2 0.2",
+      "SpecularCoefficiency" : "1.0 1.0 1.0",
+      "Exponent" : "20.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.5 0.5 0.5",
+      "RefractionRate" : "0.5 0.5 0.5",
+      "Albedo" : "1.0 0.2 0.2",
+      "Metallic" : "0.75",
+      "Roughness" : "0.2",
+      "Ao" : "1.0"
+    }
+  ],
+
+  "Group" :
+  [
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.0 0.0 0.0",
+      "Radius" : "1.0",
+      "MaterialIndex" : "2"
+    },
+
+    {
+      "Type" : "Plane",
+      "Normal" : "0.0 2.0 0.0",
+      "Distance" : "-2.0",
+      "MaterialIndex" : "1"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "1.0 0.0 1.0",
+      "VertexB" : "1.0 0.0 -1.0",
+      "VertexC" : "1.0 1.0 0.0",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "TriangleMesh",
+      "FileName" : "Scene/teapot.obj",
+      "MaterialIndex" : "2"
+    }
+  ]
+}

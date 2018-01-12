@@ -5,15 +5,15 @@
 namespace EasyRayTracer
 {
 
-	DirectionalLight::DirectionalLight(float Intensity, const EasyMath::Color& Color, const EasyMath::Vector3f& Direction)
-		:ILight(Intensity, Color), m_Direction(Direction)
+	DirectionalLight::DirectionalLight(float Intensity, const EasyMath::Vector3f& Color, const EasyMath::Vector3f& Direction) :
+		ILight(Intensity, Color), m_Direction(Direction)
 	{
 		m_Direction.Normalize();
 	}
 
 	bool DirectionalLight::GetLight(
 		const EasyMath::Vector3f& Position,
-		EasyMath::Color& Out_Color,
+		EasyMath::Vector3f& Out_Color,
 		EasyMath::Vector3f& Out_Direction,
 		float& Out_Distance
 	) const

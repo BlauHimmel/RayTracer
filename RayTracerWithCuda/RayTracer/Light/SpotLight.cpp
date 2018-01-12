@@ -7,15 +7,15 @@ namespace EasyRayTracer
 
 	SpotLight::SpotLight(
 		float Intensity,
-		const EasyMath::Color& Color,
+		const EasyMath::Vector3f& Color,
 		const EasyMath::Vector3f& Position, 
 		float AttenuationCoefficiencyA, 
 		float AttenuationCoefficiencyB, 
 		float AttenuationCoefficiencyC,
 		float Angle,
 		EasyMath::Vector3f Direction
-	) 
-		: PointLight(Intensity, Color, Position, AttenuationCoefficiencyA, AttenuationCoefficiencyB, AttenuationCoefficiencyC),
+	) : 
+		PointLight(Intensity, Color, Position, AttenuationCoefficiencyA, AttenuationCoefficiencyB, AttenuationCoefficiencyC),
 		m_HalfAngle(0.5f * Angle),
 		m_Direction(Direction)
 	{
@@ -24,7 +24,7 @@ namespace EasyRayTracer
 
 	bool SpotLight::GetLight(
 		const EasyMath::Vector3f& Position,
-		EasyMath::Color& Out_Color,
+		EasyMath::Vector3f& Out_Color,
 		EasyMath::Vector3f& Out_Direction,
 		float& Out_Distance
 	) const
@@ -32,7 +32,7 @@ namespace EasyRayTracer
 		Out_Direction = m_Position - Position;
 		Out_Direction.Normalize();
 		
-		if (EasyMath::ArcCos(Out_Direction.Dot(m_Direction)) <= m_HalfAngle)
+		if (EasyMath::ArcCos(Out_Direction.Dot(m_Direction.Negation())) <= m_HalfAngle)
 		{
 			Out_Distance = Out_Direction.Length();
 			float AttenuationCoefficiency = 1.0f / (
@@ -47,7 +47,7 @@ namespace EasyRayTracer
 		else
 		{
 			Out_Direction = EasyMath::Vector3f();
-			Out_Color = EasyMath::Color();
+			Out_Color = EasyMath::Vector3f();
 			Out_Distance = MAX_DISTANCE;
 			return false;
 		}

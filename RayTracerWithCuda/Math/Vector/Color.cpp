@@ -132,6 +132,21 @@ namespace EasyMath
 		return *this;
 	}
 
+	float& Color::R()
+	{
+		return m_R;
+	}
+
+	float& Color::G()
+	{
+		return m_G;
+	}
+
+	float& Color::B()
+	{
+		return m_B;
+	}
+
 	float Color::R() const
 	{
 		return m_R;

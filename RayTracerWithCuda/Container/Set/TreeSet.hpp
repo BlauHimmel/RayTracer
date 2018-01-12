@@ -112,7 +112,7 @@ namespace EasyContainer
 	template<typename TElement>
 	INLINE void TreeSet<TElement>::CopyTo(TElement* Array) const
 	{
-		for (uint32 i = 0; i < m_Set.size(); i++)
+		for (auto i = 0; i < m_Set.size(); i++)
 		{
 			Array[i] = m_Set[i];
 		}

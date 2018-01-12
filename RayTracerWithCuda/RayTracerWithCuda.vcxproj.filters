@@ -106,6 +106,30 @@
     <Filter Include="源文件\RayTracer\Light">
       <UniqueIdentifier>{920cfa5c-8b1e-4889-805f-f387429eecc7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Tools\Json">
+      <UniqueIdentifier>{4612b77b-74d2-43a1-a4de-c50fcd0fdd95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Tools\Json\detail">
+      <UniqueIdentifier>{b6312f77-8dae-438d-8866-5344eaf0f518}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Tools\Json\detail\conversions">
+      <UniqueIdentifier>{6843dd56-5c03-473c-a245-0b19156b8ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Tools\Json\detail\iterators">
+      <UniqueIdentifier>{6a315857-4717-4b25-be40-3dd4a72f27a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Tools\Json\detail\parsing">
+      <UniqueIdentifier>{dc56485f-d08a-449f-bf09-cc3211d37d65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\Scene">
+      <UniqueIdentifier>{20b1d8f3-dda8-4dbc-aa94-5fdab42739f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\RayTracer\Tracer">
+      <UniqueIdentifier>{5f1110ff-9c00-4820-ab60-fc4aa42abd55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\RayTracer\Tracer">
+      <UniqueIdentifier>{70f51f1f-31d1-4515-bd1a-26684d88fba5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -234,6 +258,111 @@
     <ClInclude Include="Tools\UI\Window.h">
       <Filter>头文件\Tools\UI</Filter>
     </ClInclude>
+    <ClInclude Include="RayTracer\Object\Triangle.h">
+      <Filter>头文件\RayTracer\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Object\Sphere.h">
+      <Filter>头文件\RayTracer\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Object\Plane.h">
+      <Filter>头文件\RayTracer\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Object\TriangleMesh.h">
+      <Filter>头文件\RayTracer\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Material\BlinPhongMaterial.h">
+      <Filter>头文件\RayTracer\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Material\PhongMaterial.h">
+      <Filter>头文件\RayTracer\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Camera\PerspectiveCamera.h">
+      <Filter>头文件\RayTracer\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Camera\OrthographicCamera.h">
+      <Filter>头文件\RayTracer\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Object\Group.h">
+      <Filter>头文件\RayTracer\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Scene.h">
+      <Filter>头文件\RayTracer</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\adl_serializer.hpp">
+      <Filter>头文件\Tools\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\json.hpp">
+      <Filter>头文件\Tools\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\json_fwd.hpp">
+      <Filter>头文件\Tools\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\exceptions.hpp">
+      <Filter>头文件\Tools\Json\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\json_ref.hpp">
+      <Filter>头文件\Tools\Json\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\macro_scope.hpp">
+      <Filter>头文件\Tools\Json\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\macro_unscope.hpp">
+      <Filter>头文件\Tools\Json\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\meta.hpp">
+      <Filter>头文件\Tools\Json\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\serializer.hpp">
+      <Filter>头文件\Tools\Json\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\value_t.hpp">
+      <Filter>头文件\Tools\Json\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\conversions\from_json.hpp">
+      <Filter>头文件\Tools\Json\detail\conversions</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\conversions\to_json.hpp">
+      <Filter>头文件\Tools\Json\detail\conversions</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\iterators\internal_iterator.hpp">
+      <Filter>头文件\Tools\Json\detail\iterators</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\iterators\iter_impl.hpp">
+      <Filter>头文件\Tools\Json\detail\iterators</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\iterators\iteration_proxy.hpp">
+      <Filter>头文件\Tools\Json\detail\iterators</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\iterators\json_reverse_iterator.hpp">
+      <Filter>头文件\Tools\Json\detail\iterators</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\iterators\primitive_iterator.hpp">
+      <Filter>头文件\Tools\Json\detail\iterators</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\parsing\binary_reader.hpp">
+      <Filter>头文件\Tools\Json\detail\parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\parsing\binary_writer.hpp">
+      <Filter>头文件\Tools\Json\detail\parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\parsing\input_adapters.hpp">
+      <Filter>头文件\Tools\Json\detail\parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\parsing\lexer.hpp">
+      <Filter>头文件\Tools\Json\detail\parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\parsing\output_adapters.hpp">
+      <Filter>头文件\Tools\Json\detail\parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools\Json\detail\parsing\parser.hpp">
+      <Filter>头文件\Tools\Json\detail\parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\SceneToken.h">
+      <Filter>头文件\RayTracer</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTracer\Material\CookTorranceMaterial.h">
+      <Filter>头文件\RayTracer\Material</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -293,5 +422,43 @@
     <ClCompile Include="Tools\UI\Window.cpp">
       <Filter>源文件\Tools\UI</Filter>
     </ClCompile>
+    <ClCompile Include="RayTracer\Object\Triangle.cpp">
+      <Filter>源文件\RayTracer\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Object\Sphere.cpp">
+      <Filter>源文件\RayTracer\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Object\Plane.cpp">
+      <Filter>源文件\RayTracer\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Object\TriangleMesh.cpp">
+      <Filter>源文件\RayTracer\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Material\PhongMaterial.cpp">
+      <Filter>源文件\RayTracer\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Material\BlinPhongMaterial.cpp">
+      <Filter>源文件\RayTracer\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Camera\OrthographicCamera.cpp">
+      <Filter>源文件\RayTracer\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Camera\PerspectiveCamera.cpp">
+      <Filter>源文件\RayTracer\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Object\Group.cpp">
+      <Filter>源文件\RayTracer\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Scene.cpp">
+      <Filter>源文件\RayTracer</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Material\CookTorranceMaterial.cpp">
+      <Filter>源文件\RayTracer\Material</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="Kernel.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>

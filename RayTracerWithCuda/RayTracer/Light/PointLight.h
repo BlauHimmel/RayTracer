@@ -7,7 +7,6 @@
 #include "RayTracer\Dependency\RayTracerMacro.h"
 
 #include "RayTracer\Light\ILight.h"
-#include "Math\Vector\Color.h"
 #include "Math\Vector\Vector3f.h"
 #include "Math\Common\MathFunction.hpp"
 
@@ -26,7 +25,7 @@ namespace EasyRayTracer
 
 		PointLight(
 			float Intensity, 
-			const EasyMath::Color& Color, 
+			const EasyMath::Vector3f& Color,
 			const EasyMath::Vector3f& Position,
 			float AttenuationCoefficiencyA,
 			float AttenuationCoefficiencyB,
@@ -37,7 +36,7 @@ namespace EasyRayTracer
 
 		virtual bool GetLight(
 			const EasyMath::Vector3f& Position,
-			EasyMath::Color& Out_Color,
+			EasyMath::Vector3f& Out_Color,
 			EasyMath::Vector3f& Out_Direction,
 			float& Out_Distance
 		) const override;

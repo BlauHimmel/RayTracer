@@ -58,7 +58,7 @@ namespace EasyContainer
 	template<typename TElement>
 	INLINE int32 Queue<TElement>::Size() const
 	{
-		return m_Queue.size();
+		return static_cast<int32>(m_Queue.size());
 	}
 
 	template<typename TElement>

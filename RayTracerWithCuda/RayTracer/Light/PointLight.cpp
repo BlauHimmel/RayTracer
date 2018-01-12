@@ -7,13 +7,13 @@ namespace EasyRayTracer
 
 	PointLight::PointLight(
 		float Intensity, 
-		const EasyMath::Color& Color, 
+		const EasyMath::Vector3f& Color,
 		const EasyMath::Vector3f& Position, 
 		float AttenuationCoefficiencyA, 
 		float AttenuationCoefficiencyB, 
 		float AttenuationCoefficiencyC
-	) 
-		: ILight(Intensity, Color), 
+	) : 
+		ILight(Intensity, Color), 
 		m_AttenuationCoefficiencyA(AttenuationCoefficiencyA), 
 		m_AttenuationCoefficiencyB(AttenuationCoefficiencyB),
 		m_AttenuationCoefficiencyC(AttenuationCoefficiencyC)
@@ -23,7 +23,7 @@ namespace EasyRayTracer
 
 	bool PointLight::GetLight(
 		const EasyMath::Vector3f& Position,
-		EasyMath::Color& Out_Color,
+		EasyMath::Vector3f& Out_Color,
 		EasyMath::Vector3f& Out_Direction,
 		float& Out_Distance
 	) const

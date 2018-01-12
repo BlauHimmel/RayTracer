@@ -100,7 +100,7 @@ namespace EasyContainer
 		}
 
 		auto Iter = m_List.begin();
-		for (uint32 i = 0; i < m_List.size(); i++)
+		for (auto i = 0; i < m_List.size(); i++)
 		{
 			if (i == Index)
 			{
@@ -119,7 +119,7 @@ namespace EasyContainer
 		}
 
 		auto Iter = m_List.begin();
-		for (uint32 i = 0; i < m_List.size(); i++)
+		for (auto i = 0; i < m_List.size(); i++)
 		{
 			if (i == Index)
 			{
@@ -152,7 +152,7 @@ namespace EasyContainer
 	INLINE int32 LinkedList<TElement>::IndexOf(TElement Element) const
 	{
 		auto Iter = m_List.begin();
-		for (uint32 i = 0; i < m_List.size(); i++)
+		for (auto i = 0; i < m_List.size(); i++)
 		{
 			if (*Iter == Element)
 			{
@@ -340,7 +340,7 @@ namespace EasyContainer
 	INLINE void LinkedList<TElement>::CopyTo(TElement* Array) const
 	{
 		auto Iter = m_List.begin();
-		for (uint32 i = 0; i < m_List.size(); i++)
+		for (auto i = 0; i < m_List.size(); i++)
 		{
 			Array[i] = *Iter;
 			Iter++;
@@ -368,7 +368,7 @@ namespace EasyContainer
 	template<typename TElement>
 	INLINE int32 LinkedList<TElement>::Size() const
 	{
-		return m_List.size();
+		return static_cast<int32>(m_List.size());
 	}
 
 	template<typename TElement>

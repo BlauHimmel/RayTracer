@@ -50,6 +50,9 @@ namespace EasyMath
 
 	public:
 
+		float& R();
+		float& G();
+		float& B();
 		float R() const;
 		float G() const;
 		float B() const;

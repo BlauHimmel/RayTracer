@@ -58,7 +58,7 @@ namespace EasyContainer
 	template<typename TElement>
 	INLINE int32 Stack<TElement>::Size() const
 	{
-		return m_Stack.size();
+		return static_cast<int32>(m_Stack.size());
 	}
 
 	template<typename TElement>

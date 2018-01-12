@@ -29,7 +29,7 @@ namespace EasyContainer
 		void Push(TElement Element) { m_Queue.push(Element); };
 		void Pop() { m_Queue.pop(); };
 		TElement Top() { return m_Queue.top(); };
-		int32 Size() const { return m_Queue.size(); };
+		int32 Size() const { return static_cast<int32>(m_Queue.size()); };
 		bool Empty() const { return m_Queue.empty(); };
 
 	};
@@ -51,7 +51,7 @@ namespace EasyContainer
 		void Push(TElement Element) { m_Queue.push(Element); };
 		void Pop() { m_Queue.pop(); };
 		TElement Top() { return m_Queue.top(); };
-		int32 Size() const { return m_Queue.size(); };
+		int32 Size() const { return static_cast<int32>(m_Queue.size()); };
 		bool Empty() const { return m_Queue.empty(); };
 
 	};

@@ -75,7 +75,7 @@ namespace EasyContainer
 	template<typename TElement>
 	INLINE Array<TElement>::Array(ArrayInitializer Initializer)
 	{
-		m_Length = Initializer.size();
+		m_Length = static_cast<int32>(Initializer.size());
 		m_Datas = new TElement[m_Length];
 		if (m_Datas == nullptr)
 		{

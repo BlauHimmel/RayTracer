@@ -54,6 +54,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 9.1.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
@@ -72,19 +73,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;$(ProjectDir);$(IncludePath)</IncludePath>
+    <ExecutablePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin;$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;$(ProjectDir);$(IncludePath)</IncludePath>
+    <ExecutablePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin;$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;$(ProjectDir);$(IncludePath)</IncludePath>
+    <ExecutablePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin;$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;$(ProjectDir);$(IncludePath)</IncludePath>
+    <ExecutablePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin;$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -95,6 +104,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>cuda.lib;cudadevrt.lib;cudart.lib;cudart_static.lib;nvcuvid.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -106,6 +116,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>cublas.lib;cublas_device.lib;cuda.lib;cudadevrt.lib;cudart.lib;cudart_static.lib;cufft.lib;cufftw.lib;curand.lib;cusolver.lib;cusparse.lib;nppc.lib;nppial.lib;nppicc.lib;nppicom.lib;nppidei.lib;nppif.lib;nppig.lib;nppim.lib;nppist.lib;nppisu.lib;nppitc.lib;npps.lib;nvblas.lib;nvcuvid.lib;nvgraph.lib;nvml.lib;nvrtc.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -123,6 +134,7 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>cuda.lib;cudadevrt.lib;cudart.lib;cudart_static.lib;nvcuvid.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -138,6 +150,7 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>cublas.lib;cublas_device.lib;cuda.lib;cudadevrt.lib;cudart.lib;cudart_static.lib;cufft.lib;cufftw.lib;curand.lib;cusolver.lib;cusparse.lib;nppc.lib;nppial.lib;nppicc.lib;nppicom.lib;nppidei.lib;nppif.lib;nppig.lib;nppim.lib;nppist.lib;nppisu.lib;nppitc.lib;npps.lib;nvblas.lib;nvcuvid.lib;nvgraph.lib;nvml.lib;nvrtc.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -169,6 +182,8 @@
     <ClInclude Include="Math\Vector\Vector3f.h" />
     <ClInclude Include="Math\Vector\Vector4f.h" />
     <ClInclude Include="RayTracer\Camera\ICamera.h" />
+    <ClInclude Include="RayTracer\Camera\OrthographicCamera.h" />
+    <ClInclude Include="RayTracer\Camera\PerspectiveCamera.h" />
     <ClInclude Include="RayTracer\Dependency\RayTracerDependency.h" />
     <ClInclude Include="RayTracer\Dependency\RayTracerMacro.h" />
     <ClInclude Include="RayTracer\Hit.h" />
@@ -176,14 +191,47 @@
     <ClInclude Include="RayTracer\Light\ILight.h" />
     <ClInclude Include="RayTracer\Light\PointLight.h" />
     <ClInclude Include="RayTracer\Light\SpotLight.h" />
+    <ClInclude Include="RayTracer\Material\BlinPhongMaterial.h" />
+    <ClInclude Include="RayTracer\Material\CookTorranceMaterial.h" />
     <ClInclude Include="RayTracer\Material\IMaterial.h" />
+    <ClInclude Include="RayTracer\Material\PhongMaterial.h" />
+    <ClInclude Include="RayTracer\Object\Group.h" />
     <ClInclude Include="RayTracer\Object\IObject.h" />
+    <ClInclude Include="RayTracer\Object\Plane.h" />
+    <ClInclude Include="RayTracer\Object\Sphere.h" />
+    <ClInclude Include="RayTracer\Object\Triangle.h" />
+    <ClInclude Include="RayTracer\Object\TriangleMesh.h" />
     <ClInclude Include="RayTracer\Ray.h" />
+    <ClInclude Include="RayTracer\Scene.h" />
+    <ClInclude Include="RayTracer\SceneToken.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tools\Dependency\ToolsDependency.h" />
     <ClInclude Include="Tools\Dependency\ToolsMacro.h" />
     <ClInclude Include="Tools\Image\Bitmap.h" />
+    <ClInclude Include="Tools\Json\adl_serializer.hpp" />
+    <ClInclude Include="Tools\Json\detail\conversions\from_json.hpp" />
+    <ClInclude Include="Tools\Json\detail\conversions\to_json.hpp" />
+    <ClInclude Include="Tools\Json\detail\exceptions.hpp" />
+    <ClInclude Include="Tools\Json\detail\iterators\internal_iterator.hpp" />
+    <ClInclude Include="Tools\Json\detail\iterators\iteration_proxy.hpp" />
+    <ClInclude Include="Tools\Json\detail\iterators\iter_impl.hpp" />
+    <ClInclude Include="Tools\Json\detail\iterators\json_reverse_iterator.hpp" />
+    <ClInclude Include="Tools\Json\detail\iterators\primitive_iterator.hpp" />
+    <ClInclude Include="Tools\Json\detail\json_ref.hpp" />
+    <ClInclude Include="Tools\Json\detail\macro_scope.hpp" />
+    <ClInclude Include="Tools\Json\detail\macro_unscope.hpp" />
+    <ClInclude Include="Tools\Json\detail\meta.hpp" />
+    <ClInclude Include="Tools\Json\detail\parsing\binary_reader.hpp" />
+    <ClInclude Include="Tools\Json\detail\parsing\binary_writer.hpp" />
+    <ClInclude Include="Tools\Json\detail\parsing\input_adapters.hpp" />
+    <ClInclude Include="Tools\Json\detail\parsing\lexer.hpp" />
+    <ClInclude Include="Tools\Json\detail\parsing\output_adapters.hpp" />
+    <ClInclude Include="Tools\Json\detail\parsing\parser.hpp" />
+    <ClInclude Include="Tools\Json\detail\serializer.hpp" />
+    <ClInclude Include="Tools\Json\detail\value_t.hpp" />
+    <ClInclude Include="Tools\Json\json.hpp" />
+    <ClInclude Include="Tools\Json\json_fwd.hpp" />
     <ClInclude Include="Tools\UI\Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -195,14 +243,25 @@
     <ClCompile Include="Math\Vector\Vector4f.cpp" />
     <ClCompile Include="RayTracerWithCuda.cpp" />
     <ClCompile Include="RayTracer\Camera\ICamera.cpp" />
+    <ClCompile Include="RayTracer\Camera\OrthographicCamera.cpp" />
+    <ClCompile Include="RayTracer\Camera\PerspectiveCamera.cpp" />
     <ClCompile Include="RayTracer\Hit.cpp" />
     <ClCompile Include="RayTracer\Light\DirectionalLight.cpp" />
     <ClCompile Include="RayTracer\Light\ILight.cpp" />
     <ClCompile Include="RayTracer\Light\PointLight.cpp" />
     <ClCompile Include="RayTracer\Light\SpotLight.cpp" />
+    <ClCompile Include="RayTracer\Material\BlinPhongMaterial.cpp" />
+    <ClCompile Include="RayTracer\Material\CookTorranceMaterial.cpp" />
     <ClCompile Include="RayTracer\Material\IMaterial.cpp" />
+    <ClCompile Include="RayTracer\Material\PhongMaterial.cpp" />
+    <ClCompile Include="RayTracer\Object\Group.cpp" />
     <ClCompile Include="RayTracer\Object\IObject.cpp" />
+    <ClCompile Include="RayTracer\Object\Plane.cpp" />
+    <ClCompile Include="RayTracer\Object\Sphere.cpp" />
+    <ClCompile Include="RayTracer\Object\Triangle.cpp" />
+    <ClCompile Include="RayTracer\Object\TriangleMesh.cpp" />
     <ClCompile Include="RayTracer\Ray.cpp" />
+    <ClCompile Include="RayTracer\Scene.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -212,7 +271,11 @@
     <ClCompile Include="Tools\Image\Bitmap.cpp" />
     <ClCompile Include="Tools\UI\Window.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="Kernel.cu" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 9.1.targets" />
   </ImportGroup>
 </Project>

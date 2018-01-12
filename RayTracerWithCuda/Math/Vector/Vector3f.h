@@ -26,6 +26,8 @@ namespace EasyMath
 
 		friend Vector3f operator + (const Vector3f& Vector1, const Vector3f& Vector2);
 		friend Vector3f operator - (const Vector3f& Vector1, const Vector3f& Vector2);
+		friend Vector3f operator * (const Vector3f& Vector1, const Vector3f& Vector2);
+		friend Vector3f operator / (const Vector3f& Vector1, const Vector3f& Vector2);
 		friend Vector3f operator * (const Vector3f& Vector, float Scale);
 		friend Vector3f operator * (float Scale, const Vector3f& Vector);
 		friend Vector3f operator / (const Vector3f& Vector, float Scale);

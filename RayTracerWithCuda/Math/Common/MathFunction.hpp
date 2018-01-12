@@ -21,12 +21,14 @@ namespace EasyMath
 	* @param OutRefractionCoefficiency:出射光线所处介质的折射系数
 	* @return OutDirection:折射光线的方向向量
 	*/
-	INLINE Vector3f Refraction(Vector3f InDirection, Vector3f Normal, float InRefractionCoefficiency, float OutRefractionCoefficiency)
+	INLINE Vector3f Refraction(
+		const Vector3f& InDirection, 
+		const Vector3f& Normal, 
+		float CoefficiencyRatio)
 	{
 		//[ ηr (N · I) – √(1 – ηr^2 (1 –(N · I)^2)) ] N – ηr I
 		//ηr = ηi / ηo
 		
-		float CoefficiencyRatio = InRefractionCoefficiency / OutRefractionCoefficiency;
 		float NormalDotInComing = Normal.Dot(-InDirection);
 
 		Vector3f OutDirection = (
@@ -43,7 +45,7 @@ namespace EasyMath
 	* @param Normal:介质交界处的法向量
 	* @return OutDirection:反射光线的方向向量
 	*/
-	INLINE Vector3f Reflection(Vector3f InDirection, Vector3f Normal)
+	INLINE Vector3f Reflection(const Vector3f& InDirection, const Vector3f& Normal)
 	{
 		//I – 2 (I · N) N
 

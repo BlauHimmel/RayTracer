@@ -8,6 +8,7 @@
 #include <fstream>
 #include <string>
 #include <string.h>
+#include <sstream>
 #include <exception>
 #include <functional>
 #include <thread>

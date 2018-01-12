@@ -137,7 +137,7 @@ namespace EasyContainer
 	template<typename TElement>
 	INLINE int32 ArrayList<TElement>::IndexOf(TElement Element) const
 	{
-		for (UInt32 i = 0; i < m_Vector.size(); i++)
+		for (auto i = 0; i < m_Vector.size(); i++)
 		{
 			if (m_Vector[i] == Element)
 			{
@@ -299,7 +299,7 @@ namespace EasyContainer
 	template<typename TElement>
 	INLINE void ArrayList<TElement>::CopyTo(TElement* Array) const
 	{
-		for (uint32 i = 0; i < m_Vector.size(); i++)
+		for (auto i = 0; i < m_Vector.size(); i++)
 		{
 			Array[i] = m_Vector[i];
 		}
@@ -332,7 +332,7 @@ namespace EasyContainer
 	template<typename TElement>
 	INLINE int32 ArrayList<TElement>::Size() const
 	{
-		return m_Vector.size();
+		return static_cast<int32>(m_Vector.size());
 	}
 
 	template<typename TElement>

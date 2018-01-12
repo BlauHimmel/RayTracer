@@ -84,7 +84,21 @@ namespace EasyMath
 		return Matrix4f();
 	}
 
-	Vector4f operator * (Vector4f& Vector, Matrix4f& Matrix)
+	Vector3f Transform::TransformPoint(const Vector3f& Point, const Matrix4f& Transform)
+	{
+		Vector4f Home = Vector4f(Point.X(), Point.Y(), Point.Z(), 1.0f);
+		Home = Home * Transform;
+		return Vector3f(Home.X(), Home.Y(), Home.Z());
+	}
+
+	Vector3f Transform::TransformDirection(const Vector3f& Direction, const Matrix4f& Transform)
+	{
+		Vector4f Home = Vector4f(Direction.X(), Direction.Y(), Direction.Z(), 0.0f);
+		Home = Home * Transform;
+		return Vector3f(Home.X(), Home.Y(), Home.Z());
+	}
+
+	Vector4f operator * (const Vector4f& Vector, const Matrix4f& Matrix)
 	{
 		float X = Vector.X() * Matrix(0, 0) + Vector.Y() * Matrix(1, 0) + Vector.Z() * Matrix(2, 0) + Vector.W() * Matrix(3, 0);
 		float Y = Vector.X() * Matrix(0, 1) + Vector.Y() * Matrix(1, 1) + Vector.Z() * Matrix(2, 1) + Vector.W() * Matrix(3, 1);
@@ -93,7 +107,7 @@ namespace EasyMath
 		return Vector4f(X, Y, Z, W);
 	}
 
-	Vector4f operator * (Matrix4f& Matrix, Vector4f& Vector)
+	Vector4f operator * (const Matrix4f& Matrix, const Vector4f& Vector)
 	{
 		float X = Vector.X() * Matrix(0, 0) + Vector.Y() * Matrix(0, 1) + Vector.Z() * Matrix(0, 2) + Vector.W() * Matrix(0, 3);
 		float Y = Vector.X() * Matrix(1, 0) + Vector.Y() * Matrix(1, 1) + Vector.Z() * Matrix(1, 2) + Vector.W() * Matrix(1, 3);

@@ -103,10 +103,10 @@ namespace EasyTools
 		ShowWindow(m_Hwnd, SW_NORMAL);
 
 		Dispatch();
-
-		memset(m_ScreenBuffer, 0, Width * Height * sizeof(uint8*));
 		
-		m_FrameBuffer = new uint32*[m_ScreenHeight * sizeof(uint32*)];
+		memset(m_ScreenBuffer, 0, Width * Height * 4);
+		
+		m_FrameBuffer = new uint32*[m_ScreenHeight * 4];
 		if (m_Title == NULL)
 		{
 			DEBUG_ERROR("Error Occurred When Initialize Window");
@@ -114,7 +114,7 @@ namespace EasyTools
 
 		for (auto i = 0; i < m_ScreenHeight; i++)
 		{
-			m_FrameBuffer[i] = (uint32*)(m_ScreenBuffer + sizeof(int8*) * m_ScreenWidth * 4 * i);
+			m_FrameBuffer[i] = (uint32*)(m_ScreenBuffer + 4 * m_ScreenWidth * 4 * i);
 		}
 
 		GWindow = this;

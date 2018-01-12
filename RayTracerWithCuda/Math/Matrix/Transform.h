@@ -9,6 +9,7 @@
 #include "Math\Matrix\Transform.h"
 #include "Math\Matrix\Matrix4f.h"
 #include "Math\Vector\Vector4f.h"
+#include "Math\Vector\Vector3f.h"
 
 namespace EasyMath
 {
@@ -24,10 +25,13 @@ namespace EasyMath
 		static Matrix4f IdentityMatrix();
 		static Matrix4f ZeroMatrix();
 
+		static Vector3f TransformPoint(const Vector3f& Point, const Matrix4f& Transform);
+		static Vector3f TransformDirection(const Vector3f& Direction, const Matrix4f& Transform);
+
 	};
 
-	Vector4f operator * (Matrix4f& Matrix, Vector4f& Vector);
-	Vector4f operator * (Vector4f& Vector, Matrix4f& Matrix);
+	Vector4f operator * (const Matrix4f& Matrix, const Vector4f& Vector);
+	Vector4f operator * (const Vector4f& Vector, const Matrix4f& Matrix);
 }
 
 #endif
