@@ -14,6 +14,7 @@ namespace EasyRayTracer
 		float AttenuationCoefficiencyC
 	) : 
 		ILight(Intensity, Color), 
+		m_Position(Position),
 		m_AttenuationCoefficiencyA(AttenuationCoefficiencyA), 
 		m_AttenuationCoefficiencyB(AttenuationCoefficiencyB),
 		m_AttenuationCoefficiencyC(AttenuationCoefficiencyC)

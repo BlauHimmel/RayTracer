@@ -88,6 +88,17 @@ namespace EasyMath
 		return *this;
 	}
 
+	Color& Color::operator +=(const Color& Colour)
+	{
+		m_R += Colour.m_R;
+		m_G += Colour.m_G;
+		m_B += Colour.m_B;
+		ClampRef(m_R, 0.0f, 1.0f);
+		ClampRef(m_G, 0.0f, 1.0f);
+		ClampRef(m_B, 0.0f, 1.0f);
+		return *this;
+	}
+
 	Color& Color::operator += (float Value)
 	{
 		m_R += Value;
@@ -115,6 +126,17 @@ namespace EasyMath
 		m_R *= Value;
 		m_G *= Value;
 		m_B *= Value;
+		ClampRef(m_R, 0.0f, 1.0f);
+		ClampRef(m_G, 0.0f, 1.0f);
+		ClampRef(m_B, 0.0f, 1.0f);
+		return *this;
+	}
+
+	Color& Color::operator *= (Vector3f& Vector)
+	{
+		m_R *= Vector.X();
+		m_G *= Vector.Y();
+		m_B *= Vector.Z();
 		ClampRef(m_R, 0.0f, 1.0f);
 		ClampRef(m_G, 0.0f, 1.0f);
 		ClampRef(m_B, 0.0f, 1.0f);

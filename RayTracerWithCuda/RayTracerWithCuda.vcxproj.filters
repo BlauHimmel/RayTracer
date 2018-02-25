@@ -363,6 +363,9 @@
     <ClInclude Include="RayTracer\Material\CookTorranceMaterial.h">
       <Filter>头文件\RayTracer\Material</Filter>
     </ClInclude>
+    <ClInclude Include="RayTracer\Tracer\RayTracing.h">
+      <Filter>头文件\RayTracer\Tracer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -454,6 +457,9 @@
     </ClCompile>
     <ClCompile Include="RayTracer\Material\CookTorranceMaterial.cpp">
       <Filter>源文件\RayTracer\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTracer\Tracer\RayTracing.cpp">
+      <Filter>源文件\RayTracer\Tracer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

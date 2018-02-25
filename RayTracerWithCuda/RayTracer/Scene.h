@@ -37,6 +37,21 @@ namespace EasyRayTracer
 
 		Scene(const String& FileName);
 
+	public:
+
+		void DebugDraw();
+
+	public:
+
+		std::shared_ptr<ICamera> GetCamera();
+		std::shared_ptr<Group> GetGroup();
+		int32 GetMaterialSize();
+		int32 GetLightSize();
+		std::shared_ptr<IMaterial> GetMaterial(int32 Index);
+		std::shared_ptr<ILight> GetLight(int32 Index);
+		EasyMath::Vector3f GetAmbientColor();
+		EasyMath::Vector3f GetBackgroundColor();
+
 	private:
 
 		void ParseBackground(nlohmann::json& BackgroundObject);

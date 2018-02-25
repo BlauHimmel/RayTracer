@@ -17,24 +17,24 @@ namespace EasyMath
 	* 计算光线折射后的方向
 	* @param InDirection:光线射入的方向向量
 	* @param Normal:介质交界处的法向量
-	* @param InRefractionCoefficiency:入射光线所处介质的折射系数
-	* @param OutRefractionCoefficiency:出射光线所处介质的折射系数
+	* @param CoefficiencyRatio:折射率之比
 	* @return OutDirection:折射光线的方向向量
 	*/
 	INLINE Vector3f Refraction(
-		const Vector3f& InDirection, 
-		const Vector3f& Normal, 
+		const Vector3f& InDirection,
+		const Vector3f& Normal,
 		float CoefficiencyRatio)
 	{
 		//[ ηr (N · I) – √(1 – ηr^2 (1 –(N · I)^2)) ] N – ηr I
+		//[ A – B ] N – ηr I
 		//ηr = ηi / ηo
-		
-		float NormalDotInComing = Normal.Dot(-InDirection);
 
-		Vector3f OutDirection = (
-			CoefficiencyRatio * NormalDotInComing - 
-			sqrtf(1.0f - CoefficiencyRatio * CoefficiencyRatio * (1.0f - NormalDotInComing * NormalDotInComing))
-			) * Normal - CoefficiencyRatio * InDirection;
+		float NormalDotInComing = Normal.Dot(InDirection.Negation());
+
+		float A = CoefficiencyRatio * NormalDotInComing;
+		float B = 1.0f - CoefficiencyRatio * CoefficiencyRatio * (1.0f - NormalDotInComing * NormalDotInComing);
+
+		Vector3f OutDirection = (A - sqrtf(B)) * Normal + CoefficiencyRatio * InDirection;
 		OutDirection.Normalize();
 		return OutDirection;
 	}
@@ -58,7 +58,7 @@ namespace EasyMath
 	{
 		return A - B < Epsilon && A - B > -Epsilon;
 	}
-	
+
 	FORCE_INLINE bool NearlyEqual(double A, double B, double Epsilon = EPSILON_DOUBLE)
 	{
 		return A - B < Epsilon && A - B > -Epsilon;

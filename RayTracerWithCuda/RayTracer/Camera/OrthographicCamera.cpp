@@ -25,6 +25,6 @@ namespace EasyRayTracer
 
 	float OrthographicCamera::TMin() const
 	{
-		return -1.0f * INT_MAX;
+		return -1.0f * MAX_DISTANCE;
 	}
 }

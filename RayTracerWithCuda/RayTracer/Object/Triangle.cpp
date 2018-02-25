@@ -19,7 +19,7 @@ namespace EasyRayTracer
 		m_EdgeB(VertexC - VertexA),
 		m_Normal(m_EdgeA.Cross(m_EdgeB))
 	{
-		m_Normal.Normalize();
+		
 	}
 
 	bool Triangle::Intersect(const Ray& Ray, float TMin, Hit& InOut_Hit) const
@@ -30,11 +30,18 @@ namespace EasyRayTracer
 		EasyMath::Vector3f K = Ray.Direction().Negation();
 		float Det = K.Dot(m_Normal);
 
+#ifdef CULLING_BACKFACE
+		if (Det < 0)
+		{
+			return false;
+		}
+#endif
+
 		if (Det != 0)
 		{
 			float DetT = L.Dot(m_Normal);
 			EasyMath::Vector3f T1 = L.Cross(m_EdgeB);
-			EasyMath::Vector3f T2 = m_EdgeB.Cross(L);
+			EasyMath::Vector3f T2 = m_EdgeA.Cross(L);
 
 			float DetU = K.Dot(T1);
 			float DetV = K.Dot(T2);
@@ -46,7 +53,7 @@ namespace EasyRayTracer
 			if (T > TMin && U >= 0 && V >= 0 && 1 - U - V >= 0 && T < InOut_Hit.T())
 			{
 				IsIntersect = true;
-				InOut_Hit.Set(T, m_Material, m_Normal, Ray);
+				InOut_Hit.Set(T, m_Material, m_Normal.Normal(), Ray);
 			}
 		}
 		

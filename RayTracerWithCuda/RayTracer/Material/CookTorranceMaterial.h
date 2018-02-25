@@ -23,7 +23,8 @@ namespace EasyRayTracer
 			const EasyMath::Vector3f& Albedo,
 			float Metallic,
 			float Roughness,
-			float Ao
+			float Ao,
+			float RefractiveIndex
 		);
 
 	public:

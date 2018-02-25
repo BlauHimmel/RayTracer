@@ -19,6 +19,13 @@ namespace EasyRayTracer
 
 		float NDotDir = m_Normal.Dot(Ray.Direction());
 		
+#ifdef CULLING_BACKFACE
+		if (NDotDir > 0)
+		{
+			return false;
+		}
+#endif
+
 		if (NDotDir == 0)
 		{
 			IsIntersect = false;

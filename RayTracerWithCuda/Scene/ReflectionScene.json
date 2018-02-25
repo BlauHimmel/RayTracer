@@ -1,0 +1,603 @@
+{
+  "Background" :
+  {
+    "AmbientColor" : "0.15 0.15 0.15",
+    "BackgroundColor" : "0.0 0.0 0.0"
+  },
+
+  "Camera" :
+  {
+    "Type" : "PerspectiveCamera",
+    "Origin" : "0.0 0.0 -8.0",
+    "Up" : "0.0 1.0 0.0",
+    "Direction" : "0.0 0.0 1.0",
+    "FieldAngle" : "40.0"
+  },
+
+  "Light" :
+  [
+    {
+      "Type" : "PointLight",
+      "Intensity" : "5.0",
+      "Color" : "0.6 0.6 0.6",
+      "Position" : "0.0 0.0 -5.0",
+      "Attenuation" : "1.0 0.0 0.0"
+    }
+  ],
+
+  "Material" :
+  [
+    {
+      "Type" : "BlinPhongMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "DiffuseCoefficiency" : "0.7 0.7 0.7",
+      "SpecularCoefficiency" : "1.0 1.0 1.0",
+      "Exponent" : "7.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "BlinPhongMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "DiffuseCoefficiency" : "1.0 0.1 0.1",
+      "SpecularCoefficiency" : "1.0 1.0 1.0",
+      "Exponent" : "7.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "BlinPhongMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "DiffuseCoefficiency" : "0.1 1.0 0.1",
+      "SpecularCoefficiency" : "1.0 1.0 1.0",
+      "Exponent" : "7.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.01",
+      "Roughness" : "0.01",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.25",
+      "Roughness" : "0.01",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.5",
+      "Roughness" : "0.01",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.75",
+      "Roughness" : "0.01",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.99",
+      "Roughness" : "0.01",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.01",
+      "Roughness" : "0.25",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.25",
+      "Roughness" : "0.25",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.5",
+      "Roughness" : "0.25",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.75",
+      "Roughness" : "0.25",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.99",
+      "Roughness" : "0.25",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.01",
+      "Roughness" : "0.5",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.25",
+      "Roughness" : "0.5",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.5",
+      "Roughness" : "0.5",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.75",
+      "Roughness" : "0.5",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.99",
+      "Roughness" : "0.5",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.01",
+      "Roughness" : "0.75",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.25",
+      "Roughness" : "0.75",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.5",
+      "Roughness" : "0.75",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.75",
+      "Roughness" : "0.75",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.99",
+      "Roughness" : "0.75",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.01",
+      "Roughness" : "0.99",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.25",
+      "Roughness" : "0.99",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.5",
+      "Roughness" : "0.99",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.75",
+      "Roughness" : "0.99",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "Albedo" : "1.0 0.0 1.0",
+      "Metallic" : "0.99",
+      "Roughness" : "0.99",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "BlinPhongMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.7 0.7 0.7",
+      "DiffuseCoefficiency" : "0.3 0.3 0.3",
+      "SpecularCoefficiency" : "0.0 0.0 0.0",
+      "Exponent" : "1.0",
+      "RefractiveIndex" : "1.1"
+    }
+  ],
+
+  "Group" :
+  [
+    {
+      "Type" : "Sphere",
+      "Center" : "1.5 1.5 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "3"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.75 1.5 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "4"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 1.5 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "5"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-0.75 1.5 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "6"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.5 1.5 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "7"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.5 0.75 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "8"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.75 0.75 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "9"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 0.75 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "10"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-0.75 0.75 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "11"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.5 0.75 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "12"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.5 0.0 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "13"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.75 0.0 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "14"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 0.0 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "15"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-0.75 0.0 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "16"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.5 0.0 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "17"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.5 -0.75 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "18"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.75 -0.75 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "19"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 -0.75 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "20"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-0.75 -0.75 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "21"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.5 -0.75 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "22"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.5 -1.5 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "23"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.75 -1.5 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "24"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 -1.5 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "25"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-0.75 -1.5 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "26"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.5 -1.5 0.0",
+      "Radius" : "0.35",
+      "MaterialIndex" : "27"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "2.0 2.0 2.0",
+      "VertexB" : "2.0 -2.00001 2.0",
+      "VertexC" : "-2.00001 2.0 2.0",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "-2.0 -2.0 2.0",
+      "VertexB" : "-2.0 2.0 2.0",
+      "VertexC" : "2.0 -2.0 2.0",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "2.0 2.0 2.0",
+      "VertexB" : "2.0 2.0 -2.0",
+      "VertexC" : "2.0 -2.0 2.0",
+      "MaterialIndex" : "1"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "2.0 -2.0 -2.0",
+      "VertexB" : "2.0 -2.0 2.0",
+      "VertexC" : "2.0 2.0 -2.0",
+      "MaterialIndex" : "1"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "-2.0 2.0 -2.0",
+      "VertexB" : "-2.0 2.0 2.0",
+      "VertexC" : "-2.0 -2.0 2.0",
+      "MaterialIndex" : "2"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "-2.0 -2.0 2.0",
+      "VertexB" : "-2.0 -2.0 -2.0",
+      "VertexC" : "-2.0 2.0 -2.0",
+      "MaterialIndex" : "2"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "2.0 2.0 -2.0",
+      "VertexB" : "2.0 2.0 2.0",
+      "VertexC" : "-2.0 2.0 2.0",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "-2.0 2.0 2.0",
+      "VertexB" : "-2.0 2.0 -2.0",
+      "VertexC" : "2.0 2.0 -2.0",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "2.0 -2.0 2.0",
+      "VertexB" : "2.0 -2.0 -2.0",
+      "VertexC" : "-2.0 -2.0 2.0",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Triangle",
+      "VertexA" : "-2.0 -2.0 -2.0",
+      "VertexB" : "-2.0 -2.0 2.0",
+      "VertexC" : "2.0 -2.0 -2.0",
+      "MaterialIndex" : "0"
+    }
+  ]
+}

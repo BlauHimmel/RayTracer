@@ -12,11 +12,10 @@ namespace EasyRayTracer
 		float Exponent, 
 		float RefractiveIndex
 	) :
-		IMaterial(ReflectionRate, RefractionRate),
+		IMaterial(ReflectionRate, RefractionRate, RefractiveIndex),
 		m_DiffuseCoefficiency(DiffuseCoefficiency),
 		m_SpecularCoefficiency(SpecularCoefficiency),
-		m_Exponent(Exponent),
-		m_RefractiveIndex(RefractiveIndex)
+		m_Exponent(Exponent)
 	{
 
 	}

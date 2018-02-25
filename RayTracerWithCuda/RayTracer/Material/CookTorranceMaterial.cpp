@@ -11,9 +11,10 @@ namespace EasyRayTracer
 		const EasyMath::Vector3f& Albedo,
 		float Metallic,
 		float Roughness,
-		float Ao
+		float Ao,
+		float RefractiveIndex
 	) :
-		IMaterial(ReflectionRate, RefractionRate),
+		IMaterial(ReflectionRate, RefractionRate, RefractiveIndex),
 		m_Albedo(Albedo),
 		m_Metallic(Metallic),
 		m_Roughness(Roughness),
@@ -46,10 +47,9 @@ namespace EasyRayTracer
 		const EasyMath::Vector3f& ToLightDirection
 	) const
 	{
-		EasyMath::Vector3f LightReflectiveOutDirection = EasyMath::Reflection(ToLightDirection.Negation(), Normal);
-		EasyMath::Vector3f HalfViewDirection = LightReflectiveOutDirection + RayDirection.Negation();
-		HalfViewDirection.Normalize();
 		EasyMath::Vector3f ViewDirection = RayDirection.Negation();
+		EasyMath::Vector3f HalfViewDirection = ToLightDirection + ViewDirection;
+		HalfViewDirection.Normalize();
 		EasyMath::Vector3f F0 = EasyMath::Vector3f(0.04f, 0.04f, 0.04f);
 		F0 = EasyMath::Interpolate(F0, m_Albedo, m_Metallic);
 		float HDotV = EasyMath::Max(HalfViewDirection.Dot(ViewDirection), 0.0f);
@@ -66,12 +66,12 @@ namespace EasyRayTracer
 			1.0f - SpecularCoefficiency.Y(), 
 			1.0f - SpecularCoefficiency.Z()
 		);
-		DiffuseCoefficiency *= (1.0 - m_Metallic);
+		DiffuseCoefficiency *= (1.0f - m_Metallic);
         
 		EasyMath::Vector3f Numerator = D * G * F;
-        float Denominator = 4.0 * NDotV * NDotL;
+        float Denominator = 4.0f * NDotV * NDotL;
 
-		EasyMath::Vector3f Specular = Numerator / EasyMath::Max(Denominator, 0.001F);
+		EasyMath::Vector3f Specular = Numerator / EasyMath::Max(Denominator, 0.001f);
                          
 		EasyMath::Color Color = EasyMath::Color(
 			((DiffuseCoefficiency.X() * m_Albedo.X()) / PI + Specular.X()) * NDotL * ColorLight.X(),
@@ -101,7 +101,7 @@ namespace EasyRayTracer
 		float NdotH2 = NdotH * NdotH;
 
 		float Numerator = A2;
-		float Denominator = NdotH2 * (A2 - 1.0) + 1.0;
+		float Denominator = NdotH2 * (A2 - 1.0f) + 1.0f;
 		Denominator = PI * Denominator * Denominator;
 
 		return Numerator / Denominator;
@@ -109,11 +109,11 @@ namespace EasyRayTracer
 
 	float CookTorranceMaterial::GeometrySchlickGGX(float NDotV, float Roughness) const
 	{
-		float R = Roughness + 1.0;
-		float K = (R * R) / 8.0;
+		float R = Roughness + 1.0f;
+		float K = (R * R) / 8.0f;
 
 		float Numerator = NDotV;
-		float Denominator = NDotV * (1.0 - K) + K;
+		float Denominator = NDotV * (1.0f - K) + K;
 
 		return Numerator / Denominator;
 	}

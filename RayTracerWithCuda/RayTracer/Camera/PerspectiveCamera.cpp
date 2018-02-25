@@ -12,9 +12,9 @@ namespace EasyRayTracer
 		float FieldAngle
 	) :
 		ICamera(Origin, Direction, Up),
-		m_FieldAngle(FieldAngle)
+		m_FieldAngle(FieldAngle / 180.0f * PI)
 	{
-		m_Distance = 1.0f / EasyMath::Tan(FieldAngle / 2.0f);
+		m_Distance = 1.0f / EasyMath::Tan(m_FieldAngle / 2.0f);
 	}
 
 	Ray PerspectiveCamera::GenerateRay(EasyMath::Vector2f Point) const

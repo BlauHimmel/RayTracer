@@ -7,7 +7,7 @@ namespace EasyRayTracer
 
 	Hit::Hit()
 	{
-		m_T = 0.0f;
+		m_T = static_cast<float>(MAX_DISTANCE);
 	}
 
 	Hit::Hit(const Hit& Other)

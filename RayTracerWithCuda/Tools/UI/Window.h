@@ -33,7 +33,7 @@ namespace EasyTools
 		bool m_KeyDown[256];
 		bool m_ScreenExit;
 		int64 m_PixelCounts;
-		int64 m_ScreenWidth, m_ScreenHeight;
+		int32 m_ScreenWidth, m_ScreenHeight;
 		uint8* m_ScreenBuffer;
 		int64 m_ScreenPitch;
 		LPTSTR m_Title;
@@ -41,7 +41,7 @@ namespace EasyTools
 
 	public:
 
-		Window(int64 Width, int64 Height, LPTSTR Title);
+		Window(int32 Width, int32 Height, LPTSTR Title);
 		~Window();
 
 	private:

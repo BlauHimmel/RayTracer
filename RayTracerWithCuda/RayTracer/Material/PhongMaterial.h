@@ -42,7 +42,6 @@ namespace EasyRayTracer
 		EasyMath::Vector3f m_DiffuseCoefficiency;
 		EasyMath::Vector3f m_SpecularCoefficiency;
 		float m_Exponent;
-		float m_RefractiveIndex;
 
 	};
 }

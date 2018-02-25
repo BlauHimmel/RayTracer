@@ -18,7 +18,7 @@ namespace EasyRayTracer
 
 	public:
 
-		IMaterial(const EasyMath::Vector3f& ReflectionRate, const EasyMath::Vector3f& RefractionRate);
+		IMaterial(const EasyMath::Vector3f& ReflectionRate, const EasyMath::Vector3f& RefractionRate, float RefractiveIndex);
 
 	public:
 
@@ -31,11 +31,20 @@ namespace EasyRayTracer
 			const EasyMath::Vector3f& ToLightDirection
 		) const = 0;
 
+	public:
+
+		bool IsReflective() const;
+		bool IsRefractive() const;
+		EasyMath::Vector3f ReflectionRate() const;
+		EasyMath::Vector3f RefractionRate() const;
+		float RefractiveIndex();
+
 	protected:
 
 		EasyMath::Vector3f m_ReflectionRate;
 		EasyMath::Vector3f m_RefractionRate;
-	
+		float m_RefractiveIndex;
+
 	};
 }
 

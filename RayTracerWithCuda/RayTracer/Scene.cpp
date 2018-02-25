@@ -62,6 +62,50 @@ namespace EasyRayTracer
 		}
 	}
 
+	void Scene::DebugDraw()
+	{
+	}
+
+	std::shared_ptr<ICamera> Scene::GetCamera()
+	{
+		return m_Camera;
+	}
+
+	std::shared_ptr<Group> Scene::GetGroup()
+	{
+		return m_Group;
+	}
+
+	int32 Scene::GetMaterialSize()
+	{
+		return m_Materials.Size();
+	}
+
+	int32 Scene::GetLightSize()
+	{
+		return m_Lights.Size();
+	}
+
+	std::shared_ptr<IMaterial> Scene::GetMaterial(int32 Index)
+	{
+		return m_Materials[Index];
+	}
+
+	std::shared_ptr<ILight> Scene::GetLight(int32 Index)
+	{
+		return m_Lights[Index];
+	}
+
+	EasyMath::Vector3f Scene::GetAmbientColor()
+	{
+		return m_AmbientColor;
+	}
+
+	EasyMath::Vector3f Scene::GetBackgroundColor()
+	{
+		return m_BackgroundColor;
+	}
+
 	void Scene::ParseBackground(nlohmann::json& BackgroundObject)
 	{
 		auto AmbientColor = BackgroundObject[TOKEN_BACKGROUND_AMBIENT_COLOR];
@@ -513,6 +557,7 @@ namespace EasyRayTracer
 		auto Metallic = MaterialObject[TOKEN_MATERIAL_METALLIC];
 		auto Roughness = MaterialObject[TOKEN_MATERIAL_ROUGHNESS];
 		auto Ao = MaterialObject[TOKEN_MATERIAL_AO];
+		auto RefractiveIndex = MaterialObject[TOKEN_MATERIAL_REFRACTIVE_INDEX];
 
 		if (ReflectionRate.is_null())
 		{
@@ -544,13 +589,19 @@ namespace EasyRayTracer
 			DEBUG_ERROR("Ao Not Defined In Cook Torrance Material");
 		}
 
+		if (RefractiveIndex.is_null())
+		{
+			DEBUG_ERROR("Refractive Index Not Defined In Cook Torrance Material");
+		}
+
 		m_Materials.Add(std::make_shared<CookTorranceMaterial>(
 			ParseVector3f(ReflectionRate),
 			ParseVector3f(RefractionRate),
 			ParseVector3f(Albedo),
 			ParseFloat(Metallic),
 			ParseFloat(Roughness),
-			ParseFloat(Ao)
+			ParseFloat(Ao),
+			ParseFloat(RefractiveIndex)
 			));
 	}
 

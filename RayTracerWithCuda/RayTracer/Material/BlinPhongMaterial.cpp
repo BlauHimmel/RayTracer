@@ -12,11 +12,10 @@ namespace EasyRayTracer
 		float Exponent,
 		float RefractiveIndex
 	) :
-		IMaterial(ReflectionRate, RefractionRate),
+		IMaterial(ReflectionRate, RefractionRate, RefractiveIndex),
 		m_DiffuseCoefficiency(DiffuseCoefficiency),
 		m_SpecularCoefficiency(SpecularCoefficiency),
-		m_Exponent(Exponent),
-		m_RefractiveIndex(RefractiveIndex)
+		m_Exponent(Exponent)
 	{
 
 	}
@@ -38,8 +37,7 @@ namespace EasyRayTracer
 		const EasyMath::Vector3f& ToLightDirection
 	) const
 	{
-		EasyMath::Vector3f LightReflectiveOutDirection = EasyMath::Reflection(ToLightDirection.Negation(), Normal);
-		EasyMath::Vector3f HalfViewDirection = LightReflectiveOutDirection + RayDirection.Negation();
+		EasyMath::Vector3f HalfViewDirection = ToLightDirection + RayDirection.Negation();
 		HalfViewDirection.Normalize();
 
 		float NDotH = EasyMath::Max(Normal.Dot(HalfViewDirection), 0.0f);
@@ -53,6 +51,6 @@ namespace EasyRayTracer
 			(NDotL * m_DiffuseCoefficiency.Z() + SpecularExponent * m_SpecularCoefficiency.Z()) * ColorLight.Z()
 			);
 
-			return Color;
+		return Color;
 	}
 }

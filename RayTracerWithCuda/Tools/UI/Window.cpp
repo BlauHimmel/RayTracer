@@ -5,7 +5,7 @@
 namespace EasyTools
 {
 
-	Window::Window(int64 Width, int64 Height, LPTSTR Title)
+	Window::Window(int32 Width, int32 Height, LPTSTR Title)
 	{
 		if (GWindow != nullptr)
 		{

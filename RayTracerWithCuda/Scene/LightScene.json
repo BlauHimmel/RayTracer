@@ -1,0 +1,72 @@
+{
+  "Background" :
+  {
+    "AmbientColor" : "0.1 0.1 0.1",
+    "BackgroundColor" : "0.1 0.1 0.1"
+  },
+
+  "Camera" :
+  {
+    "Type" : "PerspectiveCamera",
+    "Origin" : "0.0 2.5 -2.5",
+    "Up" : "0.0 1.0 0.0",
+    "Direction" : "0.0 -1.0 1.0",
+    "FieldAngle" : "40.0"
+  },
+
+  "Light" :
+  [
+    {
+      "Type" : "SpotLight",
+      "Intensity" : "5.0",
+      "Color" : "1.0 0.0 0.0",
+      "Direction" : "-0.3 -1.0 0.3",
+      "Position" : "0.0 2.0 0.0",
+      "Attenuation" : "0.8 0.2 0.1",
+      "Angle" : "55.0"
+    },
+
+    {
+      "Type" : "SpotLight",
+      "Intensity" : "5.0",
+      "Color" : "0.0 1.0 0.0",
+      "Direction" : "0.3 -1.0 -0.3",
+      "Position" : "0.0 2.0 0.0",
+      "Attenuation" : "0.8 0.2 0.1",
+      "Angle" : "55.0"
+    },
+
+    {
+      "Type" : "SpotLight",
+      "Intensity" : "5.0",
+      "Color" : "0.0 0.0 1.0",
+      "Direction" : "0.3 -1.0 0.3",
+      "Position" : "0.0 2.0 0.0",
+      "Attenuation" : "0.8 0.2 0.1",
+      "Angle" : "55.0"
+    }
+  ],
+
+  "Material" :
+  [
+    {
+      "Type" : "BlinPhongMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "DiffuseCoefficiency" : "0.6 0.6 0.6",
+      "SpecularCoefficiency" : "0.0 0.0 0.0",
+      "Exponent" : "1.0",
+      "RefractiveIndex" : "1.0"
+    }
+  ],
+
+  "Group" :
+  [
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 0.0 0.0",
+      "Radius" : "1.0",
+      "MaterialIndex" : "0"
+    }
+  ]
+}

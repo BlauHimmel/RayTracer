@@ -24,7 +24,7 @@ namespace EasyRayTracer
 		float B = 2.0f * Direction.Dot(Origin - m_Center);
 		float C = (Origin - m_Center).Length() * (Origin - (m_Center)).Length() - m_Radius * m_Radius;
 		float Delta = B * B - 4.0f * A * C;
-		float T = INT_MAX * 1.0f;
+		float T = MAX_DISTANCE * 1.0f;
 
 		if (Delta >= 0)
 		{
@@ -33,15 +33,20 @@ namespace EasyRayTracer
 			float T1 = (-B - Root) / DoubleA;
 			float T2 = (-B + Root) / DoubleA;
 
+#ifdef CULLING_BACKFACE
+			if (T1 * T2 < 0)
+			{
+				return false;
+			}
+#endif
+
 			if (T1 >= TMin)
 			{
 				T = T1;
-				IsIntersect = true;
 			}
 			else if (T2 >= TMin)
 			{
 				T = T2;
-				IsIntersect = true;
 			}
 
 			if (T < InOut_Hit.T())
@@ -49,6 +54,7 @@ namespace EasyRayTracer
 				EasyMath::Vector3f Normal = Origin + Direction * T - m_Center;
 				Normal.Normalize();
 				InOut_Hit.Set(T, m_Material, Normal, Ray);
+				IsIntersect = true;
 			}
 		}
 

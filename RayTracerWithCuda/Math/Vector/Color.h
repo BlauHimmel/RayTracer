@@ -7,6 +7,7 @@
 #include "Math\Dependency\MathMacro.h"
 
 #include "Math\Common\MathFunction.hpp"
+#include "Math\Vector\Vector3f.h"
 
 namespace EasyMath
 {
@@ -43,9 +44,11 @@ namespace EasyMath
 		Color operator * (const Color& Colour) const;
 		Color operator + (const Color& Colour) const;
 		Color& operator = (const Color& Colour);
+		Color& operator += (const Color& Colour);
 		Color& operator += (float Value);
 		Color& operator -= (float Value);
 		Color& operator *= (float Value);
+		Color& operator *= (Vector3f& Vector);
 		Color& operator /= (float Value);
 
 	public:

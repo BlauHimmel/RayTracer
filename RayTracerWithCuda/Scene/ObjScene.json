@@ -1,0 +1,70 @@
+{
+  "Background" :
+  {
+    "AmbientColor" : "0.15 0.15 0.15",
+    "BackgroundColor" : "0.1 0.3 0.3"
+  },
+
+  "Camera" :
+  {
+    "Type" : "PerspectiveCamera",
+    "Origin" : "0.17 0.315 0.2",
+    "Up" : "0.0 1.0 0.0",
+    "Direction" : "-1.0 -1.0 -1.0",
+    "FieldAngle" : "35.0"
+  },
+
+  "Light" :
+  [
+    {
+      "Type" : "DirectionalLight",
+      "Intensity" : "0.75",
+      "Color" : "0.7 0.7 0.7",
+      "Direction" : "1.0 1.0 -1.0"
+    },
+
+    {
+      "Type" : "DirectionalLight",
+      "Intensity" : "0.75",
+      "Color" : "0.7 0.7 0.7",
+      "Direction" : "-1.0 -1.0 -1.0"
+    },
+
+    {
+      "Type" : "DirectionalLight",
+      "Intensity" : "0.75",
+      "Color" : "0.7 0.7 0.7",
+      "Direction" : "-1.0 1.0 -1.0"
+    },
+
+    {
+      "Type" : "DirectionalLight",
+      "Intensity" : "0.75",
+      "Color" : "0.7 0.7 0.7",
+      "Direction" : "1.0 -1.0 -1.0"
+    }
+  ],
+
+  "Material" :
+  [
+    {
+      "Type" : "CookTorranceMaterial",
+      "ReflectionRate" : "0.7 0.7 0.7",
+      "RefractionRate" : "0.3 0.3 0.3",
+      "Albedo" : "1.0 0.0 0.0",
+      "Metallic" : "0.6",
+      "Roughness" : "0.8",
+      "Ao" : "1.0",
+      "RefractiveIndex" : "1.0"
+    }
+  ],
+
+  "Group" :
+  [
+    {
+      "Type" : "TriangleMesh",
+      "FileName" : "Scene\\stanford_bunny.obj",
+      "MaterialIndex" : "0"
+    }
+  ]
+}

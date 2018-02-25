@@ -1,0 +1,337 @@
+{
+  "Background" :
+  {
+    "AmbientColor" : "0.15 0.15 0.15",
+    "BackgroundColor" : "0.1 0.1 0.1"
+  },
+
+  "Camera" :
+  {
+    "Type" : "PerspectiveCamera",
+    "Origin" : "0.0 0.0 -8.0",
+    "Up" : "0.0 1.0 0.0",
+    "Direction" : "0.0 0.0 1.0",
+    "FieldAngle" : "40.0"
+  },
+
+  "Light" :
+  [
+    {
+      "Type" : "PointLight",
+      "Intensity" : "0.6",
+      "Color" : "0.6 0.6 0.6",
+      "Position" : "2.0 2.0 -8.0",
+      "Attenuation" : "1.0 0.0 0.0"
+    },
+
+    {
+      "Type" : "PointLight",
+      "Intensity" : "0.6",
+      "Color" : "0.6 0.6 0.6",
+      "Position" : "-2.0 2.0 -8.0",
+      "Attenuation" : "1.0 0.0 0.0"
+    },
+
+    {
+      "Type" : "PointLight",
+      "Intensity" : "0.6",
+      "Color" : "0.6 0.6 0.6",
+      "Position" : "2.0 -2.0 -8.0",
+      "Attenuation" : "1.0 0.0 0.0"
+    },
+
+    {
+      "Type" : "PointLight",
+      "Intensity" : "0.6",
+      "Color" : "0.6 0.6 0.6",
+      "Position" : "-2.0 -2.0 -8.0",
+      "Attenuation" : "1.0 0.0 0.0"
+    }
+  ],
+
+  "Material" :
+  [
+    {
+      "Type" : "BlinPhongMaterial",
+      "ReflectionRate" : "0.0 0.0 0.0",
+      "RefractionRate" : "0.0 0.0 0.0",
+      "DiffuseCoefficiency" : "0.1 0.7 0.1",
+      "SpecularCoefficiency" : "1.0 1.0 1.0",
+      "Exponent" : "7.0",
+      "RefractiveIndex" : "1.0"
+    },
+
+    {
+      "Type" : "BlinPhongMaterial",
+      "ReflectionRate" : "0.1 0.1 0.2",
+      "RefractionRate" : "0.7 0.7 0.6",
+      "DiffuseCoefficiency" : "0.3 0.3 0.8",
+      "SpecularCoefficiency" : "0.1 0.1 0.35",
+      "Exponent" : "15.0",
+      "RefractiveIndex" : "2.24"
+    }
+  ],
+
+  "Group" :
+  [
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 1.0 -2.0",
+      "Radius" : "0.5",
+      "MaterialIndex" : "1"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "2.0 2.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.5 2.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.0 2.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.5 2.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 2.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-2.0 2.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.5 2.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.0 2.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-0.5 2.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "2.0 1.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.5 1.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.0 1.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.5 1.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 1.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-2.0 1.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.5 1.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.0 1.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-0.5 1.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "2.0 1.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.5 1.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.0 1.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.5 1.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 1.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-2.0 1.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.5 1.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.0 1.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-0.5 1.0 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "2.0 0.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.5 0.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "1.0 0.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.5 0.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "0.0 0.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-2.0 0.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.5 0.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-1.0 0.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    },
+
+    {
+      "Type" : "Sphere",
+      "Center" : "-0.5 0.5 0.0",
+      "Radius" : "0.1",
+      "MaterialIndex" : "0"
+    }
+  ]
+}

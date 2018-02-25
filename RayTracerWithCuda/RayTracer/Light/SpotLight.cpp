@@ -16,7 +16,7 @@ namespace EasyRayTracer
 		EasyMath::Vector3f Direction
 	) : 
 		PointLight(Intensity, Color, Position, AttenuationCoefficiencyA, AttenuationCoefficiencyB, AttenuationCoefficiencyC),
-		m_HalfAngle(0.5f * Angle),
+		m_HalfAngle(0.5f * Angle / 180.0f * PI),
 		m_Direction(Direction)
 	{
 		m_Direction.Normalize();
